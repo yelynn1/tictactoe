@@ -1,10 +1,18 @@
 let play_board = ["", "", "", "", "", "", "", "", ""];
-
+const player = "O";
+const computer = "X";
+var playerstat = 0;
+var computerstat = 0;
+var drawstat = 0;
+let board_full = false;
 
 
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
     board_container.innerHTML = "";
+    document.getElementById("playerstat").innerText=playerstat;
+    document.getElementById("computerstat").innerText=computerstat;
+    document.getElementById("drawstat").innerText=drawstat;
     play_board.forEach((e,i) => {
         board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
         if(e == player || e == computer) {
@@ -16,9 +24,7 @@ const render_board = () => {
 //render_board();
 //setTimeout(render_board(), 3000);
 
-const player = "O";
-const computer = "X";
-let board_full = false;
+
 
 const checkBoardComplete = () => {
     let flag = true;
@@ -62,17 +68,20 @@ const checkWinner = () => {
         winner_statement.innerText = "Player Won";
         winner_statement.classList.add("playerWin");
         board_full = true;
+        playerstat++;
         console.log("player win");
     }
     else if (res == computer) {
         winner_statement.innerText = "Computer Won";
         winner_statement.classList.add("computerWin");
         board_full = true;
+        computerstat++;
         console.log("computer win");
     }
     else if (board_full) {
         winner_statement.innerText = "Draw...";
         winner_statement.classList.add("draw");
+        drawstat++;
         console.log("draw");
     }
 };
