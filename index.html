@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTC</title>
+    <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="app.js"></script>
+</head>
+<body onload="render_board()">
+
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+        <div class="play-area">
+          <div id="block_0" class="block"></div>
+          <div id="block_1" class="block"></div>
+          <div id="block_2" class="block"></div>
+          <div id="block_3" class="block"></div>
+          <div id="block_4" class="block"></div>
+          <div id="block_5" class="block"></div>
+          <div id="block_6" class="block"></div>
+          <div id="block_7" class="block"></div>
+          <div id="block_8" class="block"></div>
+        </div>
+        <br />
+      <h2 id="winner"></h2>
+      <button onclick="reset_board()">RESET BOARD</button>
+      </div>
+    
+<script>
+FBInstant.setLodingProgress(100);
+FBInstant.startGameAsync().then(function(){
+startGame();
+}
+);
+</script>
+</body>
+</html>
