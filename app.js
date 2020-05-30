@@ -78,11 +78,16 @@ const checkWinner = () => {
 };
 
 const check_line = (a,b,c) => {
-    return (
+    let status =
         play_board[a] == play_board[b] &&
         play_board[b] == play_board[c] &&
-        (play_board[a] == player || play_board[a] == computer)
-    );
+        (play_board[a] == player || play_board[a] == computer);
+    if (status) {
+        document.getElementById(`block_${a}`).classList.add("won");
+        document.getElementById(`block_${b}`).classList.add("won");
+        document.getElementById(`block_${c}`).classList.add("won");
+    }
+    return status;
 };
 
 const check_match = () => {
