@@ -21,7 +21,25 @@ const render_board = () => {
     });
 };
 
-//render_board();
+FBInstant.initializeAsync()
+  .then(function(){
+        var progress = 0;
+        var interval = setInterval(function() {
+            if(progress>=95){
+                clearInterval(interval);
+                FBInstant.startGameAsync().then(
+                    function() {
+                        console.log("Game Loaded");
+                    }
+                )
+            };
+            FBInstant.setLoadingProgress(progress);
+            progress += 5;
+        }, 100);
+  }
+);
+
+render_board();
 //setTimeout(render_board(), 3000);
 
 
