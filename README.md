@@ -1,4 +1,5 @@
-# [tictactoe](https://yelynn1.github.io/tictactoe/ "tictactoe")
+# [Tictactoe](https://yelynn1.github.io/tictactoe/ "tictactoe")
+#### [https://yelynn1.github.io/tictactoe/](https://yelynn1.github.io/tictactoe/)
 
 Tic Tac Toe game (web version) made using HTML, JS.
 
