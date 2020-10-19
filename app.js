@@ -60,6 +60,18 @@ const game_loop = () => {
     checkWinner();
 }
 
+const randomizeStart = () => {
+    if(play_board.every(item=> item==="")){
+    // const PLAYER = 0;
+    const COMPUTER = 1;
+    const start = Math.round(Math.random());
+    if(start === COMPUTER){
+            addComputerMove();
+            console.log("COMPUTER STARTED")
+    }else{
+        console.log("PLAYER STARTS")
+    }}
+}
 const addPlayerMove = e => {
     if (play_board[e] == "" && !board_full) {
         play_board[e] = player;
@@ -190,4 +202,6 @@ const reset_board = () => {
     winner_statement.classList.remove("draw");
     winner_statement.innerText = "";
     render_board();
+    randomizeStart();
 }
+randomizeStart();
