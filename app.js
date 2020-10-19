@@ -69,19 +69,61 @@ const addPlayerMove = e => {
 };
 
 const addComputerMove = () => {
-    if (!board_full){
-        do {
-            selected = Math.floor(Math.random() * 9);
-        } while (play_board[selected] != "");
-        play_board[selected] = computer;
+    if(!board_full){
+        let bestScore = -Infinity;
+        let bestMove;
+        for(let i = 0; i < play_board.length; i++){
+            if(play_board[i] == ""){
+                play_board[i] = computer;
+                let score = minimax(play_board,0, false);
+                play_board[i] = "";
+                if(score > bestScore){
+                    bestScore = score;
+                    bestMove = i;
+                }
+            }
+        }
+        play_board[bestMove] = computer;
         game_loop();
-    }  
-};
+    }
+}
+
+let scores = {X : 1, O : -1, tie : 0};
+
+const minimax = (board, depth, isMaximizing) => {
+    let res = check_match();
+    if(res != ""){
+        return scores[res];
+    }
+    if(isMaximizing){
+        let bestScore = -Infinity;
+        for(let i = 0;i<board.length;i++){
+            if(board[i] == ""){
+                board[i] = computer;
+                let score = minimax(board, depth + 1, false);
+                board[i] = "";
+                bestScore = Math.max(score,bestScore);
+            }
+        }
+        return bestScore;
+    } else {
+        let bestScore = Infinity;
+        for(let i = 0;i<board.length;i++){
+            if(board[i] == ""){
+                board[i] = player;
+                let score = minimax(board, depth + 1, true);
+                board[i] = "";
+                bestScore = Math.min(score,bestScore);
+            }
+        }
+        return bestScore;
+    }
+}
 
 const checkWinner = () => {
     let res = check_match();
+    console.log(res);
     const winner_statement = document.getElementById("winner");
-    console.log(play_board);
     if (res == player) {
         winner_statement.innerText = "Player Won";
         winner_statement.classList.add("playerWin");
@@ -134,6 +176,8 @@ const check_match = () => {
     if(check_line(2,4,6)) {
         return play_board[2];
     }
+    checkBoardComplete();
+    if(board_full) return "tie";
     return "";
 }
 
