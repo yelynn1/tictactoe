@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+table {
+  font-family: sans-serif;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  word-break: break-all;
+}
+
+th {
+  text-align: center;
+}
+
+</style>
+</head>
+<body style="background-color: black; color: white">
+  <h1 style="text-align: center; background-color: green">CONTRIBUTORS LIST</h1>
+  <h3 id="ct" style="text-align: center; background-color: darkgreen"></h3>
+
+<table id="counthere">
+  <tr style="background-color: #dddddd; color: black">
+    <th>CTR NO</th>
+    <th>CONTRIBUTOR NAME</th>
+    <th>CONTRIBUTOR GITHUB ID</th>
+    <th>CONTRIBUTED PART</th>
+  </tr>
+
+  <!--leave single line break, before and after "tr" tags> <-->
+  <!--tr>
+    <td>Contine the S.No</td>
+    <td>Your Name</td>
+    <td>Your github ID</td>
+    <td>Shortly explain the part that you contributed</td>
+  </tr-->
+  
+  <tr>
+    <td width="3%">1</td>
+    <td width="15%">Ye Lynn Khant</td>
+    <td width="15%">https://github.com/yelynn1</td>
+    <td width="20%">Initiated this project</td>
+  </tr>
+
+  <tr>
+    <td>2</td>
+    <td>Prasanna S S</td>
+    <td>https://github.com/prasannassp</td>
+    <td>Added contributors.html</td>
+  </tr>
+
+</table>
+<script>
+var rowCount = document.getElementById('counthere').rows.length;
+document.getElementById("ct").innerHTML = rowCount-1 + " Contributors";
+</script>
+</body>
+</html>
