@@ -1,64 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        font-family: sans-serif;
+        width: 100%;
+      }
 
-<style>
-table {
-  font-family: sans-serif;
-  width: 100%;
-}
+      td,
+      th {
+        border: 1px solid #ffffff;
+        text-align: left;
+        padding: 8px;
+        word-break: break-all;
+      }
 
-td, th {
-  border: 1px solid #ffffff;
-  text-align: left;
-  padding: 8px;
-  word-break: break-all;
-}
+      th {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body style="background-color: black; color: white">
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <a class="navbar-brand" href="about.html">About</a>
+      <a class="navbar-brand" href="index.html">Play Game</a>
+      <a class="navbar-brand" href="contributors.html">Contributors</a>
+    </nav>
+    <h1 style="text-align: center; background-color: green">
+      CONTRIBUTORS LIST
+    </h1>
+    <h3 id="ct" style="text-align: center; background-color: darkgreen"></h3>
 
-th {
-  text-align: center;
-}
+    <table id="counthere">
+      <tr style="background-color: #dddddd; color: black">
+        <th>CTR NO</th>
+        <th>CONTRIBUTOR NAME</th>
+        <th>CONTRIBUTOR GITHUB ID</th>
+        <th>CONTRIBUTED PART</th>
+      </tr>
 
-</style>
-</head>
-<body style="background-color: black; color: white">
-  <h1 style="text-align: center; background-color: green">CONTRIBUTORS LIST</h1>
-  <h3 id="ct" style="text-align: center; background-color: darkgreen"></h3>
-
-<table id="counthere">
-  <tr style="background-color: #dddddd; color: black">
-    <th>CTR NO</th>
-    <th>CONTRIBUTOR NAME</th>
-    <th>CONTRIBUTOR GITHUB ID</th>
-    <th>CONTRIBUTED PART</th>
-  </tr>
-
-  <!--leave single line break, before and after "tr" tags> <-->
-  <!--tr>
+      <!--leave single line break, before and after "tr" tags> <-->
+      <!--tr>
     <td>Contine the S.No</td>
     <td>Your Name</td>
     <td>Your github ID</td>
     <td>Shortly explain the part that you contributed</td>
   </tr-->
-  
-  <tr>
-    <td width="3%">1</td>
-    <td width="15%">Ye Lynn Khant</td>
-    <td width="15%">https://github.com/yelynn1</td>
-    <td width="20%">Initiated this project</td>
-  </tr>
 
-  <tr>
-    <td>2</td>
-    <td>Prasanna S S</td>
-    <td>https://github.com/prasannassp</td>
-    <td>Added contributors.html</td>
-  </tr>
+      <tr>
+        <td width="3%">1</td>
+        <td width="15%">Ye Lynn Khant</td>
+        <td width="15%">https://github.com/yelynn1</td>
+        <td width="20%">Initiated this project</td>
+      </tr>
 
-</table>
-<script>
-var rowCount = document.getElementById('counthere').rows.length;
-document.getElementById("ct").innerHTML = rowCount-1 + " Contributors";
-</script>
-</body>
+      <tr>
+        <td>2</td>
+        <td>Prasanna S S</td>
+        <td>https://github.com/prasannassp</td>
+        <td>Added contributors.html</td>
+      </tr>
+    </table>
+    <script>
+      var rowCount = document.getElementById("counthere").rows.length;
+      document.getElementById("ct").innerHTML = rowCount - 1 + " Contributors";
+    </script>
+  </body>
 </html>
