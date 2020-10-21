@@ -204,3 +204,40 @@ pre {
   overflow: auto;
   padding: 16px;
 }
+@media screen and (min-width: 768px) {
+  .wrapper nav {
+    margin-bottom: 2%;
+  }
+  .wrapper nav ol li a {
+    font-size: 20px;
+  }
+  .shortDescr {
+    margin-top: 2%;
+  }
+  .shortDescr p {
+    margin-top: 0%;
+  }
+  .aboutContent h2,
+  h3 {
+    margin: 4% 0;
+  }
+  .aboutContent ul li {
+    margin: 2% 0;
+  }
+  .aboutContent ul,
+  ol {
+    padding-left: 4%;
+  }
+  .aboutContent img {
+    margin-top: 0%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    margin-left: 10%;
+    width: 80%;
+  }
+  .wrapper nav ol li {
+    margin-bottom: 3%;
+  }
+}
