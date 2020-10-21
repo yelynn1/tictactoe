@@ -139,9 +139,18 @@ button:hover {
   margin: 0 auto;
   width: 90%;
 }
-.aboutContent ul {
+.aboutContent h2,
+h3 {
+  margin: 7% 0;
+}
+.aboutContent ul,
+ol {
   padding-left: 11%;
+  padding-bottom: 1%;
   width: 100%;
+}
+.aboutContent ol {
+  margin-bottom: 10px;
 }
 .aboutContent ul li {
   margin: 4% 0;
@@ -151,4 +160,24 @@ button:hover {
 }
 .aboutContent ul li a:hover {
   text-decoration: underline;
+}
+.aboutContent img {
+  margin-top: 5%;
+  width: 100%;
+}
+.aboutContent p {
+  line-height: 25px;
+}
+.code {
+  width: 100%;
+}
+.code {
+  margin-bottom: 5%;
+  width: 100%;
+}
+pre {
+  background-color: rgb(246, 248, 250);
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
 }
