@@ -241,3 +241,47 @@ pre {
     margin-bottom: 3%;
   }
 }
+@media screen and (min-width: 1440px) {
+  .wrapper nav ol li a {
+    font-size: 26px;
+  }
+  .wrapper h1 {
+    font-size: 36px;
+  }
+  .shortDescr a,
+  .shortDescr p {
+    font-size: 20px;
+  }
+  .aboutContent h2 {
+    font-size: 30px;
+  }
+  .aboutContent h3 {
+    font-size: 26px;
+  }
+  .aboutContent h2,
+  h3 {
+    margin: 3% 0;
+  }
+  .aboutContent ul,
+  ol {
+    padding-left: 3%;
+  }
+  .wrapper a {
+    font-size: 20px;
+  }
+  .aboutContent p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .aboutContent ul li,
+  .aboutContent ol {
+    font-size: 20px;
+  }
+  pre {
+    font-size: 20px;
+  }
+  .aboutContent img {
+    margin-left: 10%;
+    width: 80%;
+  }
+}
