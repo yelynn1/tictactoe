@@ -115,6 +115,28 @@ button:hover {
   margin-top: 5%;
   width: 100%;
 }
+.wrapper nav {
+  margin: 0 auto;
+  margin-bottom: 7%;
+  width: 90%;
+}
+.wrapper nav ol {
+  padding: 0px;
+  list-style-type: none;
+}
+.wrapper nav ol li {
+  display: inline-block;
+  margin-bottom: 5%;
+  text-align: center;
+  width: 30%;
+}
+.wrapper nav ol li a {
+  text-decoration: none;
+}
+.wrapper nav ol li a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
 .wrapper a {
   color: rgb(3, 102, 214);
   font-size: 16px;
@@ -137,6 +159,7 @@ button:hover {
 }
 .aboutContent {
   margin: 0 auto;
+  margin-bottom: 10%;
   width: 90%;
 }
 .aboutContent h2,
