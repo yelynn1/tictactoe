@@ -5,8 +5,9 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
-  border: 5px solid black;
+.container-custom {
+  /* border: 5px solid black; */
+  padding-top: 10px;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
