@@ -284,4 +284,27 @@ pre {
     margin-left: 10%;
     width: 80%;
   }
+  .code {
+    margin-bottom: 2.5%;
+  }
+}
+
+@media screen and (min-width: 1792px) {
+  .wrapper {
+    margin-top: 2%;
+    margin-left: 15%;
+    width: 70%;
+  }
+  .aboutContent h2,
+  h3 {
+    margin-bottom: 2%;
+  }
+  .aboutContent ul li {
+    margin: 1% 0;
+  }
+  .aboutContent img {
+    margin-left: 15%;
+    margin-top: 1%;
+    width: 70%;
+  }
 }
