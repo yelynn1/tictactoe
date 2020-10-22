@@ -109,3 +109,203 @@ button:hover {
 .won {
   background-color: green;
 }
+
+.wrapper {
+  color: rgb(36, 41, 46);
+  font-size: 16px;
+  margin-top: 5%;
+  width: 100%;
+}
+.wrapper nav {
+  margin: 0 auto;
+  margin-bottom: 7%;
+  width: 90%;
+}
+.wrapper nav ol {
+  padding: 0px;
+  list-style-type: none;
+}
+.wrapper nav ol li {
+  display: inline-block;
+  margin-bottom: 5%;
+  text-align: center;
+  width: 30%;
+}
+.wrapper nav ol li a {
+  text-decoration: none;
+}
+.wrapper nav ol li a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.wrapper a {
+  color: rgb(3, 102, 214);
+  font-size: 16px;
+}
+.wrapper h1 {
+  color: rgb(3, 102, 214);
+  text-align: center;
+}
+.shortDescr {
+  margin-top: 5%;
+  text-align: center;
+}
+.shortDescr a {
+  font-weight: 600;
+}
+.shortDescr p {
+  margin-top: 2%;
+  padding: 10px;
+  line-height: 25px;
+}
+.aboutContent {
+  margin: 0 auto;
+  margin-bottom: 10%;
+  width: 90%;
+}
+.aboutContent h2,
+h3 {
+  margin: 7% 0;
+}
+.aboutContent ul,
+ol {
+  padding-left: 11%;
+  padding-bottom: 1%;
+  width: 100%;
+}
+.aboutContent ol {
+  margin-bottom: 10px;
+}
+.aboutContent ul li {
+  margin: 4% 0;
+}
+.aboutContent ul li a {
+  text-decoration: none;
+}
+.aboutContent ul li a:hover {
+  text-decoration: underline;
+}
+.aboutContent img {
+  margin-top: 5%;
+  width: 100%;
+}
+.aboutContent p {
+  line-height: 25px;
+}
+.code {
+  width: 100%;
+}
+.code {
+  margin-bottom: 5%;
+  width: 100%;
+}
+pre {
+  background-color: rgb(246, 248, 250);
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+@media screen and (min-width: 768px) {
+  .wrapper nav {
+    margin-bottom: 2%;
+  }
+  .wrapper nav ol li a {
+    font-size: 20px;
+  }
+  .shortDescr {
+    margin-top: 2%;
+  }
+  .shortDescr p {
+    margin-top: 0%;
+  }
+  .aboutContent h2,
+  h3 {
+    margin: 4% 0;
+  }
+  .aboutContent ul li {
+    margin: 2% 0;
+  }
+  .aboutContent ul,
+  ol {
+    padding-left: 4%;
+  }
+  .aboutContent img {
+    margin-top: 0%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    margin-left: 10%;
+    width: 80%;
+  }
+  .wrapper nav ol li {
+    margin-bottom: 3%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrapper nav ol li a {
+    font-size: 26px;
+  }
+  .wrapper h1 {
+    font-size: 36px;
+  }
+  .shortDescr a,
+  .shortDescr p {
+    font-size: 20px;
+  }
+  .aboutContent h2 {
+    font-size: 30px;
+  }
+  .aboutContent h3 {
+    font-size: 26px;
+  }
+  .aboutContent h2,
+  h3 {
+    margin: 3% 0;
+  }
+  .aboutContent ul,
+  ol {
+    padding-left: 3%;
+  }
+  .wrapper a {
+    font-size: 20px;
+  }
+  .aboutContent p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .aboutContent ul li,
+  .aboutContent ol {
+    font-size: 20px;
+  }
+  pre {
+    font-size: 20px;
+  }
+  .aboutContent img {
+    margin-left: 10%;
+    width: 80%;
+  }
+  .code {
+    margin-bottom: 2.5%;
+  }
+}
+
+@media screen and (min-width: 1792px) {
+  .wrapper {
+    margin-top: 2%;
+    margin-left: 15%;
+    width: 70%;
+  }
+  .aboutContent h2,
+  h3 {
+    margin-bottom: 2%;
+  }
+  .aboutContent ul li {
+    margin: 1% 0;
+  }
+  .aboutContent img {
+    margin-left: 15%;
+    margin-top: 1%;
+    width: 70%;
+  }
+}
