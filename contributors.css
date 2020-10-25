@@ -15,12 +15,13 @@ th {
 }
 
 .contributors_body {
-    background-color: black; 
+    background-color: black;
+
     color: white;
 }
 
 h1 {
-    text-align: center; 
+    text-align: center;
     background-color: green
 }
 
