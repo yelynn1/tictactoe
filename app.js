@@ -134,7 +134,6 @@ const minimax = (board, depth, isMaximizing) => {
 
 const checkWinner = () => {
     let res = check_match();
-    console.log(res);
     const winner_statement = document.getElementById("winner");
     if (res == player) {
         winner_statement.innerText = "Player Won";
