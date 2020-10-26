@@ -81,10 +81,22 @@
         <td>Styling contributors</td>
       </tr>
 
+      <tr>
+        <td>5</td>
+        <td>GouravSingal-code</td>
+        <td>https://github.com/GouravSingal-code</td>
+        <td>Enable to choose Difficulty level in index.html</td>
+      </tr>
+
     </table>
     <script>
       var rowCount = document.getElementById("counthere").rows.length;
       document.getElementById("ct").innerHTML = rowCount - 1 + " Contributors";
+
+      document.getElementsByClassName("navbar-brand")[2].style.color = "blue";
+      document.getElementsByClassName("navbar-brand")[2].style.fontWeight = "bold";
+      document.getElementsByClassName("navbar-brand")[2].style.textDecoration = "underline";
+
     </script>
   </body>
 </html>
