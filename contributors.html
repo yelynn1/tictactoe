@@ -16,75 +16,18 @@
       <a class="navbar-brand" href="index.html">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
     </nav>
-    <h1>
-      CONTRIBUTORS LIST
-    </h1>
+    <h1>CONTRIBUTORS LIST</h1>
+    <!-- Below h3 tag gives the details about number of contributors will be updated dynamically-->
     <h3 id="ct"></h3>
-
+    <!-- Table will be generated dynamically using github API-->
     <table id="counthere">
       <tr>
         <th>CTR NO</th>
         <th>CONTRIBUTOR NAME</th>
         <th>CONTRIBUTOR GITHUB ID</th>
-        <th>CONTRIBUTED PART</th>
+        <th>No OF CONTRIBUTIONS</th>
       </tr>
-
-      <!--leave single line break, before and after "tr" tags> <-->
-      <!--tr>
-    <td>Contine the S.No</td>
-    <td>Your Name</td>
-    <td>Your github ID</td>
-    <td>Shortly explain the part that you contributed</td>
-  </tr-->
-
-      <tr>
-        <td width="3%">1</td>
-        <td width="15%">Ye Lynn Khant</td>
-        <td width="15%">
-          <a href="https://github.com/yelynn1">
-            https://github.com/yelynn1
-          </a>
-        </td>
-        <td width="20%">Initiated this project</td>
-      </tr>
-
-      <tr>
-        <td>2</td>
-        <td>Prasanna S S</td>
-        <td>
-          <a href="https://github.com/prasannassp">
-            https://github.com/prasannassp
-          </a>
-        </td>
-        <td>Added contributors.html</td>
-      </tr>
-
-      <tr>
-        <td>3</td>
-        <td>Yash Ajgaonkar</td>
-        <td>
-          <a href="https://github.com/yash2189">
-            https://github.com/yash2189
-          </a>
-        </td>
-        <td>Documentation</td>
-      </tr>
-
-      <tr>
-        <td>4</td>
-        <td>ArshdeepSingh98</td>
-        <td>
-          <a href="https://github.com/ArshdeepSingh98">
-            https://github.com/ArshdeepSingh98
-          </a>
-        </td>
-        <td>Styling contributors</td>
-      </tr>
-
     </table>
-    <script>
-      var rowCount = document.getElementById("counthere").rows.length;
-      document.getElementById("ct").innerHTML = rowCount - 1 + " Contributors";
-    </script>
   </body>
+  <script src="./contributors.js"></script>
 </html>
