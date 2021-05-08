@@ -12,11 +12,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" type="text/css" />
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -37,17 +32,9 @@
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
-
-      <!-- light & dark mode icon in the navbar-->
-      <div>
-        <input type="checkbox" class="checkbox" id="checkbox">
-        <label for="checkbox" class="label">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <div class="ball"></div>
-        </label>
-      </div>
+      <button class="btn btn-info" onclick="myFunction()">Light/dark mode</button>
     </nav>
+    </br>
 
     <div class="container-custom">
       <h1>Tic-Tac-Toe</h1>
@@ -55,7 +42,6 @@
       <h5>Computer : <span id="computerstat">0</span></h5>
       <h5>Draw : <span id="drawstat">0</span></h5>
       <br />
-
       <div class="play-area">
         <div id="block_0" class="block"></div>
         <div id="block_1" class="block"></div>
@@ -68,9 +54,20 @@
         <div id="block_8" class="block"></div>
       </div>
       <br />
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
       <h2 id="winner"></h2>
       <button onclick="reset_board()">RESET BOARD</button>
     </div>
+
+    
+
     <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
     <script src="app.js"></script>
   </body>
