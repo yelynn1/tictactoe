@@ -46,7 +46,8 @@
       var x = document.getElementById("myAudio"); 
       
       function playAudio() { 
-        x.play(); 
+//         x.play(); 
+           return x.paused ? x.play() : x.pause();
       } 
     </script>
 
