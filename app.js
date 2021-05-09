@@ -10,9 +10,9 @@ let board_full = false;
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
     board_container.innerHTML = "";
-    document.getElementById("playerstat").innerText=playerstat;
-    document.getElementById("computerstat").innerText=computerstat;
-    document.getElementById("drawstat").innerText=drawstat;
+    document.getElementsByClassName("playerstat").innerText = playerstat;
+    document.getElementsByClassName("computerstat").innerText = computerstat;
+    document.getElementsByClassName("drawstat").innerText = drawstat;
     play_board.forEach((e,i) => {
         board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
         if(e == player || e == computer) {
@@ -203,6 +203,10 @@ const reset_board = () => {
     render_board();
     randomizeStart();
 }
+
+document.getElementsByClassName("playerstat").innerText = playerstat;
+document.getElementsByClassName("computerstat").innerText = computerstat;
+
 randomizeStart();
 
 
@@ -213,3 +217,23 @@ window.addEventListener("DOMContentLoaded", event => {
   });
 
 
+// const checkbox = document.getElementById('checkbox');
+
+// container-custom.addEventListener('onclick', () => {
+//     // change the theme of the website
+//     document.body.classList.toggle('dark');
+// });
+
+
+var button = document.getElementById("checkbox");
+
+button.addEventListener("click", function() {
+    const curColour = document.body.style.backgroundColor;
+
+    if (curColour === 'white') {
+        document.body.style.backgroundColor = "darkgray";
+    }
+    else {
+        document.body.style.backgroundColor = "white";
+    }
+});

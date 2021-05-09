@@ -8,12 +8,12 @@
 .container-custom {
   /* border: 5px solid black; */
   padding-top: 10px;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #eee;
+  background: none;
 }
 
 .container > div {
@@ -308,4 +308,21 @@ pre {
     margin-top: 1%;
     width: 70%;
   }
+}
+
+/* light and dark more style */
+body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: gray;
+  color: white;
+}
+
+.table{
+  width: 100px;
 }
