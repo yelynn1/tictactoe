@@ -33,7 +33,10 @@
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
+      <button class="btn btn-info" onclick="myFunction()">Light/dark mode</button>
     </nav>
+    </br>
+
 
     <audio id="myAudio">
       <source src="music.mp3" type="audio/ogg">
@@ -48,10 +51,36 @@
     </script>
 
     <div class="container-custom">
-      <h1>Tic-Tac-Toe</h1>
-      <h5>Player : <span id="playerstat">0</span></h5>
-      <h5>Computer : <span id="computerstat">0</span></h5>
-      <h5>Draw : <span id="drawstat">0</span></h5>
+          <h1>Tic-Tac-Toe</h1>
+          <h4>Scoreboard</h4>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Game/User</th>
+                <th scope="col">Player</th>
+                <th scope="col">Computer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="table-success">Win</th>
+                <td class="playerstat table-success">0</td>
+                <td class="computerstat table-success">0</td>
+              </tr>
+              <tr>
+                <th scope="row" class="table-danger">Lost</th>
+                <td class="computerstat table-danger">0</td>
+                <td class="playerstat table-danger">0</td>
+              </tr>
+              <tr>
+                <th scope="row" class="table-warning">Draw</th>
+                <td class="drawstat table-warning">0</td>
+                <td class="drawstat table-warning">0</td>
+              </tr>
+            </tbody>
+          </table>
+
       <br />
       <div class="play-area">
         <div id="block_0" class="block"></div>
@@ -65,9 +94,20 @@
         <div id="block_8" class="block"></div>
       </div>
       <br />
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
       <h2 id="winner"></h2>
       <button onclick="reset_board()">RESET BOARD</button>
     </div>
+
+    
+
     <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
     <script src="app.js"></script>
   </body>
