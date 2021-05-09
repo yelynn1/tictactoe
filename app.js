@@ -210,6 +210,13 @@ document.getElementsByClassName("computerstat").innerText = computerstat;
 randomizeStart();
 
 
+window.addEventListener("DOMContentLoaded", event => {
+    const audio = document.querySelector("audio");
+    audio.volume = 0.2;
+    audio.play();
+  });
+
+
 // const checkbox = document.getElementById('checkbox');
 
 // container-custom.addEventListener('onclick', () => {
