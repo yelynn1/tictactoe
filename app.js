@@ -208,3 +208,25 @@ document.getElementsByClassName("playerstat").innerText = playerstat;
 document.getElementsByClassName("computerstat").innerText = computerstat;
 
 randomizeStart();
+
+
+// const checkbox = document.getElementById('checkbox');
+
+// container-custom.addEventListener('onclick', () => {
+//     // change the theme of the website
+//     document.body.classList.toggle('dark');
+// });
+
+
+var button = document.getElementById("checkbox");
+
+button.addEventListener("click", function() {
+    const curColour = document.body.style.backgroundColor;
+
+    if (curColour === 'white') {
+        document.body.style.backgroundColor = "darkgray";
+    }
+    else {
+        document.body.style.backgroundColor = "white";
+    }
+});

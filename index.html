@@ -32,7 +32,9 @@
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
+      <button class="btn btn-info" onclick="myFunction()">Light/dark mode</button>
     </nav>
+    </br>
 
 
     <div class="container-custom">
@@ -79,9 +81,20 @@
         <div id="block_8" class="block"></div>
       </div>
       <br />
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
       <h2 id="winner"></h2>
       <button onclick="reset_board()">RESET BOARD</button>
     </div>
+
+    
+
     <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
     <script src="app.js"></script>
   </body>

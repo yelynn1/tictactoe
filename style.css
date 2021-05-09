@@ -13,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #eee;
+  background: none;
 }
 
 .container > div {
@@ -308,6 +308,19 @@ pre {
     margin-top: 1%;
     width: 70%;
   }
+}
+
+/* light and dark more style */
+body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: gray;
+  color: white;
 }
 
 .table{
