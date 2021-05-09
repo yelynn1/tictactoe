@@ -8,7 +8,7 @@
 .container-custom {
   /* border: 5px solid black; */
   padding-top: 10px;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -323,3 +323,6 @@ body {
   color: white;
 }
 
+.table{
+  width: 100px;
+}
