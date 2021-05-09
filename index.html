@@ -29,7 +29,7 @@
   </head>
   <body>
     <nav class="navbar fixed-top navbar-light bg-light">
-      <button class="btn btn-primary" onclick="playAudio()" type="button">Play Music</button>
+      <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
@@ -45,16 +45,16 @@
     <script>
       var x = document.getElementById("myAudio"); 
       
-      function playAudio() { 
+      function playAudio(btn) { 
 //         x.play(); 
            return x.paused ? x.play() : x.pause();
            if(x.paused) {
              x.play();
-             this.innerHtml("Pause Music");
+             btn.innerHtml("Pause Music");
            }
            else {
              x.pause();
-             this.innerHtml("Play Music");
+             btn.innerHtml("Play Music");
            }
       } 
     </script>
