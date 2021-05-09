@@ -48,6 +48,14 @@
       function playAudio() { 
 //         x.play(); 
            return x.paused ? x.play() : x.pause();
+           if(x.paused) {
+             x.play();
+             this.innerHtml("Pause Music");
+           }
+           else {
+             x.pause();
+             this.innerHtml("Play Music");
+           }
       } 
     </script>
 
