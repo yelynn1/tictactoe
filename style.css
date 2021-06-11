@@ -57,7 +57,7 @@ button:hover {
   justify-content: center;
   font-size: 3rem;
   font-weight: bold;
-  border: 3px solid black;
+  border: 3px solid rgb(35, 137, 253);
   transition: background 0.2s ease-in-out;
 }
 
@@ -319,10 +319,11 @@ body {
 }
 
 .dark-mode {
-  background-color: navy;
+  background-color: black;
   color: white;
 }
 
 .table{
   width: 100px;
+  visibility: initial;
 }
