@@ -140,6 +140,8 @@ const checkWinner = () => {
         winner_statement.classList.add("playerWin");
         board_full = true;
         playerstat++;
+        document.getElementsByClassName("playerstat")[0].innerText = playerstat;
+        document.getElementsByClassName("playerstat")[0].innerText = playerstat;
         console.log("player win");
     }
     else if (res == computer) {
@@ -147,12 +149,16 @@ const checkWinner = () => {
         winner_statement.classList.add("computerWin");
         board_full = true;
         computerstat++;
+        document.getElementsByClassName("computerstat")[0].innerText = computerstat;
+        document.getElementsByClassName("computerstat")[1].innerText = computerstat;
         console.log("computer win");
     }
     else if (board_full) {
         winner_statement.innerText = "Draw...";
         winner_statement.classList.add("draw");
         drawstat++;
+        document.getElementsByClassName("drawstat")[0].innerText = drawstat;
+        document.getElementsByClassName("drawstat")[1].innerText = drawstat;
         console.log("draw");
     }
 };
