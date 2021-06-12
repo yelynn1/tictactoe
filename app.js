@@ -1,17 +1,12 @@
 let play_board = ["", "", "", "", "", "", "", "", ""];
 const player = "O";
 const computer = "X";
-var playerstat = 1;
-var computerstat = 1;
-var drawstat = 0;
 let board_full = false;
 
 
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
     board_container.innerHTML = "";
-    
-    document.getElementsByClassName("drawstat").innerText = drawstat;
     play_board.forEach((e,i) => {
         board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
         if(e == player || e == computer) {
@@ -146,6 +141,7 @@ const checkWinner = () => {
     var draw2 = 0;
 
     const winner_statement = document.getElementById("winner");
+    const audio = document.querySelector("audio");
     
 
     if (res == player) {
@@ -157,8 +153,9 @@ const checkWinner = () => {
         temp1 = temp1 + playerstat1;
         temp3 = temp3 + loss2;
         console.log("player win");
-        console.log(playerstat1);
-      
+        audio.pause();
+        var playwin = new Audio("audio/win.wav");
+        playwin.play();
     }
     else if (res == computer) {
         winner_statement.innerText = "Computer Won";
@@ -169,8 +166,9 @@ const checkWinner = () => {
         temp2 = temp2 + computerstat1;
         temp4 = temp4 + loss1;
         console.log("computer win");
-        console.log(computerstat1);
-     
+        audio.pause();
+        var compwin = new Audio("audio/gameover.wav");
+        compwin.play();
     }
     else if (board_full) {
         winner_statement.innerText = "Draw...";
@@ -180,6 +178,9 @@ const checkWinner = () => {
         temp5 = temp5 + draw1;
         temp6 = temp6 + draw2;
         console.log("draw");
+        audio.pause();
+        var draw = new Audio("audio/gameover.wav");
+        draw.play();
     }
     document.getElementById("playerstat1").innerText =   temp1;
     document.getElementById("computerstat1").innerText = temp2;
@@ -187,6 +188,7 @@ const checkWinner = () => {
     document.getElementById("loss2").innerText = temp3;
     document.getElementById("draw1").innerText =  temp5;
     document.getElementById("draw2").innerText = temp6;
+   
 };
 
 const check_line = (a,b,c) => {
@@ -232,6 +234,8 @@ const reset_board = () => {
     winner_statement.classList.remove("computerWin");
     winner_statement.classList.remove("draw");
     winner_statement.innerText = "";
+    const audio = document.querySelector("audio");
+    audio.play();
     render_board();
     randomizeStart();
 }
