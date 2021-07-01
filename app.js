@@ -210,6 +210,7 @@ const reset_board = () => {
     randomizeStart();
 }
 
+
 document.getElementsByClassName("playerstat").innerText = playerstat;
 document.getElementsByClassName("computerstat").innerText = computerstat;
 
