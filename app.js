@@ -242,6 +242,9 @@ const reset_board = () => {
 
 
 
+document.getElementsByClassName("playerstat").innerText = playerstat;
+document.getElementsByClassName("computerstat").innerText = computerstat;
+
 randomizeStart();
 
 
