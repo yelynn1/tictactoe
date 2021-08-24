@@ -35,6 +35,7 @@ button {
   font-weight: bold;
   background: none;
   transition: all 0.2s ease-in-out;
+  color: #f80606;
 }
 button:hover {
   cursor: pointer;
@@ -57,7 +58,7 @@ button:hover {
   justify-content: center;
   font-size: 3rem;
   font-weight: bold;
-  border: 3px solid black;
+  border: 3px solid rgb(35, 137, 253);
   transition: background 0.2s ease-in-out;
 }
 
@@ -313,16 +314,17 @@ pre {
 /* light and dark more style */
 body {
   padding: 25px;
-  background-color: white;
+  background:rgb(252, 212, 240);
   color: black;
   font-size: 25px;
 }
 
 .dark-mode {
-  background-color: navy;
+  background: rgb(20, 20, 20);
   color: white;
 }
 
 .table{
   width: 100px;
+  visibility: initial;
 }
