@@ -48,6 +48,8 @@ button:hover {
   width: 300px;
   height: 300px;
   grid-template-columns: auto auto auto;
+  background-color: white
+  
 }
 
 .block {
@@ -96,15 +98,21 @@ button:hover {
 }
 
 .playerWin {
+  font-weight: bold;
+  font-size: 26px;
   color: green;
 }
 
 .computerWin {
+  font-weight: bold;
+  font-size: 26px;
   color: red;
 }
 
 .draw {
-  color: orangered;
+  font-weight: bold;
+  font-size: 26px;
+  color: orange;
 }
 
 .won {
@@ -319,10 +327,23 @@ body {
   font-size: 25px;
 }
 
-.dark-mode {
-  background: rgb(20, 20, 20);
-  color: white;
+thead{
+  background-color: lightblue
 }
+
+h1{
+  background-color: lightseagreen
+}
+
+h4{
+  background-color: lightseagreen
+}
+
+.dark-mode {
+  background-color: navy;
+  color: black
+}
+
 
 .table{
   width: 100px;
