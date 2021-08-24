@@ -1,18 +1,12 @@
 let play_board = ["", "", "", "", "", "", "", "", ""];
 const player = "O";
 const computer = "X";
-var playerstat = 0;
-var computerstat = 0;
-var drawstat = 0;
 let board_full = false;
 
 
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
     board_container.innerHTML = "";
-    document.getElementsByClassName("playerstat").innerText = playerstat;
-    document.getElementsByClassName("computerstat").innerText = computerstat;
-    document.getElementsByClassName("drawstat").innerText = drawstat;
     play_board.forEach((e,i) => {
         board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
         if(e == player || e == computer) {
@@ -131,36 +125,70 @@ const minimax = (board, depth, isMaximizing) => {
         return bestScore;
     }
 }
-
+ var temp1 = 0;
+ var temp2 = 0;
+ var temp3 = 0;
+ var temp4 = 0;
+ var temp5 = 0;
+ var temp6 =0;
 const checkWinner = () => {
     let res = check_match();
+    var playerstat1 = 0;
+    var computerstat1 = 0;
+    var loss1 = 0;
+    var loss2 = 0;
+    var draw1 = 0;
+    var draw2 = 0;
+
     const winner_statement = document.getElementById("winner");
+    const audio = document.querySelector("audio");
+    
+
     if (res == player) {
         winner_statement.innerText = "Player Won";
         winner_statement.classList.add("playerWin");
         board_full = true;
-        playerstat++;
-        document.getElementsByClassName("playerstat")[0].innerText = playerstat;
-        document.getElementsByClassName("playerstat")[0].innerText = playerstat;
+        playerstat1++;
+        loss2++;
+        temp1 = temp1 + playerstat1;
+        temp3 = temp3 + loss2;
         console.log("player win");
+        audio.pause();
+        var playwin = new Audio("audio/win.wav");
+        playwin.play();
     }
     else if (res == computer) {
         winner_statement.innerText = "Computer Won";
         winner_statement.classList.add("computerWin");
         board_full = true;
-        computerstat++;
-        document.getElementsByClassName("computerstat")[0].innerText = computerstat;
-        document.getElementsByClassName("computerstat")[1].innerText = computerstat;
+        computerstat1++;
+        loss1++;
+        temp2 = temp2 + computerstat1;
+        temp4 = temp4 + loss1;
         console.log("computer win");
+        audio.pause();
+        var compwin = new Audio("audio/gameover.wav");
+        compwin.play();
     }
     else if (board_full) {
         winner_statement.innerText = "Draw...";
         winner_statement.classList.add("draw");
-        drawstat++;
-        document.getElementsByClassName("drawstat")[0].innerText = drawstat;
-        document.getElementsByClassName("drawstat")[1].innerText = drawstat;
+        draw1++;
+        draw2++;
+        temp5 = temp5 + draw1;
+        temp6 = temp6 + draw2;
         console.log("draw");
+        audio.pause();
+        var draw = new Audio("audio/gameover.wav");
+        draw.play();
     }
+    document.getElementById("playerstat1").innerText =   temp1;
+    document.getElementById("computerstat1").innerText = temp2;
+    document.getElementById("loss1").innerText =   temp4;
+    document.getElementById("loss2").innerText = temp3;
+    document.getElementById("draw1").innerText =  temp5;
+    document.getElementById("draw2").innerText = temp6;
+   
 };
 
 const check_line = (a,b,c) => {
@@ -206,9 +234,12 @@ const reset_board = () => {
     winner_statement.classList.remove("computerWin");
     winner_statement.classList.remove("draw");
     winner_statement.innerText = "";
+    const audio = document.querySelector("audio");
+    audio.play();
     render_board();
     randomizeStart();
 }
+
 
 
 document.getElementsByClassName("playerstat").innerText = playerstat;
@@ -232,7 +263,7 @@ window.addEventListener("DOMContentLoaded", event => {
 // });
 
 
-var button = document.getElementById("checkbox");
+/*var button = document.getElementById("checkbox");
 
 button.addEventListener("click", function() {
     const curColour = document.body.style.backgroundColor;
@@ -244,3 +275,4 @@ button.addEventListener("click", function() {
         document.body.style.backgroundColor = "white";
     }
 });
+*/
