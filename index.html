@@ -37,7 +37,6 @@
     </nav>
     </br>
 
-
     <audio id="myAudio">
       <source src="music.mp3" type="audio/ogg">
     </audio>
@@ -90,7 +89,6 @@
             </tbody>
           </table>
 
-      <br />
       <div class="play-area">
         <div id="block_0" class="block"></div>
         <div id="block_1" class="block"></div>
@@ -102,7 +100,6 @@
         <div id="block_7" class="block"></div>
         <div id="block_8" class="block"></div>
       </div>
-      <br />
       <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
 
 <script>
@@ -111,11 +108,14 @@ function myFunction() {
    element.classList.toggle("dark-mode");
 }
 </script>
-      <h2 id="winner"></h2>
+      <select id="ai_level">
+        <option value="easy" selected>Easy</option>
+        <option value="normal">Normal</option>
+        <option value="hard">Hard</option>
+      </select>
       <button onclick="reset_board()">RESET BOARD</button>
+      <h2 id="winner"></h2>
     </div>
-
-    
 
     <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
     <script src="app.js"></script>
