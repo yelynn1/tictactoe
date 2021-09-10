@@ -2,7 +2,7 @@ let play_board = ["", "", "", "", "", "", "", "", ""];
 const player = "O";
 const computer = "X";
 let board_full = false;
-
+let ai_level;
 
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
@@ -14,6 +14,14 @@ const render_board = () => {
         }
     });
 };
+
+const configure_ai = () => {
+    let ai_select = document.querySelector("#ai_level");
+    ai_level = Array.from(ai_select.options).filter(option => option.defaultSelected == true)[0].value;
+    ai_select.addEventListener("change", event => {
+        ai_level = event.target.options[event.target.selectedIndex].value;
+    });
+}
 
 FBInstant.initializeAsync()
   .then(function(){
@@ -34,9 +42,9 @@ FBInstant.initializeAsync()
 );
 
 render_board();
+configure_ai();
+
 //setTimeout(render_board(), 3000);
-
-
 
 const checkBoardComplete = () => {
     let flag = true;
@@ -60,43 +68,66 @@ const randomizeStart = () => {
     const COMPUTER = 1;
     const start = Math.round(Math.random());
     if(start === COMPUTER){
-            addComputerMove();
-            console.log("COMPUTER STARTED")
+        addComputerMove(ai_level);
+        console.log("COMPUTER STARTED")
     }else{
         console.log("PLAYER STARTS")
     }}
 }
 const addPlayerMove = e => {
     if (play_board[e] == "" && !board_full) {
+        document.querySelector("#ai_level").disabled = true;
         play_board[e] = player;
         game_loop();
-        addComputerMove();
+        addComputerMove(ai_level);
     }
 };
 
-const addComputerMove = () => {
+const addComputerMove = (ai_level) => {
     if(!board_full){
-        let bestScore = -Infinity;
-        let bestMove;
+        let score;
+        let compare;
+        switch (ai_level) {
+            case "hard": 
+                score = -Infinity;
+                compare = (a,b) => a > b;
+                break;
+            case "easy": 
+                score = Infinity; 
+                compare = (a,b) => a < b;
+                break;
+            case "normal":
+                let guess = Math.random() * 100;
+                if (guess <= 40) {
+                    score = Infinity; 
+                    compare = (a,b) => a < b;
+                }
+                else {
+                    score = -Infinity;
+                    compare = (a,b) => a > b;
+                }
+                break;
+        }
+        let nextMove;
         for(let i = 0; i < play_board.length; i++){
             if(play_board[i] == ""){
                 play_board[i] = computer;
-                let score = minimax(play_board,0, false);
+                let endScore = minimax(play_board,0, false);
                 play_board[i] = "";
-                if(score > bestScore){
-                    bestScore = score;
-                    bestMove = i;
+                if (compare(endScore, score)) {
+                    score = endScore;
+                    nextMove = i;
                 }
             }
         }
-        play_board[bestMove] = computer;
+        play_board[nextMove] = computer;
         game_loop();
     }
 }
 
 let scores = {X : 1, O : -1, tie : 0};
 
-const minimax = (board, depth, isMaximizing) => {
+const minimax = (board, isMaximizing) => {
     let res = check_match();
     if(res != ""){
         return scores[res];
@@ -106,7 +137,7 @@ const minimax = (board, depth, isMaximizing) => {
         for(let i = 0;i<board.length;i++){
             if(board[i] == ""){
                 board[i] = computer;
-                let score = minimax(board, depth + 1, false);
+                let score = minimax(board, false);
                 board[i] = "";
                 bestScore = Math.max(score,bestScore);
             }
@@ -117,7 +148,7 @@ const minimax = (board, depth, isMaximizing) => {
         for(let i = 0;i<board.length;i++){
             if(board[i] == ""){
                 board[i] = player;
-                let score = minimax(board, depth + 1, true);
+                let score = minimax(board, true);
                 board[i] = "";
                 bestScore = Math.min(score,bestScore);
             }
@@ -143,7 +174,6 @@ const checkWinner = () => {
     const winner_statement = document.getElementById("winner");
     const audio = document.querySelector("audio");
     
-
     if (res == player) {
         winner_statement.innerText = "Player Won";
         winner_statement.classList.add("playerWin");
@@ -188,7 +218,6 @@ const checkWinner = () => {
     document.getElementById("loss2").innerText = temp3;
     document.getElementById("draw1").innerText =  temp5;
     document.getElementById("draw2").innerText = temp6;
-   
 };
 
 const check_line = (a,b,c) => {
@@ -234,26 +263,23 @@ const reset_board = () => {
     winner_statement.classList.remove("computerWin");
     winner_statement.classList.remove("draw");
     winner_statement.innerText = "";
+    document.querySelector("#ai_level").disabled = false;
     const audio = document.querySelector("audio");
     audio.play();
     render_board();
     randomizeStart();
 }
 
-
-
 document.getElementsByClassName("playerstat").innerText = playerstat;
 document.getElementsByClassName("computerstat").innerText = computerstat;
 
 randomizeStart();
 
-
 window.addEventListener("DOMContentLoaded", event => {
     const audio = document.querySelector("audio");
     audio.volume = 0.2;
     audio.play();
-  });
-
+});
 
 // const checkbox = document.getElementById('checkbox');
 
