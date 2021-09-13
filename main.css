@@ -21,30 +21,6 @@ h1 {
 }
 
 
-/*****************************/
-/* Styling Header Image Menu */
-/*****************************/
-#header-image-menu {
-    top: 10px;
-    position: relative;
-}
-
- #header-image-menu img {
-        width: 100%;
-        height: 500px;
-        margin: 0;
-        padding: 10px 0;
- }
-
-#image-text {
-    top: 10%; /*distance from top*/
-    left: 40%; /*distance from left*/
-    font-variant: small-caps;
-    color: #732f6c;
-    text-align: center;
-}
-
-    
 
 /*****************************/
 /* Styling For Menu */
