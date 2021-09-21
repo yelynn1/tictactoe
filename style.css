@@ -326,7 +326,7 @@ pre {
 /* light and dark more style */
 body {
   padding: 25px;
-  background:rgb(252, 212, 240);
+  background:gray;
   color: black;
   font-size: 25px;
 }
@@ -344,8 +344,8 @@ h4{
 }
 
 .dark-mode {
-  background-color: navy;
-  color: black
+  background-color: black;
+  color: black;
 }
 
 
