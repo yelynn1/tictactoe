@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TTC</title>
+    <link rel="shortcut icon" href="tic-tac-toe.png" type="image/x-icon"> <!--Adding favicon-->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+     <!--Adding Favicon-->
+     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-113861388-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-113861388-2");
+    </script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!--To use Google Icons-->
+
+  </head>
+  <body>
+
+    <header>
+
+        <div class="right">
+            <!--Menu-->
+            <div class="pagination">
+                <a class="active" href="#">Play Game</a>
+                <a href="about.html">About</a>
+                <a href="contributors.html">Contributors</a>
+                <button class="btn btn-info" onclick="myFunction()">Dark mode</button>
+                <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
+            </div>
+        </div>
+        <!--Our website's name-->
+        <h1>Tic Tac Toe</h1>
+
+         
+        
+
+    </header>
+    <div class="wrapper bg-white">
+        
+      <div class="h4 text-muted text-center pt-2 ">Menu</div>
+      <br>
+
+      
+      <div class="center">
+              <a href="index.html"><button class="button" type="button "><h2>Easy</h2></button></a><br>
+              <a href="index.html"><button class="button" type="button"><h2>Medium</h2></button></a><br>
+              <a href="index.html"><button class="button" type="button"><h2>Hard</h2></button></a><br>
+      </div>
+        
+    </div> 
+
+
+    <audio id="myAudio">
+      <source src="music.mp3" type="audio/ogg">
+    </audio>
+    
+    <script>
+      var x = document.getElementById("myAudio"); 
+      
+      function playAudio(btn) { 
+//         x.play(); 
+           return x.paused ? x.play() : x.pause();
+           if(x.paused) {
+             x.play();
+             btn.innerHtml("Pause Music");
+           }
+           else {
+             x.pause();
+             btn.innerHtml("Play Music");
+           }
+      } 
+    </script>
+
+
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+
+    <script>
+        function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+        }
+    </script>
+      
+    
+
+    <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
+    <script src="app.js"></script>
+
+    
+  </body>
+</html>
