@@ -265,7 +265,6 @@ const reset_board = () => {
     winner_statement.innerText = "";
     document.querySelector("#ai_level").disabled = false;
     const audio = document.querySelector("audio");
-    audio.play();
     render_board();
     randomizeStart();
 }
