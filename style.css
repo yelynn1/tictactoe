@@ -336,16 +336,23 @@ thead{
 }
 
 h1{
-  background-color: lightseagreen
+  background-color: lightseagreen;
+  padding: 5px;
 }
 
 h4{
-  background-color: lightseagreen
+  padding: 5px;
+  background-color: lightseagreen;
 }
 
 .dark-mode {
-  background-color: navy;
-  color: black
+  background-color: rgb(21,32,43);
+  color: white;
+}
+
+.dark-mode .play-area{
+  background-color: rgb(37,63,85);
+  color: white;
 }
 
 
