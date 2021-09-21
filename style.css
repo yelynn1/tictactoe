@@ -130,9 +130,8 @@ button:hover {
   width: 100%;
 }
 .wrapper nav {
-  margin: 0 auto;
-  margin-bottom: 7%;
-  width: 90%;
+  top: 0px;
+    width: 100%;
 }
 .wrapper nav ol {
   padding: 0px;
@@ -218,13 +217,46 @@ pre {
   overflow: auto;
   padding: 16px;
 }
-@media screen and (min-width: 768px) {
+
+
+@media screen and (max-width: 400px) {
+    .block {
+  width: 67px;
+  height: 67px;
+}
+    
+    
+    .play-area {
+  width: 201px;
+  height: 201px;
+}
+    
   .wrapper nav {
     margin-bottom: 2%;
   }
   .wrapper nav ol li a {
     font-size: 20px;
   }
+    
+
+    .container-custom {
+        width: 100%;
+        margin-top: 30%;
+        padding-left: 5%;
+        padding-right: 5%;
+        
+}
+    
+    
+    .table{
+ font-size: 10px;
+  visibility: initial;
+}
+}
+
+
+@media screen and (max-width: 768px) {
+
   .shortDescr {
     margin-top: 2%;
   }
@@ -246,7 +278,7 @@ pre {
     margin-top: 0%;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .wrapper {
     margin-left: 10%;
     width: 80%;
@@ -255,7 +287,7 @@ pre {
     margin-bottom: 3%;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (max-width: 1440px) {
   .wrapper nav ol li a {
     font-size: 26px;
   }
@@ -303,7 +335,7 @@ pre {
   }
 }
 
-@media screen and (min-width: 1792px) {
+@media screen and (max-width: 1792px) {
   .wrapper {
     margin-top: 2%;
     margin-left: 15%;
@@ -326,7 +358,7 @@ pre {
 /* light and dark more style */
 body {
   padding: 25px;
-  background:rgb(252, 212, 240);
+  background:gray;
   color: black;
   font-size: 25px;
 }
@@ -344,8 +376,8 @@ h4{
 }
 
 .dark-mode {
-  background-color: navy;
-  color: black
+  background-color: black;
+  color: black;
 }
 
 
