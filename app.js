@@ -265,21 +265,21 @@ const reset_board = () => {
     winner_statement.innerText = "";
     document.querySelector("#ai_level").disabled = false;
     const audio = document.querySelector("audio");
-    audio.play();
+    //audio.play(); // commented out to prevent music from playing without user consent due to reset
     render_board();
     randomizeStart();
 }
 
-document.getElementsByClassName("playerstat").innerText = playerstat;
-document.getElementsByClassName("computerstat").innerText = computerstat;
+//document.getElementsByClassName("playerstat1").innerText = playerstat1;
+//document.getElementsByClassName("computerstat").innerText = computerstat1;
 
-randomizeStart();
+//randomizeStart();
 
-window.addEventListener("DOMContentLoaded", event => {
-    const audio = document.querySelector("audio");
-    audio.volume = 0.2;
-    audio.play();
-});
+// window.addEventListener("DOMContentLoaded", event => {
+//     const audio = document.querySelector("audio");
+//     audio.volume = 0.2;
+//     audio.play();
+// });
 
 // const checkbox = document.getElementById('checkbox');
 
