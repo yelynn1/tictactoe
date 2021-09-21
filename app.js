@@ -265,7 +265,6 @@ const reset_board = () => {
     winner_statement.innerText = "";
     document.querySelector("#ai_level").disabled = false;
     const audio = document.querySelector("audio");
-    //audio.play(); // commented out to prevent music from playing without user consent due to reset
     render_board();
     randomizeStart();
 }

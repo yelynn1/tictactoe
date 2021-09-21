@@ -1,0 +1,150 @@
+html{
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background-color: #fff;
+}
+
+
+
+h1 {
+    color: #a0c4ff;
+    text-align: left;
+    text-shadow: 1px 1px 3px #DADEDF;
+    
+}
+
+.right {
+    text-align: right;
+}
+
+
+
+/*****************************/
+/* Styling For Menu */
+/*****************************/
+.pagination {
+    display: inline-block;
+    float: right;
+}
+
+.pagination a {
+        color: #a0c4ff;
+        float: left;
+        padding: 10px 10px;
+}
+
+.pagination a.active {
+            background-color: #a0c4ff;
+            color: white;
+}
+
+.pagination a:hover:not(.active) {
+
+            background-color: #9bf6ff;
+            color: white;
+}
+.pagination button {
+    background-color: white;
+    color: #a0c4ff;
+    float: left;
+    padding: 10px 10px;
+    border: thin;
+}
+.pagination button.active {
+    background-color: #52b788;
+    color: white;
+
+}
+.pagination button:hover:not(.active) {
+    background-color: #9bf6ff;
+    color: white;
+
+}
+
+
+/*****************************/
+/* Styling for Containers */
+/*****************************/
+.wrapper {
+    position: relative;
+    max-width: 700px;
+    border-radius: 10px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    box-shadow: 20px 20px 20px #a0c4ff
+}
+.wrapper .h4{
+    color: #0c0c68;
+    font-size: 50px;
+    font-family: 'Luckiest Guy', cursive;
+
+}
+.right {
+    text-align: right;
+}
+.wrapper center{
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.wrapper .button {
+    text-align: center;
+    margin-top: 15px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+
+
+   background-color: transparent;
+   -webkit-box-shadow: 2.5px 2.5px 2.5px 0px #000000, inset 2px 2px 7.5px 0px #000000, 2.5px 2.5px 7.5px 2.5px rgba(255,139,253,0); 
+   box-shadow: 2.5px 2.5px 2.5px 0px #80ffdb, inset 2px 2px 7.5px 0px #a0c4ff, 2.5px 2.5px 7.5px 2.5px black;
+   text-shadow: #FFF 0px 0px 2.5px, #FFF 0px 0px 5px, #FFF 0px 0px 7.5px, #52b788 0px 0px 5px, #00b8ff 0px 0px 5px, #bd00ff 0px 0px 5px, #bd00ff 0px 0px 5px, #bd00ff 0px 0px 5px;
+   border: 0.2px double #d600ff;
+   border-radius: 1.5px;
+   color: #0c0c68;
+   font-family: 'Luckiest Guy', cursive;
+   font-size: 8px;
+   }
+
+   .wrapper .button:hover:before {
+    opacity: 1
+}
+
+.wrapper .button:hover:active {
+    background: none
+}
+
+.wrapper .button:hover:active:before {
+    filter: blur(2px)
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 400% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }
+}
+
+
