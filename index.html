@@ -30,12 +30,12 @@
     </script>
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-light bg-light">
+    <nav class="navbar fixed-top" id="hero">
       <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
-      <button class="btn btn-info" onclick="myFunction()">Light/dark mode</button>
+      <button class="btn btn-info" onclick="myFunction()">Dark Mode</button>
     </nav>
     </br>
 
@@ -91,7 +91,7 @@
             </tbody>
           </table>
 
-      <div class="play-area">
+      <div class="play-area" id="play">
         <div id="block_0" class="block"></div>
         <div id="block_1" class="block"></div>
         <div id="block_2" class="block"></div>
@@ -106,8 +106,26 @@
 
 <script>
 function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
+   var main = document.body;
+   var hero = document.getElementsByClassName('navbar')[0]
+   var container = document.getElementById('play')
+   var darkToggle = document.getElementsByClassName('btn')
+   var heroText = document.getElementsByClassName('navbar-brand')
+   var arr = Array.prototype.slice.call(heroText)
+
+   arr.forEach(element => {
+    element.classList.toggle('dark-text')  
+   });
+
+   if (darkToggle[1].textContent === "Dark Mode"){
+     darkToggle[1].textContent = "Light Mode"
+   } else {
+     darkToggle[1].textContent = "Dark Mode"
+   }
+
+   hero.classList.toggle("dark-hero");
+   main.classList.toggle("dark-main");
+   container.classList.toggle("dark-play")
 }
 </script>
       <select id="ai_level">
