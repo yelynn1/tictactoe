@@ -123,6 +123,14 @@ button:hover {
   margin-bottom: 0.5%;
 }
 
+.navbar {
+  background-color: white;
+}
+
+.navbar > a {
+  color: black;
+}
+
 .wrapper {
   color: rgb(36, 41, 46);
   font-size: 16px;
@@ -367,19 +375,26 @@ thead{
   background-color: lightblue
 }
 
-h1{
-  background-color: lightseagreen
+.dark-main {
+  background-color: #121212;
+  color: white;
 }
 
-h4{
-  background-color: lightseagreen
+.dark-hero{
+  background-color: #2a2a2a;
+  color: white;
 }
 
-.dark-mode {
-  background-color: black;
-  color: black;
+.dark-play {
+  background-color: #2a2a2a;
+  color: white;
+  border: white;
+
 }
 
+.dark-text {
+  color: white !important;
+}
 
 .table{
   width: 100px;
