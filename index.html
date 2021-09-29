@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link id="theme" rel="stylesheet" type="text/css" href="style.css"/>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -35,19 +35,22 @@
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
-      <button class="btn btn-info" onclick="myFunction()">Light/dark mode</button>
+      <p>
+        <button class="colormode" onclick="swapStyleSheet('dark_style.css')">Dark Mode</button>
+        <button class="colormode" onclick="swapStyleSheet('style.css')">Light Mode</button>
+      </p>
     </nav>
     </br>
 
     <audio id="myAudio">
       <source src="music.mp3" type="audio/ogg">
     </audio>
-    
+
     <script>
-      var x = document.getElementById("myAudio"); 
-      
-      function playAudio(btn) { 
-//         x.play(); 
+      var x = document.getElementById("myAudio");
+
+      function playAudio(btn) {
+//         x.play();
            return x.paused ? x.play() : x.pause();
            if(x.paused) {
              x.play();
@@ -57,7 +60,7 @@
              x.pause();
              btn.innerHtml("Play Music");
            }
-      } 
+      }
     </script>
 
     <div class="container-custom">
@@ -105,17 +108,28 @@
       <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
 
 <script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
+
+function swapStyleSheet(sheet){
+    document.getElementById('theme').setAttribute('href', sheet);
+    localStorage.setItem("sheet", sheet);
 }
+
+window.onload = _ =>
+ swapStyleSheet(
+  localStorage.getItem("sheet") || "style.css"
+ );
+
+
+
 </script>
+
+
       <select id="ai_level">
         <option value="easy" selected>Easy</option>
         <option value="normal">Normal</option>
         <option value="hard">Hard</option>
       </select>
-       
+
 	   <button onclick="reset_board();">RESET BOARD</button>
       <h2 id="winner"></h2>
     </div>
