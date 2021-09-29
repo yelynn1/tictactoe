@@ -27,6 +27,24 @@
   align-items: center;*/
 }
 
+a {
+  font-family: Helvetica;
+  font-weight:bold;
+  margin: auto;
+  text-align: center;
+}
+
+nav {
+  border-color: black;
+  border-radius: 10px 100px / 120px;
+  border-style: groove;
+  border-width: 7px;
+  background: whitesmoke;
+  margin: auto;
+  padding: 3px;
+  text-align: center;
+}
+
 button {
   outline: none;
   border: 4px solid green;
@@ -389,7 +407,6 @@ thead{
   background-color: #2a2a2a;
   color: white;
   border: white;
-
 }
 
 .dark-text {
