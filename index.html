@@ -30,6 +30,7 @@
     </script>
   </head>
   <body>
+
     <nav class="navbar fixed-top" id="hero">
       <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
       <a class="navbar-brand" href="about.html">About</a>
@@ -47,15 +48,13 @@
       var x = document.getElementById("myAudio"); 
       
       function playAudio(btn) { 
-//         x.play(); 
-           return x.paused ? x.play() : x.pause();
            if(x.paused) {
              x.play();
-             btn.innerHtml("Pause Music");
+             document.querySelector("#music_btn").innerHTML = "Pause Music";
            }
            else {
              x.pause();
-             btn.innerHtml("Play Music");
+             document.querySelector("#music_btn").innerHTML = "Play Music";
            }
       } 
     </script>
@@ -133,8 +132,7 @@ function myFunction() {
         <option value="normal">Normal</option>
         <option value="hard">Hard</option>
       </select>
-       
-	   <button onclick="reset_board();">RESET BOARD</button>
+      <button onclick="reset_board()">RESET BOARD</button>
       <h2 id="winner"></h2>
     </div>
 

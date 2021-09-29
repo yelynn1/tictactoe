@@ -269,16 +269,16 @@ const reset_board = () => {
     randomizeStart();
 }
 
-document.getElementsByClassName("playerstat").innerText = playerstat;
-document.getElementsByClassName("computerstat").innerText = computerstat;
+//document.getElementsByClassName("playerstat1").innerText = playerstat1;
+//document.getElementsByClassName("computerstat").innerText = computerstat1;
 
-randomizeStart();
+//randomizeStart();
 
-window.addEventListener("DOMContentLoaded", event => {
-    const audio = document.querySelector("audio");
-    audio.volume = 0.2;
-    audio.play();
-});
+// window.addEventListener("DOMContentLoaded", event => {
+//     const audio = document.querySelector("audio");
+//     audio.volume = 0.2;
+//     audio.play();
+// });
 
 // const checkbox = document.getElementById('checkbox');
 
