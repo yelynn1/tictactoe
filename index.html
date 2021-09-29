@@ -31,14 +31,16 @@
   </head>
   <body>
     <nav class="navbar fixed-top navbar-light bg-light">
-      <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
+      <button class="btn btn-primary" onclick="playAudio(this)" type="button" id="music_btn">Play Music</button>
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
+
       <p>
         <button class="colormode" onclick="swapStyleSheet('dark_style.css')">Dark Mode</button>
         <button class="colormode" onclick="swapStyleSheet('style.css')">Light Mode</button>
       </p>
+
     </nav>
     </br>
 
@@ -47,18 +49,18 @@
     </audio>
 
     <script>
-      var x = document.getElementById("myAudio");
 
-      function playAudio(btn) {
-//         x.play();
-           return x.paused ? x.play() : x.pause();
+      var x = document.getElementById("myAudio"); 
+      
+      function playAudio(btn) { 
+
            if(x.paused) {
              x.play();
-             btn.innerHtml("Pause Music");
+             document.querySelector("#music_btn").innerHTML = "Pause Music";
            }
            else {
              x.pause();
-             btn.innerHtml("Play Music");
+             document.querySelector("#music_btn").innerHTML = "Play Music";
            }
       }
     </script>
@@ -107,11 +109,13 @@
       </div>
       <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
 
+
 <script>
 
 function swapStyleSheet(sheet){
     document.getElementById('theme').setAttribute('href', sheet);
     localStorage.setItem("sheet", sheet);
+
 }
 
 window.onload = _ =>
@@ -130,7 +134,10 @@ window.onload = _ =>
         <option value="hard">Hard</option>
       </select>
 
-	   <button onclick="reset_board();">RESET BOARD</button>
+
+
+      <button onclick="reset_board()">RESET BOARD</button>
+
       <h2 id="winner"></h2>
     </div>
 
