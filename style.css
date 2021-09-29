@@ -22,8 +22,8 @@
   font-family: Helvetica;
   font-weight: bold;
   font-size: 4em;
-  /* display: flex; 
-  justify-content: center; 
+  /* display: flex;
+  justify-content: center;
   align-items: center;*/
 }
 
@@ -141,7 +141,7 @@ button:hover {
   display: inline-block;
   margin-bottom: 5%;
   text-align: center;
-  width: 30%;
+  width: 24%;
 }
 .wrapper nav ol li a {
   text-decoration: none;
@@ -150,6 +150,8 @@ button:hover {
   color: #0056b3;
   text-decoration: underline;
 }
+
+
 .wrapper a {
   color: rgb(3, 102, 214);
   font-size: 16px;
@@ -224,30 +226,30 @@ pre {
   width: 67px;
   height: 67px;
 }
-    
-    
+
+
     .play-area {
   width: 201px;
   height: 201px;
 }
-    
+
   .wrapper nav {
     margin-bottom: 2%;
   }
   .wrapper nav ol li a {
     font-size: 20px;
   }
-    
+
 
     .container-custom {
         width: 100%;
         margin-top: 30%;
         padding-left: 5%;
         padding-right: 5%;
-        
+
 }
-    
-    
+
+
     .table{
  font-size: 10px;
   visibility: initial;
@@ -373,11 +375,6 @@ h1{
 
 h4{
   background-color: lightseagreen
-}
-
-.dark-mode {
-  background-color: black;
-  color: black;
 }
 
 
