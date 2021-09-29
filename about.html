@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tictactoe - About</title>
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link id="theme" rel="stylesheet" type="text/css" href="style.css"/>
  <!--Adding Favicon-->
  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-     
+
 </head>
 
 <body>
@@ -24,6 +24,10 @@
         </li>
         <li>
           <a href="contributors.html">Contributors</a>
+        </li>
+        <li>
+          <button class="colormode" onclick="swapStyleSheet('dark_style.css')">Dark Mode</button>
+          <button class="colormode" onclick="swapStyleSheet('style.css')">Light Mode</button>
         </li>
       </ol>
     </nav>
@@ -118,6 +122,20 @@
       </p>
     </div>
   </div>
+
+  <script>
+
+  function swapStyleSheet(sheet){
+      document.getElementById('theme').setAttribute('href', sheet);
+      localStorage.setItem("sheet", sheet);
+  }
+
+  window.onload = _ =>
+   swapStyleSheet(
+    localStorage.getItem("sheet") || "style.css"
+   );
+
+  </script>
 
 </body>
 
