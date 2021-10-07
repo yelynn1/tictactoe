@@ -164,6 +164,7 @@ const minimax = (board, isMaximizing) => {
  var temp6 =0;
 const checkWinner = () => {
     let res = check_match();
+    let unmuted = (document.querySelector("#mute_btn").innerHTML === "Mute Sound Effects");
     var playerstat1 = 0;
     var computerstat1 = 0;
     var loss1 = 0;
@@ -183,9 +184,11 @@ const checkWinner = () => {
         temp1 = temp1 + playerstat1;
         temp3 = temp3 + loss2;
         console.log("player win");
-        audio.pause();
-        var playwin = new Audio("audio/win.wav");
-        playwin.play();
+        if (unmuted) {
+            audio.pause();
+            var playwin = new Audio("audio/win.wav");
+            playwin.play();
+        }
     }
     else if (res == computer) {
         winner_statement.innerText = "Computer Won";
@@ -196,9 +199,11 @@ const checkWinner = () => {
         temp2 = temp2 + computerstat1;
         temp4 = temp4 + loss1;
         console.log("computer win");
-        audio.pause();
-        var compwin = new Audio("audio/gameover.wav");
-        compwin.play();
+        if (unmuted) {
+            audio.pause();
+            var compwin = new Audio("audio/gameover.wav");
+            compwin.play();
+        }
     }
     else if (board_full) {
         winner_statement.innerText = "Draw...";
@@ -208,9 +213,11 @@ const checkWinner = () => {
         temp5 = temp5 + draw1;
         temp6 = temp6 + draw2;
         console.log("draw");
-        audio.pause();
-        var draw = new Audio("audio/gameover.wav");
-        draw.play();
+        if (unmuted) {
+            audio.pause();
+            var draw = new Audio("audio/gameover.wav");
+            draw.play();
+        }
     }
     document.getElementById("playerstat1").innerText =   temp1;
     document.getElementById("computerstat1").innerText = temp2;

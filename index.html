@@ -32,6 +32,7 @@
   <body>
     <nav class="navbar fixed-top navbar-light bg-light">
       <button class="btn btn-primary" onclick="playAudio(this)" type="button" id="music_btn">Play Music</button>
+      <button class="btn btn-primary" onclick="mute(this)" type="button" id="mute_btn">Mute Sound Effects</button>
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
@@ -56,6 +57,15 @@
              document.querySelector("#music_btn").innerHTML = "Play Music";
            }
       } 
+
+      function mute(btn) {
+           if(document.querySelector("#mute_btn").innerHTML === "Mute Sound Effects") {
+             document.querySelector("#mute_btn").innerHTML = "Unmute Sound Effects";
+           }
+           else {
+             document.querySelector("#mute_btn").innerHTML = "Mute Sound Effects";
+           }
+      }
     </script>
 
     <div class="container-custom">
