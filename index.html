@@ -1,123 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TTC</title>
     <!--Adding Favicon-->
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-113861388-2"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113861388-2"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag("config", "UA-113861388-2");
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "UA-113861388-2");
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
+
+    <!-- Navbar -->
     <nav class="navbar fixed-top navbar-light bg-light">
-      <button class="btn btn-primary" onclick="playAudio(this)" type="button" id="music_btn">Play Music</button>
-      <a class="navbar-brand" href="about.html">About</a>
-      <a class="navbar-brand" href="#">Play Game</a>
-      <a class="navbar-brand" href="contributors.html">Contributors</a>
-      <button class="btn btn-info" onclick="myFunction()">Light/Dark mode</button>
+        <button class="btn btn-primary" onclick="playAudio(this)" type="button" id="music_btn">Play Music</button>
+        <a class="navbar-brand" href="about.html">About</a>
+        <a class="navbar-brand" href="#">Play Game</a>
+        <a class="navbar-brand" href="contributors.html">Contributors</a>
+        <button class="btn btn-info" onclick="myFunction()">Light/Dark mode</button>
     </nav>
     </br>
 
+    <!-- Audio player -->
     <audio id="myAudio">
       <source src="music.mp3" type="audio/ogg">
     </audio>
-    
-    <script>
-      var x = document.getElementById("myAudio"); 
-      
-      function playAudio(btn) { 
-           if(x.paused) {
-             x.play();
-             document.querySelector("#music_btn").innerHTML = "Pause Music";
-           }
-           else {
-             x.pause();
-             document.querySelector("#music_btn").innerHTML = "Play Music";
-           }
-      } 
-    </script>
 
+    <h1>Tic-Tac-Toe</h1>
+
+    <!-- Game Area -->
     <div class="container-custom">
-          <h1>Tic-Tac-Toe</h1>
-          <h4>Scoreboard</h4>
 
-          <table class="table">
+
+
+        <div class="play-area-container">
+
+            <!-- Winner Announcement -->
+            <h2 id="winner"></h2>
+
+            <!-- Difficulty Level -->
+            <div class="difficulty-wrapper">
+                <label for="ai_level">Choose your difficulty </label>
+                <select id="ai_level">
+                    <option value="easy" selected>Easy</option>
+                    <option value="normal">Normal</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+
+
+            <!-- Board Game -->
+            <div class="play-area">
+                <div id="block_0" class="block"></div>
+                <div id="block_1" class="block"></div>
+                <div id="block_2" class="block"></div>
+                <div id="block_3" class="block"></div>
+                <div id="block_4" class="block"></div>
+                <div id="block_5" class="block"></div>
+                <div id="block_6" class="block"></div>
+                <div id="block_7" class="block"></div>
+                <div id="block_8" class="block"></div>
+            </div>
+
+            <!-- Clear Board Button -->
+            <button class="btn-reset" onclick="reset_board()">RESET BOARD</button>
+
+        </div>
+
+        <!-- Score Board -->
+        <table class="table">
             <thead>
-              <tr style="color: crimson;">
-                <th scope="col">Game/User</th>
-                <th scope="col">Player</th>
-                <th scope="col">Computer</th>
-              </tr>
+                <tr style="color: crimson;">
+                    <th scope="col">Game/User</th>
+                    <th scope="col">Player</th>
+                    <th scope="col">Computer</th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row" class="table-success">Win</th>
-                <td id="playerstat1" class="playerstat table-success"></td>
-                <td id="computerstat1" class="computerstat table-success"></td>
-              </tr>
-              <tr>
-                <th scope="row" class="table-danger">Lost</th>
-                <td id="loss1" class="computerstat table-danger"></td>
-                <td id="loss2" class="playerstat table-danger"></td>
-              </tr>
-              <tr>
-                <th scope="row" class="table-warning">Draw</th>
-                <td id="draw1" class="drawstat table-warning"></td>
-                <td id="draw2" class="drawstat table-warning"></td>
-              </tr>
+                <tr>
+                    <th scope="row" class="table-success">Win</th>
+                    <td id="playerstat1" class="playerstat table-success"></td>
+                    <td id="computerstat1" class="computerstat table-success"></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-danger">Lost</th>
+                    <td id="loss1" class="computerstat table-danger"></td>
+                    <td id="loss2" class="playerstat table-danger"></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-warning">Draw</th>
+                    <td id="draw1" class="drawstat table-warning"></td>
+                    <td id="draw2" class="drawstat table-warning"></td>
+                </tr>
             </tbody>
-          </table>
+        </table>
 
-      <div class="play-area">
-        <div id="block_0" class="block"></div>
-        <div id="block_1" class="block"></div>
-        <div id="block_2" class="block"></div>
-        <div id="block_3" class="block"></div>
-        <div id="block_4" class="block"></div>
-        <div id="block_5" class="block"></div>
-        <div id="block_6" class="block"></div>
-        <div id="block_7" class="block"></div>
-        <div id="block_8" class="block"></div>
-      </div>
-      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
-
-<script> 
-function myFunction() { 
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
-      <select id="ai_level">
-        <option value="easy" selected>Easy</option>
-        <option value="normal">Normal</option>
-        <option value="hard">Hard</option>
-      </select>
-      <button onclick="reset_board()">RESET BOARD</button>
-      <h2 id="winner"></h2>
     </div>
 
+
+    <script>
+        var x = document.getElementById("myAudio");
+
+        function playAudio(btn) {
+            if (x.paused) {
+                x.play();
+                document.querySelector("#music_btn").innerHTML = "Pause Music";
+            } else {
+                x.pause();
+                document.querySelector("#music_btn").innerHTML = "Play Music";
+            }
+        }
+
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
     <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
     <script src="app.js"></script>
-  </body>
+</body>
+
 </html>
