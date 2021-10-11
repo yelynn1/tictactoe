@@ -7,9 +7,9 @@ let ai_level;
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
     board_container.innerHTML = "";
-    play_board.forEach((e,i) => {
+    play_board.forEach((e, i) => {
         board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
-        if(e == player || e == computer) {
+        if (e == player || e == computer) {
             document.querySelector(`#block_${i}`).classList.add("occupied");
         }
     });
@@ -24,10 +24,10 @@ const configure_ai = () => {
 }
 
 FBInstant.initializeAsync()
-  .then(function(){
+    .then(function() {
         var progress = 0;
         var interval = setInterval(function() {
-            if(progress>=95){
+            if (progress >= 95) {
                 clearInterval(interval);
                 FBInstant.startGameAsync().then(
                     function() {
@@ -38,8 +38,7 @@ FBInstant.initializeAsync()
             FBInstant.setLoadingProgress(progress);
             progress += 5;
         }, 100);
-  }
-);
+    });
 
 render_board();
 configure_ai();
@@ -49,7 +48,7 @@ configure_ai();
 const checkBoardComplete = () => {
     let flag = true;
     play_board.forEach(element => {
-        if(element == "") {
+        if (element == "") {
             flag = false;
         }
     });
@@ -63,17 +62,19 @@ const game_loop = () => {
 }
 
 const randomizeStart = () => {
-    if(play_board.every(item=> item==="")){
-    // const PLAYER = 0;
-    const COMPUTER = 1;
-    const start = Math.round(Math.random());
-    if(start === COMPUTER){
-        addComputerMove(ai_level);
-        console.log("COMPUTER STARTED")
-    }else{
-        console.log("PLAYER STARTS")
-    }}
+    if (play_board.every(item => item === "")) {
+        // const PLAYER = 0;
+        const COMPUTER = 1;
+        const start = Math.round(Math.random());
+        if (start === COMPUTER) {
+            addComputerMove(ai_level);
+            console.log("COMPUTER STARTED")
+        } else {
+            console.log("PLAYER STARTS")
+        }
+    }
 }
+
 const addPlayerMove = e => {
     if (play_board[e] == "" && !board_full) {
         document.querySelector("#ai_level").disabled = true;
@@ -84,84 +85,124 @@ const addPlayerMove = e => {
 };
 
 const addComputerMove = (ai_level) => {
-    if(!board_full){
+    // If the board is not already full
+    if (!board_full) {
+
         let score;
         let compare;
+
+        // In function of the ai level, I'll define the type of next move the computer will do
         switch (ai_level) {
-            case "hard": 
+
+            case "hard":
+                // With this setup the AI will always play optimally
                 score = -Infinity;
-                compare = (a,b) => a > b;
+                compare = (a, b) => a > b;
                 break;
-            case "easy": 
-                score = Infinity; 
-                compare = (a,b) => a < b;
+
+            case "easy":
+                // With this setup the AI will always play the next empty position
+                score = Infinity;
+                compare = (a, b) => a < b;
                 break;
+
             case "normal":
+
+                // Generate a number between 1 and 100
                 let guess = Math.random() * 100;
+
+                // 40% of the time the AI will be hard (when Normal selected)
+                // 60% of the time the AI will be easy
                 if (guess <= 40) {
-                    score = Infinity; 
-                    compare = (a,b) => a < b;
-                }
-                else {
+                    score = Infinity;
+                    compare = (a, b) => a < b;
+                } else {
                     score = -Infinity;
-                    compare = (a,b) => a > b;
+                    compare = (a, b) => a > b;
                 }
                 break;
         }
         let nextMove;
-        for(let i = 0; i < play_board.length; i++){
-            if(play_board[i] == ""){
+
+        // Looping throuhg the play board array, too simulate all game end score for each next steps
+        for (let i = 0; i < play_board.length; i++) {
+
+            // If the current board position is empty
+            if (play_board[i] == "") {
+
+                // I simulate that the next move is on this position
                 play_board[i] = computer;
-                let endScore = minimax(play_board,0, false);
+
+                // Apply the minimax algorithm to determine the final score after my previous simulation
+                // Minimax algorithm calculate the final score if all player play optimaly 
+                let endScore = minimax(play_board, false);
+
+                // Clean the board from my simulation
                 play_board[i] = "";
+
+                // According to the difficulty level, we select or not the best position
                 if (compare(endScore, score)) {
                     score = endScore;
                     nextMove = i;
                 }
             }
         }
+
+        // Assingn the computer symbol to the selected position
         play_board[nextMove] = computer;
         game_loop();
     }
 }
 
-let scores = {X : 1, O : -1, tie : 0};
+let scores = { X: 1, O: -1, tie: 0 };
 
+// Minimax algorithm 
+// Check: https://www.neverstopbuilding.com/blog/minimax
+// Input : Board: Array of player moves on the board
+//         isMaximizing : false = Return the minimum score / true = Return the maximum score
+//                                Simulate a move of the player     Simulate a move from the computer
 const minimax = (board, isMaximizing) => {
+
+    // Check first if the match is won by someone
     let res = check_match();
-    if(res != ""){
+    if (res != "") {
         return scores[res];
     }
-    if(isMaximizing){
+
+    if (isMaximizing) {
+        // Simluate Computer Move
         let bestScore = -Infinity;
-        for(let i = 0;i<board.length;i++){
-            if(board[i] == ""){
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] == "") {
                 board[i] = computer;
                 let score = minimax(board, false);
                 board[i] = "";
-                bestScore = Math.max(score,bestScore);
+                bestScore = Math.max(score, bestScore);
             }
         }
         return bestScore;
     } else {
+        // Simluate Player Move
         let bestScore = Infinity;
-        for(let i = 0;i<board.length;i++){
-            if(board[i] == ""){
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] == "") {
                 board[i] = player;
                 let score = minimax(board, true);
                 board[i] = "";
-                bestScore = Math.min(score,bestScore);
+                bestScore = Math.min(score, bestScore);
             }
         }
         return bestScore;
     }
 }
- var temp1 = 0;
- var temp2 = 0;
- var temp3 = 0;
- var temp4 = 0;
- var temp5 = 0;
- var temp6 =0;
+
+var temp1 = 0;
+var temp2 = 0;
+var temp3 = 0;
+var temp4 = 0;
+var temp5 = 0;
+var temp6 = 0;
+
 const checkWinner = () => {
     let res = check_match();
     var playerstat1 = 0;
@@ -173,7 +214,7 @@ const checkWinner = () => {
 
     const winner_statement = document.getElementById("winner");
     const audio = document.querySelector("audio");
-    
+
     if (res == player) {
         winner_statement.innerText = "Player Won";
         winner_statement.classList.add("playerWin");
@@ -186,8 +227,7 @@ const checkWinner = () => {
         audio.pause();
         var playwin = new Audio("audio/win.wav");
         playwin.play();
-    }
-    else if (res == computer) {
+    } else if (res == computer) {
         winner_statement.innerText = "Computer Won";
         winner_statement.classList.add("computerWin");
         board_full = true;
@@ -199,8 +239,7 @@ const checkWinner = () => {
         audio.pause();
         var compwin = new Audio("audio/gameover.wav");
         compwin.play();
-    }
-    else if (board_full) {
+    } else if (board_full) {
         winner_statement.innerText = "Draw...";
         winner_statement.classList.add("draw");
         draw1++;
@@ -212,18 +251,18 @@ const checkWinner = () => {
         var draw = new Audio("audio/gameover.wav");
         draw.play();
     }
-    document.getElementById("playerstat1").innerText =   temp1;
+    document.getElementById("playerstat1").innerText = temp1;
     document.getElementById("computerstat1").innerText = temp2;
-    document.getElementById("loss1").innerText =   temp4;
+    document.getElementById("loss1").innerText = temp4;
     document.getElementById("loss2").innerText = temp3;
-    document.getElementById("draw1").innerText =  temp5;
+    document.getElementById("draw1").innerText = temp5;
     document.getElementById("draw2").innerText = temp6;
 };
 
-const check_line = (a,b,c) => {
+
+const check_line = (a, b, c) => {
     let status =
-        play_board[a] == play_board[b] &&
-        play_board[b] == play_board[c] &&
+        play_board[a] == play_board[b] && play_board[b] == play_board[c] &&
         (play_board[a] == player || play_board[a] == computer);
     if (status) {
         document.getElementById(`block_${a}`).classList.add("won");
@@ -233,25 +272,36 @@ const check_line = (a,b,c) => {
     return status;
 };
 
+// Function to check if a player has won the match
 const check_match = () => {
-    for (let i=0; i<9; i+=3) {
-        if(check_line(i,i+1,i+2)) {
+
+    // Iterate through each row
+    for (let i = 0; i < 9; i += 3) {
+        if (check_line(i, i + 1, i + 2)) {
             return play_board[i];
         }
     }
-    for (let i=0; i<3; i++) {
-        if(check_line(i, i+3, i+6)) {
+
+    // Iterate through each columns
+    for (let i = 0; i < 3; i++) {
+        if (check_line(i, i + 3, i + 6)) {
             return play_board[i];
         }
     }
-    if(check_line(0,4,8)) {
+
+    // Check the diagonal from top left to bottom right
+    if (check_line(0, 4, 8)) {
         return play_board[0];
     }
-    if(check_line(2,4,6)) {
+
+    // Check the diagonal from top right to bottom left
+    if (check_line(2, 4, 6)) {
         return play_board[2];
     }
+
+    // Otherwise check if the board is complete 
     checkBoardComplete();
-    if(board_full) return "tie";
+    if (board_full) return "tie";
     return "";
 }
 
