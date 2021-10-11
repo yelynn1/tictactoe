@@ -3,3 +3,4 @@ os: linux
 files:
   - source: /
     destination: /var/www/html/
+file_exists_behavior: OVERWRITE
