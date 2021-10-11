@@ -2,14 +2,25 @@ let play_board = ["", "", "", "", "", "", "", "", ""];
 const player = "O";
 const computer = "X";
 let board_full = false;
-let ai_level;
+let ai_level = "";
+
+// Array cells
+const player_win = document.getElementById("player_win");
+const computer_win = document.getElementById("computer_win");
+const player_loss = document.getElementById("player_loss");
+const computer_loss = document.getElementById("computer_loss");
+const player_draw = document.getElementById("player_draw");
+const computer_draw = document.getElementById("computer_draw");
+
+const winner_statement = document.getElementById("winner");
+const audio = document.querySelector("audio");
 
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
     board_container.innerHTML = "";
-    play_board.forEach((e,i) => {
+    play_board.forEach((e, i) => {
         board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
-        if(e == player || e == computer) {
+        if (e == player || e == computer) {
             document.querySelector(`#block_${i}`).classList.add("occupied");
         }
     });
@@ -24,10 +35,10 @@ const configure_ai = () => {
 }
 
 FBInstant.initializeAsync()
-  .then(function(){
+    .then(function() {
         var progress = 0;
         var interval = setInterval(function() {
-            if(progress>=95){
+            if (progress >= 95) {
                 clearInterval(interval);
                 FBInstant.startGameAsync().then(
                     function() {
@@ -38,8 +49,7 @@ FBInstant.initializeAsync()
             FBInstant.setLoadingProgress(progress);
             progress += 5;
         }, 100);
-  }
-);
+    });
 
 render_board();
 configure_ai();
@@ -49,7 +59,7 @@ configure_ai();
 const checkBoardComplete = () => {
     let flag = true;
     play_board.forEach(element => {
-        if(element == "") {
+        if (element == "") {
             flag = false;
         }
     });
@@ -63,16 +73,17 @@ const game_loop = () => {
 }
 
 const randomizeStart = () => {
-    if(play_board.every(item=> item==="")){
-    // const PLAYER = 0;
-    const COMPUTER = 1;
-    const start = Math.round(Math.random());
-    if(start === COMPUTER){
-        addComputerMove(ai_level);
-        console.log("COMPUTER STARTED")
-    }else{
-        console.log("PLAYER STARTS")
-    }}
+    if (play_board.every(item => item === "")) {
+        // const PLAYER = 0;
+        const COMPUTER = 1;
+        const start = Math.round(Math.random());
+        if (start === COMPUTER) {
+            addComputerMove(ai_level);
+            console.log("COMPUTER STARTED")
+        } else {
+            console.log("PLAYER STARTS")
+        }
+    }
 }
 const addPlayerMove = e => {
     if (play_board[e] == "" && !board_full) {
@@ -84,35 +95,34 @@ const addPlayerMove = e => {
 };
 
 const addComputerMove = (ai_level) => {
-    if(!board_full){
+    if (!board_full) {
         let score;
         let compare;
         switch (ai_level) {
-            case "hard": 
+            case "hard":
                 score = -Infinity;
-                compare = (a,b) => a > b;
+                compare = (a, b) => a > b;
                 break;
-            case "easy": 
-                score = Infinity; 
-                compare = (a,b) => a < b;
+            case "easy":
+                score = Infinity;
+                compare = (a, b) => a < b;
                 break;
             case "normal":
                 let guess = Math.random() * 100;
                 if (guess <= 40) {
-                    score = Infinity; 
-                    compare = (a,b) => a < b;
-                }
-                else {
+                    score = Infinity;
+                    compare = (a, b) => a < b;
+                } else {
                     score = -Infinity;
-                    compare = (a,b) => a > b;
+                    compare = (a, b) => a > b;
                 }
                 break;
         }
         let nextMove;
-        for(let i = 0; i < play_board.length; i++){
-            if(play_board[i] == ""){
+        for (let i = 0; i < play_board.length; i++) {
+            if (play_board[i] == "") {
                 play_board[i] = computer;
-                let endScore = minimax(play_board,0, false);
+                let endScore = minimax(play_board, 0, false);
                 play_board[i] = "";
                 if (compare(endScore, score)) {
                     score = endScore;
@@ -125,102 +135,109 @@ const addComputerMove = (ai_level) => {
     }
 }
 
-let scores = {X : 1, O : -1, tie : 0};
+let scores = { X: 1, O: -1, tie: 0 };
 
 const minimax = (board, isMaximizing) => {
     let res = check_match();
-    if(res != ""){
+    if (res != "") {
         return scores[res];
     }
-    if(isMaximizing){
+    if (isMaximizing) {
         let bestScore = -Infinity;
-        for(let i = 0;i<board.length;i++){
-            if(board[i] == ""){
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] == "") {
                 board[i] = computer;
                 let score = minimax(board, false);
                 board[i] = "";
-                bestScore = Math.max(score,bestScore);
+                bestScore = Math.max(score, bestScore);
             }
         }
         return bestScore;
     } else {
         let bestScore = Infinity;
-        for(let i = 0;i<board.length;i++){
-            if(board[i] == ""){
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] == "") {
                 board[i] = player;
                 let score = minimax(board, true);
                 board[i] = "";
-                bestScore = Math.min(score,bestScore);
+                bestScore = Math.min(score, bestScore);
             }
         }
         return bestScore;
     }
 }
- var temp1 = 0;
- var temp2 = 0;
- var temp3 = 0;
- var temp4 = 0;
- var temp5 = 0;
- var temp6 =0;
+
+/* var temp1 = 0;
+var temp2 = 0;
+var temp3 = 0;
+var temp4 = 0;
+var temp5 = 0;
+var temp6 = 0; */
+
 const checkWinner = () => {
     let res = check_match();
-    var playerstat1 = 0;
-    var computerstat1 = 0;
-    var loss1 = 0;
-    var loss2 = 0;
-    var draw1 = 0;
-    var draw2 = 0;
 
-    const winner_statement = document.getElementById("winner");
-    const audio = document.querySelector("audio");
-    
     if (res == player) {
+
         winner_statement.innerText = "Player Won";
         winner_statement.classList.add("playerWin");
+
         board_full = true;
-        playerstat1++;
-        loss2++;
-        temp1 = temp1 + playerstat1;
-        temp3 = temp3 + loss2;
+
+        player_win.innerText = parseInt(player_win.innerText) + 1;
+        computer_loss.innerText = parseInt(computer_loss.innerText) + 1;
+
         console.log("player win");
+
         audio.pause();
         var playwin = new Audio("audio/win.wav");
         playwin.play();
-    }
-    else if (res == computer) {
+
+    } else if (res == computer) {
+
         winner_statement.innerText = "Computer Won";
         winner_statement.classList.add("computerWin");
+
         board_full = true;
-        computerstat1++;
-        loss1++;
-        temp2 = temp2 + computerstat1;
-        temp4 = temp4 + loss1;
+
+        computer_win.innerText = parseInt(computer_win.innerText) + 1;
+        player_loss.innerText = parseInt(player_loss.innerText) + 1;
+
         console.log("computer win");
         audio.pause();
+
         var compwin = new Audio("audio/gameover.wav");
         compwin.play();
-    }
-    else if (board_full) {
+
+    } else if (board_full) {
+
         winner_statement.innerText = "Draw...";
         winner_statement.classList.add("draw");
-        draw1++;
-        draw2++;
-        temp5 = temp5 + draw1;
-        temp6 = temp6 + draw2;
+
+        player_draw.innerText = parseInt(player_draw.innerText) + 1;
+        computer_draw.innerText = parseInt(player_draw.innerText) + 1;
+
         console.log("draw");
+
         audio.pause();
         var draw = new Audio("audio/gameover.wav");
         draw.play();
     }
-    document.getElementById("playerstat1").innerText =   temp1;
-    document.getElementById("computerstat1").innerText = temp2;
-    document.getElementById("loss1").innerText =   temp4;
-    document.getElementById("loss2").innerText = temp3;
-    document.getElementById("draw1").innerText =  temp5;
-    document.getElementById("draw2").innerText = temp6;
+
 };
 
-const check_line = (a,b,c) => {
+function resetScoreboard() {
+    player_win.innerText = 0;
+    computer_win.innerText = 0;
+
+    player_loss.innerText = 0;
+    computer_loss.innerText = 0;
+
+    player_draw.innerText = 0;
+    computer_draw.innerText = 0;
+}
+
+const check_line = (a, b, c) => {
     let status =
         play_board[a] == play_board[b] &&
         play_board[b] == play_board[c] &&
@@ -234,24 +251,24 @@ const check_line = (a,b,c) => {
 };
 
 const check_match = () => {
-    for (let i=0; i<9; i+=3) {
-        if(check_line(i,i+1,i+2)) {
+    for (let i = 0; i < 9; i += 3) {
+        if (check_line(i, i + 1, i + 2)) {
             return play_board[i];
         }
     }
-    for (let i=0; i<3; i++) {
-        if(check_line(i, i+3, i+6)) {
+    for (let i = 0; i < 3; i++) {
+        if (check_line(i, i + 3, i + 6)) {
             return play_board[i];
         }
     }
-    if(check_line(0,4,8)) {
+    if (check_line(0, 4, 8)) {
         return play_board[0];
     }
-    if(check_line(2,4,6)) {
+    if (check_line(2, 4, 6)) {
         return play_board[2];
     }
     checkBoardComplete();
-    if(board_full) return "tie";
+    if (board_full) return "tie";
     return "";
 }
 
@@ -269,8 +286,8 @@ const reset_board = () => {
     randomizeStart();
 }
 
-//document.getElementsByClassName("playerstat1").innerText = playerstat1;
-//document.getElementsByClassName("computerstat").innerText = computerstat1;
+//document.getElementsByClassName("player_win").innerText = player_win;
+//document.getElementsByClassName("computerstat").innerText = computer_win;
 
 //randomizeStart();
 
