@@ -167,62 +167,56 @@ const minimax = (board, isMaximizing) => {
     }
 }
 
-/* var temp1 = 0;
-var temp2 = 0;
-var temp3 = 0;
-var temp4 = 0;
-var temp5 = 0;
-var temp6 = 0; */
-
 const checkWinner = () => {
+
+    // Determine if there is a winner
     let res = check_match();
+
+    let winnerMsg = '';
+    let winnerClass = '';
+    let audioName = '';
 
     if (res == player) {
 
-        winner_statement.innerText = "Player Won";
-        winner_statement.classList.add("playerWin");
+        winnerMsg = "Player Won";
+        winnerClass = "playerWin";
+        audioName = "audio/win.wav";
 
         board_full = true;
 
         player_win.innerText = parseInt(player_win.innerText) + 1;
         computer_loss.innerText = parseInt(computer_loss.innerText) + 1;
 
-        console.log("player win");
-
-        audio.pause();
-        var playwin = new Audio("audio/win.wav");
-        playwin.play();
-
     } else if (res == computer) {
 
-        winner_statement.innerText = "Computer Won";
-        winner_statement.classList.add("computerWin");
+        winnerMsg = "Computer Won";
+        winnerClass = "computerWin";
+        audioName = "audio/gameover.wav";
 
         board_full = true;
 
         computer_win.innerText = parseInt(computer_win.innerText) + 1;
         player_loss.innerText = parseInt(player_loss.innerText) + 1;
 
-        console.log("computer win");
-        audio.pause();
-
-        var compwin = new Audio("audio/gameover.wav");
-        compwin.play();
-
     } else if (board_full) {
 
-        winner_statement.innerText = "Draw...";
-        winner_statement.classList.add("draw");
+        winnerMsg = "Draw...";
+        winnerClass = "draw";
+        audioName = "audio/gameover.wav";
 
         player_draw.innerText = parseInt(player_draw.innerText) + 1;
         computer_draw.innerText = parseInt(player_draw.innerText) + 1;
 
-        console.log("draw");
-
-        audio.pause();
-        var draw = new Audio("audio/gameover.wav");
-        draw.play();
     }
+
+    // Update winner message
+    winner_statement.innerText = winnerMsg;
+    winnerClass != '' ? winner_statement.classList.add(winnerClass) : winner_statement.className = '';
+
+    // Run audio
+    audio.pause();
+    var draw = new Audio(audioName);
+    draw.play();
 
 };
 
@@ -235,6 +229,9 @@ function resetScoreboard() {
 
     player_draw.innerText = 0;
     computer_draw.innerText = 0;
+
+    winner_statement.className = '';
+    winner_statement.innerText = '';
 }
 
 const check_line = (a, b, c) => {
