@@ -417,3 +417,73 @@ thead{
   width: 100px;
   visibility: initial;
 }
+
+
+
+
+.pure-dark-main {
+    background-color: black;
+    color: white;
+}
+
+.pure-dark-hero {
+    background-color: #001830;
+    color: white;
+}
+
+.pure-dark-play {
+    background-color: #000204;
+    color: white;
+    border: white;
+}
+
+.pure-dark-text {
+    color: white !important;
+}
+
+pure_dark_button {
+    outline: none;
+    border: 4px solid green;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: none;
+    transition: all 0.2s ease-in-out;
+    color: #000204;
+}
+
+    pure_dark_button:hover {
+        cursor: pointer;
+        background: green;
+        color: white;
+    }
+
+.play-area-pure-dark {
+    display: grid;
+    width: 300px;
+    height: 300px;
+    grid-template-columns: auto auto auto;
+    background-color: black;
+    margin: 0.5% 0;
+}
+
+.block-pure-dark {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    border: 3px solid rgb(0, 57, 122);
+    transition: background 0.2s ease-in-out;
+}
+
+    .block-pure-dark:hover {
+        cursor: pointer;
+        background: #056605;
+    }
+
+.occupied-pure-dark:hover {
+    background: #661717;
+}
