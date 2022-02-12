@@ -32,7 +32,7 @@
   <body>
 
     <nav class="navbar fixed-top" id="hero">
-      <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
+      <button class="btn btn-primary" onclick="playAudio()" data-playBtn type="button">Play Music</button>
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
@@ -46,15 +46,16 @@
     
     <script>
       var x = document.getElementById("myAudio"); 
-      
-      function playAudio(btn) { 
+      let playBtn = document.querySelector('[data-playBtn]')
+      function playAudio(){ 
            if(x.paused) {
+             console.log()
              x.play();
-             document.querySelector("#music_btn").innerHTML = "Pause Music";
+             playBtn.innerText = "Pause Music";
            }
            else {
              x.pause();
-             document.querySelector("#music_btn").innerHTML = "Play Music";
+             playBtn.innerText = "Play Music";
            }
       } 
     </script>
