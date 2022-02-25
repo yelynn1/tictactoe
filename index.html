@@ -32,31 +32,38 @@
   <body>
 
     <nav class="navbar fixed-top" id="hero">
-      <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
+      <button class="btn btn-primary" onclick="playAudio()" type="button" id="music">Play Music</button>
+      <div>
+        <img src="pause_button.png" id="icon">
+      </div>
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
       <button class="btn btn-info" onclick="myFunction()">Dark Mode</button>
     </nav>
-    </br>
 
     <audio id="myAudio">
       <source src="music.mp3" type="audio/ogg">
     </audio>
     
     <script>
-      var x = document.getElementById("myAudio"); 
-      
-      function playAudio(btn) { 
-           if(x.paused) {
-             x.play();
-             document.querySelector("#music_btn").innerHTML = "Pause Music";
-           }
-           else {
-             x.pause();
-             document.querySelector("#music_btn").innerHTML = "Play Music";
-           }
-      } 
+      var audio = document.getElementById("myAudio"); 
+      var musicToggle = document.getElementById("music");
+      var icon = document.getElementById("icon");
+
+      function playAudio(){
+        if(musicToggle.textContent == "Play Music"){
+          audio.play();
+          musicToggle.textContent = "Pause Music"
+          icon.src = "play_button.png";
+          document.querySelector("#music_btn").innerHTML = "Pause Music";
+        }else{
+          audio.pause();
+          musicToggle.textContent = "Play Music"
+          icon.src = "pause_button.png";
+          document.querySelector("#music_btn").innerHTML = "Play Music";
+        }
+      }
     </script>
 
     <div class="container-custom">
@@ -116,7 +123,7 @@ function myFunction() {
     element.classList.toggle('dark-text')  
    });
 
-   if (darkToggle[1].textContent === "Dark Mode"){
+   if (darkToggle[1].textContent == "Dark Mode"){
      darkToggle[1].textContent = "Light Mode"
    } else {
      darkToggle[1].textContent = "Dark Mode"
