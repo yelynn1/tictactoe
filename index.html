@@ -33,6 +33,7 @@
 
     <nav class="navbar fixed-top" id="hero">
       <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
+      <input type="range" id="volume-slider">
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
@@ -43,20 +44,25 @@
     <audio id="myAudio">
       <source src="music.mp3" type="audio/ogg">
     </audio>
-    
+
     <script>
-      var x = document.getElementById("myAudio"); 
-      
-      function playAudio(btn) { 
+      var x = document.getElementById("myAudio");
+      var sliderLevel = document.querySelector('#volume-slider')
+      x.volume = sliderLevel.value/100
+      sliderLevel.addEventListener("change", function(e) {
+        x.volume = e.currentTarget.value / 100;
+      })
+
+      function playAudio(btn) {
            if(x.paused) {
              x.play();
-             document.querySelector("#music_btn").innerHTML = "Pause Music";
+             document.querySelector(".btn-primary").innerHTML = "Pause Music";
            }
            else {
              x.pause();
-             document.querySelector("#music_btn").innerHTML = "Play Music";
+             document.querySelector(".btn-primary").innerHTML = "Play Music";
            }
-      } 
+      }
     </script>
 
     <div class="container-custom">
@@ -113,7 +119,7 @@ function myFunction() {
    var arr = Array.prototype.slice.call(heroText)
 
    arr.forEach(element => {
-    element.classList.toggle('dark-text')  
+    element.classList.toggle('dark-text')
    });
 
    if (darkToggle[1].textContent === "Dark Mode"){
