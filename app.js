@@ -162,6 +162,9 @@ const minimax = (board, isMaximizing) => {
  var temp4 = 0;
  var temp5 = 0;
  var temp6 =0;
+
+ var endMusic = null; //the Audio object for the music at the end of the game
+
 const checkWinner = () => {
     let res = check_match();
     var playerstat1 = 0;
@@ -184,8 +187,8 @@ const checkWinner = () => {
         temp3 = temp3 + loss2;
         console.log("player win");
         audio.pause();
-        var playwin = new Audio("audio/win.wav");
-        playwin.play();
+        endMusic = new Audio("audio/win.wav");
+        endMusic.play();
     }
     else if (res == computer) {
         winner_statement.innerText = "Computer Won";
@@ -197,8 +200,8 @@ const checkWinner = () => {
         temp4 = temp4 + loss1;
         console.log("computer win");
         audio.pause();
-        var compwin = new Audio("audio/gameover.wav");
-        compwin.play();
+        endMusic = new Audio("audio/gameover.wav");
+        endMusic.play();
     }
     else if (board_full) {
         winner_statement.innerText = "Draw...";
@@ -209,16 +212,41 @@ const checkWinner = () => {
         temp6 = temp6 + draw2;
         console.log("draw");
         audio.pause();
-        var draw = new Audio("audio/gameover.wav");
-        draw.play();
+        endMusic = new Audio("audio/gameover.wav");
+        endMusic.play();
     }
+
     document.getElementById("playerstat1").innerText =   temp1;
     document.getElementById("computerstat1").innerText = temp2;
     document.getElementById("loss1").innerText =   temp4;
     document.getElementById("loss2").innerText = temp3;
     document.getElementById("draw1").innerText =  temp5;
     document.getElementById("draw2").innerText = temp6;
+
+    if (loss1 == 1 || loss2 == 1 || draw1 == 1 || draw2 == 1) { //when the game ends, I create and add a button in the 'div-end-of-game' div
+        var btn = document.createElement("button");
+        btn.className = "btn-sound";
+        btn.innerHTML = "<i class='fa fa-volume-up' aria-hidden='true'></i>";
+        btn.onclick = muteAudio;
+        document.getElementsByClassName("div-end-of-game")[0].appendChild(btn);
+    }
 };
+
+var x = document.getElementById("myAudio");
+
+const muteAudio = () => { //mutes or demutes all the audio (music and end game music)
+    var btn = document.getElementsByClassName("btn-sound")[0];
+    if(!x.muted) {
+        x.muted = true;
+        endMusic.muted = true;
+        btn.innerHTML = "<i class='fa fa-volume-down' aria-hidden='true'></i>"; //change the icon of the button when the sound is muted
+      }
+      else {
+        x.muted = false;
+        endMusic.muted = false;
+        btn.innerHTML = "<i class='fa fa-volume-up' aria-hidden='true'></i>";
+      }
+}
 
 const check_line = (a,b,c) => {
     let status =
@@ -267,6 +295,10 @@ const reset_board = () => {
     const audio = document.querySelector("audio");
     render_board();
     randomizeStart();
+
+    var mute_sound_btn = document.getElementsByClassName("btn-sound")[0];
+    if (mute_sound_btn != undefined)
+        mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when reseting the board
 }
 
 //document.getElementsByClassName("playerstat1").innerText = playerstat1;
