@@ -88,18 +88,18 @@ const addComputerMove = (ai_level) => {
         let score;
         let compare;
         switch (ai_level) {
-            case "hard": 
+            case "hard":
                 score = -Infinity;
                 compare = (a,b) => a > b;
                 break;
-            case "easy": 
-                score = Infinity; 
+            case "easy":
+                score = Infinity;
                 compare = (a,b) => a < b;
                 break;
             case "normal":
                 let guess = Math.random() * 100;
                 if (guess <= 40) {
-                    score = Infinity; 
+                    score = Infinity;
                     compare = (a,b) => a < b;
                 }
                 else {
@@ -173,7 +173,7 @@ const checkWinner = () => {
 
     const winner_statement = document.getElementById("winner");
     const audio = document.querySelector("audio");
-    
+
     if (res == player) {
         winner_statement.innerText = "Player Won";
         winner_statement.classList.add("playerWin");
@@ -184,7 +184,7 @@ const checkWinner = () => {
         temp3 = temp3 + loss2;
         console.log("player win");
         audio.pause();
-        var playwin = new Audio("audio/win.wav");
+        var playwin = new Audio("assets/audio/win.wav");
         playwin.play();
     }
     else if (res == computer) {
@@ -197,7 +197,7 @@ const checkWinner = () => {
         temp4 = temp4 + loss1;
         console.log("computer win");
         audio.pause();
-        var compwin = new Audio("audio/gameover.wav");
+        var compwin = new Audio("assets/audio/gameover.wav");
         compwin.play();
     }
     else if (board_full) {
@@ -209,7 +209,7 @@ const checkWinner = () => {
         temp6 = temp6 + draw2;
         console.log("draw");
         audio.pause();
-        var draw = new Audio("audio/gameover.wav");
+        var draw = new Audio("assets/audio/gameover.wav");
         draw.play();
     }
     document.getElementById("playerstat1").innerText =   temp1;
