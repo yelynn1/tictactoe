@@ -266,17 +266,19 @@ pre {
     
 
     .container-custom {
-        width: 100%;
+        /* width: 100%; */
         margin-top: 30%;
         padding-left: 5%;
         padding-right: 5%;
-        
+        padding-top: 10%;
 }
     
     
     .table{
  font-size: 10px;
   visibility: initial;
+  width:100px; 
+  border: 1px solid black;
 }
 }
 
