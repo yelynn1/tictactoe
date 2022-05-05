@@ -62,17 +62,6 @@
         x.volume = e.currentTarget.value / 100;
       })
 
-      function changeVolume() {
-        var sliderLevel = document.querySelector('#volume-slider')
-        console.log(sliderLevel.value)
-      }
-
-      function changeMusicVolume() {
-        var sliderLevel = document.querySelector('#volume-music-slider')
-        console.log(sliderLevel.value)
-      }
-
-
       function playAudio(btn) {
            if(x.paused) {
              x.play();
