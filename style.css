@@ -7,8 +7,8 @@
 
 .container-custom {
   /* border: 5px solid black; */
-  padding-top: 10px;
-  min-height: 100vh;
+  /* padding-top: 10px;
+  min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,7 @@
 
 a {
   font-family: Helvetica;
-  font-weight:bold;
+  font-weight: bold;
   margin: auto;
   text-align: center;
 }
@@ -143,6 +143,11 @@ button:hover {
 
 .navbar {
   background-color: white;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
 
 .navbar > a {
@@ -157,7 +162,7 @@ button:hover {
 }
 .wrapper nav {
   top: 0px;
-    width: 100%;
+  width: 100%;
 }
 .wrapper nav ol {
   padding: 0px;
@@ -244,45 +249,40 @@ pre {
   padding: 16px;
 }
 
-
 @media screen and (max-width: 400px) {
-    .block {
-  width: 67px;
-  height: 67px;
-}
-    
-    
-    .play-area {
-  width: 201px;
-  height: 201px;
-}
-    
+  .block {
+    width: 67px;
+    height: 67px;
+  }
+
+  .play-area {
+    width: 201px;
+    height: 201px;
+  }
+
   .wrapper nav {
     margin-bottom: 2%;
   }
   .wrapper nav ol li a {
     font-size: 20px;
   }
-    
 
-    .container-custom {
-        width: 100%;
-        margin-top: 30%;
-        padding-left: 5%;
-        padding-right: 5%;
-        
-}
-    
-    
-    .table{
- font-size: 10px;
-  visibility: initial;
-}
-}
+  .container-custom {
+    /* margin-top: 30%; */
+    padding-left: 5%;
+    padding-right: 5%;
+    /* padding-top: 10%; */
+  }
 
+  .table {
+    font-size: 10px;
+    visibility: initial;
+    width: 100px;
+    border: 1px solid black;
+  }
+}
 
 @media screen and (max-width: 768px) {
-
   .shortDescr {
     margin-top: 2%;
   }
@@ -383,14 +383,14 @@ pre {
 
 /* light and dark more style */
 body {
-  padding: 25px;
-  background:gray;
+  /* padding: 25px; */
+  background: gray;
   color: black;
   font-size: 25px;
 }
 
-thead{
-  background-color: lightblue
+thead {
+  background-color: lightblue;
 }
 
 .dark-main {
@@ -398,7 +398,7 @@ thead{
   color: white;
 }
 
-.dark-hero{
+.dark-hero {
   background-color: #2a2a2a;
   color: white;
 }
@@ -413,7 +413,7 @@ thead{
   color: white !important;
 }
 
-.table{
-  width: 100px;
+.table {
+  width: 80%;
   visibility: initial;
 }

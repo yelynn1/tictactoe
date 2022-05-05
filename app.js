@@ -173,6 +173,7 @@ const checkWinner = () => {
 
     const winner_statement = document.getElementById("winner");
     const audio = document.querySelector("audio");
+    const volume_slider = document.querySelector("#volume-music-slider")
     
     if (res == player) {
         winner_statement.innerText = "Player Won";
@@ -185,6 +186,7 @@ const checkWinner = () => {
         console.log("player win");
         audio.pause();
         var playwin = new Audio("audio/win.wav");
+        playwin.volume = volume_slider.value / 100
         playwin.play();
     }
     else if (res == computer) {
@@ -198,6 +200,7 @@ const checkWinner = () => {
         console.log("computer win");
         audio.pause();
         var compwin = new Audio("audio/gameover.wav");
+        compwin.volume = volume_slider.value / 100
         compwin.play();
     }
     else if (board_full) {
@@ -210,6 +213,7 @@ const checkWinner = () => {
         console.log("draw");
         audio.pause();
         var draw = new Audio("audio/gameover.wav");
+        draw.volume = volume_slider.value / 100
         draw.play();
     }
     document.getElementById("playerstat1").innerText =   temp1;

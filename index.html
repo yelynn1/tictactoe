@@ -14,6 +14,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="contributors.css" type="text/css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -31,13 +32,21 @@
   </head>
   <body>
 
-    <nav class="navbar fixed-top" id="hero">
-      <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
-      <input type="range" id="volume-slider">
+    <nav class="navbar" id="hero">
+      <div class="flexBox">
+        <div>
+          <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
+          <input type="range" id="volume-slider" onchange="changeVolume()">
+        </div>
+        <div>
+          <label >Music Volume</label>
+          <input type="range" id="volume-music-slider" onchange="changeMusicVolume()">
+        </div>
+      </div>
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
-      <button class="btn btn-info" onclick="myFunction()">Dark Mode</button>
+      <button class="btn btn-info" style="margin-left: 25px;" onclick="myFunction()">Dark Mode</button>
     </nav>
     </br>
 
@@ -72,7 +81,7 @@
           <table class="table">
             <thead>
               <tr style="color: crimson;">
-                <th scope="col">Game/User</th>
+                <th style="width:30%" scope="col">Game/User</th>
                 <th scope="col">Player</th>
                 <th scope="col">Computer</th>
               </tr>

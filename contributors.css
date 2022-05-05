@@ -17,7 +17,6 @@ th {
 
 .contributors_body {
     background-color: black;
-
     color: white;
 }
 
@@ -34,4 +33,14 @@ h3 {
 tr {
     background-color: #dddddd;
     color: black
+}
+
+.flexBox {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.flexBox > div > label {
+    font-size: medium;
 }
