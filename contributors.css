@@ -9,17 +9,6 @@ td, th {
     text-align: left;
     padding: 8px;
     word-break: break-all;
-}table {
-    font-family: sans-serif;
-    width: 100%;
-    
-}
-
-td, th {
-    border: 1px solid #ffffff;
-    text-align: left;
-    padding: 8px;
-    word-break: break-all;
 }
 
 th {
@@ -54,29 +43,4 @@ tr {
 
 .flexBox > div > label {
     font-size: medium;
-}
-
-th {
-    text-align: center;
-}
-
-.contributors_body {
-    background-color: black;
-
-    color: white;
-}
-
-h1 {
-    text-align: center;
-    background-color: green
-}
-
-h3 {
-    text-align: center;
-    background-color: darkgreen
-}
-
-tr {
-    background-color: #dddddd;
-    color: black
 }
