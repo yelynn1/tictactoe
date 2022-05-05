@@ -173,7 +173,6 @@ const checkWinner = () => {
 
     const winner_statement = document.getElementById("winner");
     const audio = document.querySelector("audio");
-
     const volume_slider = document.querySelector("#volume-music-slider")
     
     if (res == player) {
