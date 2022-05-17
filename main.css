@@ -13,7 +13,7 @@ h1 {
     color: #a0c4ff;
     text-align: left;
     text-shadow: 1px 1px 3px #DADEDF;
-    
+
 }
 
 .right {
@@ -111,7 +111,7 @@ h1 {
 
 
    background-color: transparent;
-   -webkit-box-shadow: 2.5px 2.5px 2.5px 0px #000000, inset 2px 2px 7.5px 0px #000000, 2.5px 2.5px 7.5px 2.5px rgba(255,139,253,0); 
+   -webkit-box-shadow: 2.5px 2.5px 2.5px 0px #000000, inset 2px 2px 7.5px 0px #000000, 2.5px 2.5px 7.5px 2.5px rgba(255,139,253,0);
    box-shadow: 2.5px 2.5px 2.5px 0px #80ffdb, inset 2px 2px 7.5px 0px #a0c4ff, 2.5px 2.5px 7.5px 2.5px black;
    text-shadow: #FFF 0px 0px 2.5px, #FFF 0px 0px 5px, #FFF 0px 0px 7.5px, #52b788 0px 0px 5px, #00b8ff 0px 0px 5px, #bd00ff 0px 0px 5px, #bd00ff 0px 0px 5px, #bd00ff 0px 0px 5px;
    border: 0.2px double #d600ff;
@@ -146,5 +146,3 @@ h1 {
         background-position: 0 0
     }
 }
-
-
