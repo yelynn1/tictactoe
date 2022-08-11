@@ -19,8 +19,16 @@ h1 {
 .right {
     text-align: right;
 }
+.container-custom{
+    display: none;
+}
 
+/* styling for instruction container */
 
+.popup-container{
+    position: absolute;
+    width: 20%;
+}
 
 /*****************************/
 /* Styling For Menu */
