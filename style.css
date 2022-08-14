@@ -4,12 +4,43 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+.popup-container{
+  position: absolute;
+  width: 50%;
+  display: block;
+  font-size: 1rem;
+  background-color: green;
+  margin:2% 20%;
+  line-height: 2.5rem;
+  padding: 1%;
+  color: #ffff;
+}
+.instructions{
+  background-color: #fff;
+  color: #000;
+  padding: 4%;
+}
+.instructions h1{
+  color: green;
+}
+#start-btn{
+  margin: 2% 20%;
+  border: 2px solid green;
+  background-color: #fff;
+  color: green;
+  border-radius: 15px;
+  padding: 25px 90px;
+}
+#start-btn:hover{
+  background-color: green;
+  color: #fff;
+}
 
 .container-custom {
   /* border: 5px solid black; */
   padding-top: 10px;
   min-height: 100vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
