@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <style>
-    #header-style {
-      border-color: black;
-      border-radius: 10px 100px / 120px;
-      border-style: groove;
-      border-width: 7px;
-      background: whitesmoke;
-      color: black;
-      font-family: Georgia;
-      height: 65px;
-      width: 350px;
-      margin: auto;
-      padding: 5px;
-      text-align: center;
-    }
-    </style>
+<style>
+  #header-style {
+    /* border-color: black; */
+    /* border-style: groove; */
+    border-radius: 8px;
+    font-size: 1.7rem;
+    border-width: 7px;
+    background: whitesmoke;
+    color: black;
+    font-family: Georgia;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+  }
+</style>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,40 +24,63 @@
   <link rel="stylesheet" href="style.css" type="text/css">
   <!--Adding Favicon-->
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-     
+
 </head>
 <style>
   body {
-    background-image: url(https://i.pinimg.com/736x/35/d0/1f/35d01fd2047a3c3d468c3e6fdf5f7b89--paper-news-paper-templates.jpg);
+    /* background-image: url(https://i.pinimg.com/736x/35/d0/1f/35d01fd2047a3c3d468c3e6fdf5f7b89--paper-news-paper-templates.jpg); */
+    margin: 0px;
+    padding: 0px;
   }
+
   .wrapper {
     background-color: #F0CCB0;
-    padding: 20px;
-    border-color: black;
-    border-style: groove;
-    border-width: 5px;
+    padding: 5px 20px;
+    border-radius: 12px;
+  }
+
+  .navBar-container {
+    background-color: white;
+    padding: 10px 30px;
+  }
+
+  .navBar-container ol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+
+  .navBar-container ol li a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: black;
   }
 </style>
+
 <body>
+  <div class="navBar-container">
+    <ol>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="about.html">About</a>
+      </li>
+      <li>
+        <a href="contributors.html">Contributors</a>
+      </li>
+    </ol>
+  </div>
+
   <div class="wrapper">
-    <nav>
-      <ol>
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="about.html">About</a>
-        </li>
-        <li>
-          <a href="contributors.html">Contributors</a>
-        </li>
-      </ol>
-    </nav>
+
     <br>
     <h1 id="header-style">Tic-Tac-Toe</h1>
     <div class="shortDescr">
-      <a href="https://yelynn1.github.io/tictactoe/" target="_blank" rel="noopener noreferrer">
-        Game Link: https://yelynn1.github.io/tictactoe/
+      <b>Game Link:</b>
+      <a href="https://yelynn1.github.io/tictactoe/" target="_blank">
+        https://yelynn1.github.io/tictactoe
       </a>
       <p><b><i>Tic-Tac-Toe game (web version) made using HTML and JS.</i></b></p>
     </div>
@@ -109,7 +133,9 @@
         <li>Clone the repo.</li>
       </ol>
       <div style='border:5px solid #000000' class="code">
-        <b><pre style='font-family: Courier New;'>   git clone https://github.com/yelynn1/tictactoe.git</pre></b>
+        <b>
+          <pre style='font-family: Courier New;'>   git clone https://github.com/yelynn1/tictactoe.git</pre>
+        </b>
       </div>
       <ol start="2">
         <li>Open the index.html file in any web browser.</li>
