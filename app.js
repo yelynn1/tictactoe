@@ -3,6 +3,7 @@ const player = "O";
 const computer = "X";
 let board_full = false;
 let ai_level;
+const result = document.getElementById("result");
 
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
@@ -189,6 +190,9 @@ const checkWinner = () => {
         audio.pause();
         endMusic = new Audio("audio/win.wav");
         endMusic.play();
+        // if player wins then in result it will show player win
+        result.innerHTML = "Hurray! You won the game";
+        result.style.color = "green";
     }
     else if (res == computer) {
         winner_statement.innerText = "Computer Won";
@@ -202,6 +206,8 @@ const checkWinner = () => {
         audio.pause();
         endMusic = new Audio("audio/gameover.wav");
         endMusic.play();
+        result.innerHTML = "You lost the game";
+        result.style.color = "red";
     }
     else if (board_full) {
         winner_statement.innerText = "Draw...";
@@ -214,6 +220,8 @@ const checkWinner = () => {
         audio.pause();
         endMusic = new Audio("audio/gameover.wav");
         endMusic.play();
+        result.innerHTML = "It's a draw";
+        result.style.color = "yellow";
     }
 
     document.getElementById("playerstat1").innerText =   temp1;
@@ -299,6 +307,8 @@ const reset_board = () => {
     var mute_sound_btn = document.getElementsByClassName("btn-sound")[0];
     if (mute_sound_btn != undefined)
         mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when reseting the board
+    
+    result.innerHTML = "";
 }
 
 //document.getElementsByClassName("playerstat1").innerText = playerstat1;
