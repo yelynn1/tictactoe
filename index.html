@@ -18,10 +18,7 @@
     />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-113861388-2"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113861388-2"></script>
     <script src="index.mjs" defer></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -98,32 +95,33 @@
           <h1>Tic-Tac-Toe</h1>
           <h4>Scoreboard</h4>
 
-          <table class="table">
-            <thead>
-              <tr style="color: crimson;">
-                <th scope="col">Game/User</th>
-                <th scope="col">Player</th>
-                <th scope="col">Computer</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="table-success">Win</th>
-                <td id="playerstat1" class="playerstat table-success"></td>
-                <td id="computerstat1" class="computerstat table-success"></td>
-              </tr>
-              <tr>
-                <th scope="row" class="table-danger">Lost</th>
-                <td id="loss1" class="computerstat table-danger"></td>
-                <td id="loss2" class="playerstat table-danger"></td>
-              </tr>
-              <tr>
-                <th scope="row" class="table-warning">Draw</th>
-                <td id="draw1" class="drawstat table-warning"></td>
-                <td id="draw2" class="drawstat table-warning"></td>
-              </tr>
-            </tbody>
-          </table>
+            <table class="table">
+              <thead>
+                <tr style="color:rgb(1, 148, 124);">
+                  <th scope="col">Game/User</th>
+                  <th scope="col">Player</th>
+                  <th scope="col">Computer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="table-success">Win</th>
+                  <td id="playerstat1" class="playerstat table-success"></td>
+                  <td id="computerstat1" class="computerstat table-success"></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="table-danger">Lost</th>
+                  <td id="loss1" class="computerstat table-danger"></td>
+                  <td id="loss2" class="playerstat table-danger"></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="table-warning">Draw</th>
+                  <td id="draw1" class="drawstat table-warning"></td>
+                  <td id="draw2" class="drawstat table-warning"></td>
+                </tr>
+              </tbody>
+            </table>
+          
 
       <div class="play-area" id="play">
         <div id="block_0" class="block"></div>
@@ -136,32 +134,7 @@
         <div id="block_7" class="block"></div>
         <div id="block_8" class="block"></div>
       </div>
-      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
 
-<script>
-function myFunction() {
-   var main = document.body;
-   var hero = document.getElementsByClassName('navbar')[0]
-   var container = document.getElementById('play')
-   var darkToggle = document.getElementsByClassName('btn')
-   var heroText = document.getElementsByClassName('navbar-brand')
-   var arr = Array.prototype.slice.call(heroText)
-
-   arr.forEach(element => {
-    element.classList.toggle('dark-text')
-   });
-
-   if (darkToggle[1].textContent === "Dark Mode"){
-     darkToggle[1].textContent = "Light Mode"
-   } else {
-     darkToggle[1].textContent = "Dark Mode"
-   }
-
-   hero.classList.toggle("dark-hero");
-   main.classList.toggle("dark-main");
-   container.classList.toggle("dark-play")
-}
-</script>
       <select id="ai_level">
         <option value="easy" selected>Easy</option>
         <option value="normal">Normal</option>
@@ -177,3 +150,31 @@ function myFunction() {
     <script src="app.js"></script>
   </body>
 </html>
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+
+<script>
+function myFunction() {
+   var main = document.body;
+   var hero = document.getElementsByClassName('navbar')[0];
+  //  var reset = document.getElementsById('reset-btn');
+   var container = document.getElementById('play');
+   var darkToggle = document.getElementsByClassName('btn');
+   var heroText = document.getElementsByClassName('navbar-brand');
+   var arr = Array.prototype.slice.call(heroText);
+
+   arr.forEach(element => {
+    element.classList.toggle('dark-text');
+   });
+
+   if (darkToggle[1].textContent === "Dark Mode"){
+     darkToggle[1].textContent = "Light Mode";
+   } else {
+     darkToggle[1].textContent = "Dark Mode";
+   }
+  //  reset.classList.toggle('reset-btn');
+   hero.classList.toggle("dark-hero");
+   main.classList.toggle("dark-main");
+   container.classList.toggle("dark-play");
+}
+</script>
+      

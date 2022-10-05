@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Poppins:wght@300;400&display=swap');
+
 table {
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     width: 100%;
-    
 }
 
 td, th {
     border: 1px solid #ffffff;
     text-align: left;
-    padding: 8px;
+    padding: 10px;
     word-break: break-all;
 }
 
@@ -16,22 +18,25 @@ th {
 }
 
 .contributors_body {
-    background-color: black;
-
+    background-color: rgb(106, 239, 11);
     color: white;
+}
+.contributors_body nav{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 h1 {
     text-align: center;
-    background-color: green
+    background-color: rgb(1, 148, 124);
 }
 
 h3 {
     text-align: center;
-    background-color: darkgreen
+    background-color:rgb(1, 148, 124);
 }
 
 tr {
     background-color: #dddddd;
-    color: black
+    color: black;
 }
