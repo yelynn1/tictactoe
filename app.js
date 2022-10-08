@@ -4,6 +4,8 @@ const computer = "X";
 let board_full = false;
 let ai_level;
 
+
+
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
     board_container.innerHTML = "";
@@ -156,12 +158,17 @@ const minimax = (board, isMaximizing) => {
         return bestScore;
     }
 }
- var temp1 = 0;
- var temp2 = 0;
- var temp3 = 0;
- var temp4 = 0;
- var temp5 = 0;
- var temp6 =0;
+
+//for function checkWinner()
+var temp1 = 0; //playerstat
+var temp2 = 0; //computerstat
+var temp3 = 0; //loss1
+var temp4 = 0; //loss2
+var temp5 = 0; //draw1
+var temp6 =0;  //draw2
+var playerName="player"
+
+
 
  var endMusic = null; //the Audio object for the music at the end of the game
 
@@ -215,6 +222,7 @@ const checkWinner = () => {
         endMusic = new Audio("audio/gameover.wav");
         endMusic.play();
     }
+    saveDataToLocalStorage();
 
     document.getElementById("playerstat1").innerText =   temp1;
     document.getElementById("computerstat1").innerText = temp2;
@@ -300,7 +308,27 @@ const reset_board = () => {
     if (mute_sound_btn != undefined)
         mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when reseting the board
 }
+const saveDataToLocalStorage = () => {
+    //data for local storage
+    var darkToggle = document.getElementsByClassName('btn');
+   // console.log(darkToggle[1].textContent);
 
+    let myObj ={
+        playerName: playerName,
+        playerStat : temp1,
+        computerStat: temp2,
+        playerLoss: temp3,
+        computerLoss: temp4,
+        playerDraw: temp5,
+        computerDraw: temp6,
+        theme:darkToggle[1].textContent
+
+    };
+    x
+    let myObjSerialized=JSON.stringify(myObj);
+    localStorage.setItem("Tic-Tac-Toe",myObjSerialized);
+
+};
 //document.getElementsByClassName("playerstat1").innerText = playerstat1;
 //document.getElementsByClassName("computerstat").innerText = computerstat1;
 
