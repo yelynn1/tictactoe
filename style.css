@@ -28,7 +28,7 @@
   left: 6%;
   margin: 2% 20%;
   border: 2px solid green;
-  background-color: #fff;
+  background-color: #fff; 
   color: green;
   border-radius: 15px;
   padding: 2vw 7vw;
@@ -463,4 +463,11 @@ thead{
 
 .btn-sound:hover {
   background-color: rgb(94, 143, 206);
+}
+
+/* for dark theme icon */
+
+#theme-icon{
+  width:30px;
+  cursor:pointer;
 }
