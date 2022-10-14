@@ -43,7 +43,11 @@ There are no special requirements to play this game apart from having a Web Brow
 ```sh
 git clone https://github.com/yelynn1/tictactoe.git
 ```
-2. Open the index.html file in any web browser.
+2. Change the directory
+```sh
+cd tictactoe
+```
+3. Open the index.html file in any web browser.
 
 ## Issues
 
