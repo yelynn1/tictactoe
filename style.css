@@ -1,19 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Poppins:wght@300;400&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .popup-container{
   position: absolute;
-  width: 50%;
+  width: 60%;
   display: block;
-  font-size: 1rem;
-  background-color: green;
-  margin:2% 20%;
+  font-size: 1.1rem;
+  background-color: rgb(1, 148, 124);
+  margin:2% 22%;
   line-height: 2.5rem;
-  padding: 1%;
+  padding: 0.8%;
   color: #ffff;
+}
+.popup-container h1{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 .instructions{
   background-color: #fff;
@@ -21,43 +26,43 @@
   padding: 4%;
 }
 .instructions h1{
-  color: green;
+  color: rgb(1, 148, 124);
 }
 #start-btn{
-  margin: 2% 20%;
-  border: 2px solid green;
+  align-items: center;
+  justify-content: center;
+  margin: 2% 30%;
+  border: 2px solid rgba(179, 181, 184, 0.899);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   background-color: #fff;
-  color: green;
-  border-radius: 15px;
+  color: rgb(1, 148, 124);
+  border-radius: 20px;
   padding: 25px 90px;
 }
 #start-btn:hover{
-  background-color: green;
+  background-color: rgb(1, 148, 124);
   color: #fff;
+  transition: 0.3s ease-out;
 }
 
 .container-custom {
-  /* border: 5px solid black; */
-  padding-top: 10px;
+  padding-top: 30px;
   min-height: 100vh;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: none;
+  /* background: none; */
 }
-
-.container > div {
-  border: 4px solid black;
-  border-radius: 2px;
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: 4em;
-  /* display: flex; 
-  justify-content: center; 
-  align-items: center;*/
+.container-custom h1{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
-
+.container-custom h4{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
 a {
   font-family: Helvetica;
   font-weight:bold;
@@ -78,30 +83,32 @@ nav {
 
 button {
   outline: none;
-  border: 4px solid green;
+  border: 3px solid rgb(1, 148, 124);
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   background: none;
-  transition: all 0.2s ease-in-out;
-  color: #f80606;
+  font-family: 'Montserrat', sans-serif;
+  transition:0.3s ease-in-out;
+  color: #fff;
 }
 button:hover {
   cursor: pointer;
-  background: green;
+  background: rgb(1, 148, 124);
   color: white;
 }
-
 .play-area {
+  border-radius: 5px;
   display: grid;
   width: 300px;
   height: 300px;
   grid-template-columns: auto auto auto;
   background-color: white;
   margin: 0.5% 0;
+  box-shadow:0.25rem 0.15rem 0.5rem rgba(71, 71, 228, 0.91);
 }
-
 .block {
+  border: 3px solid rgb(35, 137, 253);
   display: flex;
   width: 100px;
   height: 100px;
@@ -109,7 +116,6 @@ button:hover {
   justify-content: center;
   font-size: 3rem;
   font-weight: bold;
-  border: 3px solid rgb(35, 137, 253);
   transition: background 0.2s ease-in-out;
 }
 
@@ -169,7 +175,7 @@ button:hover {
 }
 
 #ai_level {
-  margin-bottom: 0.5%;
+  margin: 8px;
 }
 
 .navbar {
@@ -343,6 +349,23 @@ pre {
   .wrapper nav ol li {
     margin-bottom: 3%;
   }
+  #start-btn{
+    align-items: center;
+    justify-content: center;
+    margin: 2% 21%;
+    border: 2px solid rgba(179, 181, 184, 0.899);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    background-color: #fff;
+    color: rgb(1, 148, 124);
+    border-radius: 20px;
+    padding: 20px 62px;
+  }
+  #start-btn:hover{
+    background-color: rgb(1, 148, 124);
+    color: #fff;
+    transition: 0.3s ease-out;
+  }
 }
 @media screen and (max-width: 1440px) {
   .wrapper nav ol li a {
@@ -414,8 +437,8 @@ pre {
 
 /* light and dark more style */
 body {
-  padding: 25px;
-  background:gray;
+  padding: 10px;
+  background:#33a4f0;
   color: black;
   font-size: 25px;
 }
@@ -425,7 +448,7 @@ thead{
 }
 
 .dark-main {
-  background-color: #121212;
+  background: #121212;
   color: white;
 }
 
@@ -443,10 +466,10 @@ thead{
 .dark-text {
   color: white !important;
 }
-
 .table{
   width: 100px;
   visibility: initial;
+  box-shadow: 0.35rem 0.15rem 1.5rem rgba(71, 71, 228, 0.91);;
 }
 
 .btn-sound {
