@@ -24,7 +24,8 @@
   color: green;
 }
 #start-btn{
-  margin: 2% 20%;
+  display: block;
+  margin: 2% auto;
   border: 2px solid green;
   background-color: #fff;
   color: green;
