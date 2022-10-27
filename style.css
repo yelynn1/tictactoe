@@ -23,6 +23,14 @@
 .instructions h1{
   color: green;
 }
+
+.instructions-start-btn{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
 #start-btn{
   margin: 2% 20%;
   border: 2px solid green;
@@ -30,6 +38,7 @@
   color: green;
   border-radius: 15px;
   padding: 25px 90px;
+  display: flex;
 }
 #start-btn:hover{
   background-color: green;
@@ -462,3 +471,4 @@ thead{
 .btn-sound:hover {
   background-color: rgb(94, 143, 206);
 }
+
