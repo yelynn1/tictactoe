@@ -24,12 +24,13 @@
   color: green;
 }
 #start-btn{
-  margin: 2% 20%;
+  margin: 2% 40%;
+  font-size: 1.5em;
   border: 2px solid green;
   background-color: #fff;
   color: green;
-  border-radius: 15px;
-  padding: 25px 90px;
+  border-radius: 25px;
+  padding: 15px 40px;
 }
 #start-btn:hover{
   background-color: green;
@@ -92,6 +93,14 @@ button:hover {
   color: white;
 }
 
+#end-reset button{
+  color: green;
+}
+
+#end-reset button:hover{
+  color: red;
+}
+
 .play-area {
   display: grid;
   width: 300px;
@@ -99,6 +108,7 @@ button:hover {
   grid-template-columns: auto auto auto;
   background-color: white;
   margin: 0.5% 0;
+  margin-bottom: 20px;
 }
 
 .block {
@@ -116,6 +126,18 @@ button:hover {
 .block:hover {
   cursor: pointer;
   background: #0ff30f;
+}
+
+#contner{
+  margin-top: -40px;
+}
+
+#contner h1{
+  margin-bottom: 15px;
+}
+
+#contner h4{
+  margin-bottom: 10px;
 }
 
 .occupied:hover {
@@ -169,7 +191,8 @@ button:hover {
 }
 
 #ai_level {
-  margin-bottom: 0.5%;
+  margin-top: 5px;
+  margin-bottom: 1%;
 }
 
 .navbar {
@@ -178,6 +201,15 @@ button:hover {
 
 .navbar > a {
   color: black;
+}
+
+.navbar-item{
+  color: white;
+}
+
+.navbar-item:hover{
+  color: green;
+  text-decoration: none;
 }
 
 .wrapper {
@@ -273,6 +305,10 @@ pre {
   line-height: 1.45;
   overflow: auto;
   padding: 16px;
+}
+
+#volume-slider{
+  margin-left: 15px;
 }
 
 
