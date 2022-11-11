@@ -34,13 +34,12 @@
     </script>
   </head>
   <body>
-
     <nav class="navbar fixed-top" id="hero">
       <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
       <input type="range" id="volume-slider">
-      <a class="navbar-brand" href="about.html">About</a>
-      <a class="navbar-brand" href="#">Play Game</a>
-      <a class="navbar-brand" href="contributors.html">Contributors</a>
+      <a class="navbar-item" href="about.html">About</a>
+      <a class="navbar-item" href="#">Play Game</a>
+      <a class="navbar-item" href="contributors.html">Contributors</a>
       <button class="btn btn-info" onclick="myFunction()">Dark Mode</button>
     </nav>
     </br>
@@ -94,7 +93,7 @@
       </div>
     </div>
     <!-- instruction phase ends here -->
-    <div class="container-custom">
+    <div class="container-custom" id="contner">
           <h1>Tic-Tac-Toe</h1>
           <h4>Scoreboard</h4>
 
@@ -167,7 +166,7 @@ function myFunction() {
         <option value="normal">Normal</option>
         <option value="hard">Hard</option>
       </select>
-      <div class="div-end-of-game">
+      <div class="div-end-of-game" id="end-reset">
         <button onclick="reset_board()">RESET BOARD</button>
       </div>
       <h2 id="winner"></h2>
