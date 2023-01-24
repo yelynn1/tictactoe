@@ -188,6 +188,7 @@ const checkWinner = () => {
         console.log("player win");
         audio.pause();
         endMusic = new Audio("audio/win.wav");
+        <button class="btn btn-primary" onclick="playAudio(this)" type="button">Adjust Level</button>
         endMusic.play();
     }
     else if (res == computer) {

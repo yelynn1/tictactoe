@@ -6,7 +6,9 @@
     <title>TTC</title>
     <!--Adding Favicon-->
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-
+     <!--Adding background image-->
+     <link rel="shortcut icon" href="https://www.vectorstock.com/royalty-free-vector/glowing-neon-line-tic-tac-toe-game-icon-isolated-vector-38286852" type="image/x-icon">
+    
     <!-- Add mute button icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -34,7 +36,13 @@
     </script>
   </head>
   <body>
-
+    <style>
+      body {
+        background-image: url('Untitled.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%, 100%;
+      }
+      </style>
     <nav class="navbar fixed-top" id="hero">
       <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
       <input type="range" id="volume-slider">
@@ -49,12 +57,27 @@
       <source src="music.mp3" type="audio/ogg">
     </audio>
 
+    <audio id="winAudio">
+      <source src="audio/win.wav" type="audio/ogg">
+    </audio>
+    <audio id="gameOverAudio">
+      <source src="audio/gameover.wav" type="audio/ogg">
+    </audio>
+
+
+    <button class="btn btn-primary" onclick="playAudio(this)" type="button">Adjust level</button>
     <script>
       var x = document.getElementById("myAudio");
+      var y = document.getElementById("winAudio");
+      var z = document.getElementById("gameOverAudio");
       var sliderLevel = document.querySelector('#volume-slider')
-      x.volume = sliderLevel.value/100
+      x.volume = sliderLevel.value/100;
+      y.volume = sliderLevel.value/100;
+      z.volume = sliderLevel.value/100;
       sliderLevel.addEventListener("change", function(e) {
         x.volume = e.currentTarget.value / 100;
+        y.volume = e.currentTarget.value /100;
+        z.volume = e.currentTarget.value /100;
       })
 
       function playAudio(btn) {
