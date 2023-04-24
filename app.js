@@ -212,7 +212,7 @@ const checkWinner = () => {
         temp6 = temp6 + draw2;
         console.log("draw");
         audio.pause();
-        endMusic = new Audio("audio/gameover.wav");
+        endMusic = new Audio("audio/draw.wav");
         endMusic.play();
     }
 
