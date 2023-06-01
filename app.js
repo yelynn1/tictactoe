@@ -187,7 +187,7 @@ const checkWinner = () => {
         temp3 = temp3 + loss2;
         console.log("player win");
         audio.pause();
-        endMusic = new Audio("audio/win.wav");
+        endMusic = new Audio("/assets/audio/win.wav");
         endMusic.play();
     }
     else if (res == computer) {
@@ -200,7 +200,7 @@ const checkWinner = () => {
         temp4 = temp4 + loss1;
         console.log("computer win");
         audio.pause();
-        endMusic = new Audio("audio/gameover.wav");
+        endMusic = new Audio("/assets/audio/gameover.wav");
         endMusic.play();
     }
     else if (board_full) {
@@ -212,7 +212,7 @@ const checkWinner = () => {
         temp6 = temp6 + draw2;
         console.log("draw");
         audio.pause();
-        endMusic = new Audio("audio/gameover.wav");
+        endMusic = new Audio("/assets/audio/gameover.wav");
         endMusic.play();
     }
 

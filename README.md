@@ -22,7 +22,7 @@ Table of contents
 
 This is a very simple and light tic tac toe web game made using HTML, CSS and JS. This game is very easy to play.
 
-![](tictactoe.png)
+![](/assets/images/tictactoe.png)
 
 ### Tech Stack
 
