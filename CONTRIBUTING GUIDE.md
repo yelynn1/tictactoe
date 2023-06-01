@@ -17,4 +17,4 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 Check the code of conduct [here](https://github.com/yash2189/tictactoe/blob/fix-readme/CODE%20OF%20CONDUCT.md).
 
-## Don't forget to add your details in contributors.html
+## Don't forget to add your details in /contributors/contributors.html
