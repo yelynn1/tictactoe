@@ -23,7 +23,7 @@
 .instructions h1{
   color: green;
 }
-#start-btn{
+.start-btn{
   margin: 2% 20%;
   border: 2px solid green;
   background-color: #fff;
@@ -31,7 +31,7 @@
   border-radius: 15px;
   padding: 25px 90px;
 }
-#start-btn:hover{
+.start-btn:hover{
   background-color: green;
   color: #fff;
 }
@@ -53,8 +53,8 @@
   font-family: Helvetica;
   font-weight: bold;
   font-size: 4em;
-  /* display: flex; 
-  justify-content: center; 
+  /* display: flex;
+  justify-content: center;
   align-items: center;*/
 }
 
@@ -281,30 +281,30 @@ pre {
   width: 67px;
   height: 67px;
 }
-    
-    
+
+
     .play-area {
   width: 201px;
   height: 201px;
 }
-    
+
   .wrapper nav {
     margin-bottom: 2%;
   }
   .wrapper nav ol li a {
     font-size: 20px;
   }
-    
+
 
     .container-custom {
         width: 100%;
         margin-top: 30%;
         padding-left: 5%;
         padding-right: 5%;
-        
+
 }
-    
-    
+
+
     .table{
  font-size: 10px;
   visibility: initial;
@@ -456,7 +456,7 @@ thead{
   padding: 12px 16px; /* Some padding */
   font-size: 16px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
-  
+
 }
 
 .btn-sound:hover {
