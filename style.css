@@ -65,6 +65,8 @@ a {
   text-align: center;
 }
 
+
+
 nav {
   border-color: black;
   border-radius: 10px 100px / 120px;
@@ -74,6 +76,18 @@ nav {
   margin: auto;
   padding: 3px;
   text-align: center;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+nav a:hover {
+  background-color: #a0c4ff; /* Change this to your desired hover color */
+  color: white; /* Change this to your desired text color on hover */
+  border-radius: 5px;
 }
 
 button {
