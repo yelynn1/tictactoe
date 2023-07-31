@@ -1,6 +1,7 @@
 let play_board = ["", "", "", "", "", "", "", "", ""];
-const player = "O";
-const computer = "X";
+let player = "O";
+let computer = "X";
+let gameMode = 1; // 1 is for single Player ; 2 is for 2 Players
 let board_full = false;
 let ai_level;
 
@@ -41,6 +42,23 @@ FBInstant.initializeAsync()
   }
 );
 
+// RESET GAME TO TWO PLAYER MODE
+const twoPlayer = () => {
+  document.getElementById("Player1").innerHTML = " Player 1(O)";
+  document.getElementById("Player2").innerHTML = " Player 2(X)";
+  gameMode = 2;
+  reset_board();
+}
+//RESET GAME TO SINGLE PLAYER MODE
+const singlePlayer = () => {
+  document.getElementById("Player1").innerHTML = " Player";
+  document.getElementById("Player2").innerHTML = " Computer";
+  gameMode = 1;
+  player = "O"; //DEFAULT PLAYER SETTINGS FOR SINGLE PLAYER
+  computer = "X";
+  reset_board();
+}
+
 render_board();
 configure_ai();
 
@@ -61,16 +79,30 @@ const game_loop = () => {
     checkBoardComplete();
     checkWinner();
 }
+//FUNCTION TO DISPLAY WHOSE MOVE IT IS (Player/Computer/Player 1/2)
+const showPlayer = (mode,player) => {
+  if (mode == 1){ // mode 1 is single Player
+    if (player == 1)   document.getElementById("move").innerHTML = "Player Move!";
+  }
+  else { // Mode == 2 for 2 Players
+    if (player == 1)   document.getElementById("move").innerHTML = "Player 1 Move!";
+    else   document.getElementById("move").innerHTML = "Player 2 Move";
+  }
 
+}
 const randomizeStart = () => {
     if(play_board.every(item=> item==="")){
     // const PLAYER = 0;
     const COMPUTER = 1;
     const start = Math.round(Math.random());
     if(start === COMPUTER){
-        addComputerMove(ai_level);
+      if (gameMode == 1)
+        {addComputerMove(ai_level);}
+        else {showPlayer(2,2)}
         console.log("COMPUTER STARTED")
     }else{
+      if (gameMode == 1) showPlayer(1,1);
+      else showPlayer(2,1);
         console.log("PLAYER STARTS")
     }}
 }
@@ -79,7 +111,14 @@ const addPlayerMove = e => {
         document.querySelector("#ai_level").disabled = true;
         play_board[e] = player;
         game_loop();
-        addComputerMove(ai_level);
+        if (gameMode == 1)
+        {addComputerMove(ai_level);
+        showPlayer(1,1);}
+        else
+        { // toogles player - player changer
+          if (player == "X") {player = "O"; showPlayer(2,1);}
+          else { player = "X"; showPlayer(2,2);}
+        }
     }
 };
 
@@ -88,18 +127,18 @@ const addComputerMove = (ai_level) => {
         let score;
         let compare;
         switch (ai_level) {
-            case "hard": 
+            case "hard":
                 score = -Infinity;
                 compare = (a,b) => a > b;
                 break;
-            case "easy": 
-                score = Infinity; 
+            case "easy":
+                score = Infinity;
                 compare = (a,b) => a < b;
                 break;
             case "normal":
                 let guess = Math.random() * 100;
                 if (guess <= 40) {
-                    score = Infinity; 
+                    score = Infinity;
                     compare = (a,b) => a < b;
                 }
                 else {
@@ -176,9 +215,10 @@ const checkWinner = () => {
 
     const winner_statement = document.getElementById("winner");
     const audio = document.querySelector("audio");
-    
-    if (res == player) {
-        winner_statement.innerText = "Player Won";
+
+    if (res == "O") {
+      if (gameMode == 1)  winner_statement.innerText = "Player Won"; // Single player mode
+      else winner_statement.innerText = "Player 1 Won"; // 2 player mode
         winner_statement.classList.add("playerWin");
         board_full = true;
         playerstat1++;
@@ -189,9 +229,11 @@ const checkWinner = () => {
         audio.pause();
         endMusic = new Audio("audio/win.wav");
         endMusic.play();
+
     }
-    else if (res == computer) {
-        winner_statement.innerText = "Computer Won";
+    else if (res == "X") {
+        if (gameMode == 1)  winner_statement.innerText = "Computer Won"; //Single player mode
+        else winner_statement.innerText = "Player 2 Won"; // 2 player mode
         winner_statement.classList.add("computerWin");
         board_full = true;
         computerstat1++;
