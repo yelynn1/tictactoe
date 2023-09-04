@@ -343,6 +343,52 @@ const reset_board = () => {
         mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when reseting the board
 }
 
+// Add this function to the existing JavaScript code
+function undoMove() {
+    // Get the last move's position from the player_moves array
+    const lastMovePosition = player_moves.pop();
+  
+    // If there is a move to undo
+    if (lastMovePosition) {
+      // Remove the X mark from the board
+      document.getElementById(`block_${lastMovePosition}`).innerHTML = "";
+  
+      // Enable the corresponding block for future moves
+      document.getElementById(`block_${lastMovePosition}`).classList.remove("disabled");
+  
+      // Switch the turn back to the player
+      player_turn = true;
+    }
+  }
+
+  // Inside the existing play() function
+function play(clicked_id) {
+    // Check if the block is empty and the game is not over
+    if (document.getElementById(clicked_id).innerHTML === "" && !game_over) {
+      if (player_turn) {
+        // Update the block with an X
+        document.getElementById(clicked_id).innerHTML = "X";
+        // Disable the block to prevent further moves in the same position
+        document.getElementById(clicked_id).classList.add("disabled");
+        // Add the player's move to the player_moves array
+        player_moves.push(parseInt(clicked_id.split("_")[1]));
+        // Check for a win or draw
+        checkWinOrDraw("X");
+      } else {
+        // Update the block with an O
+        document.getElementById(clicked_id).innerHTML = "O";
+        // Disable the block to prevent further moves in the same position
+        document.getElementById(clicked_id).classList.add("disabled");
+        // Check for a win or draw
+        checkWinOrDraw("O");
+      }
+  
+      // Switch the turn for the next move
+      player_turn = !player_turn;
+    }
+  }
+  
+
 //document.getElementsByClassName("playerstat1").innerText = playerstat1;
 //document.getElementsByClassName("computerstat").innerText = computerstat1;
 
