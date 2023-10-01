@@ -1,16 +1,17 @@
 let play_board = ["", "", "", "", "", "", "", "", ""];
 let player = "O";
 let computer = "X";
-let gameMode = 1; // 1 is for single Player ; 2 is for 2 Players
+let gameMode = 1; // 1 is for single Player; 2 is for 2 Players
 let board_full = false;
 let ai_level;
+let lastMove = null; // Variable to store the last move
 
 const render_board = () => {
     const board_container = document.querySelector(".play-area");
     board_container.innerHTML = "";
-    play_board.forEach((e,i) => {
+    play_board.forEach((e, i) => {
         board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
-        if(e == player || e == computer) {
+        if (e == player || e == computer) {
             document.querySelector(`#block_${i}`).classList.add("occupied");
         }
     });
@@ -22,7 +23,7 @@ const configure_ai = () => {
     ai_select.addEventListener("change", event => {
         ai_level = event.target.options[event.target.selectedIndex].value;
     });
-}
+};
 
 FBInstant.initializeAsync()
   .then(function(){
@@ -109,16 +110,32 @@ const randomizeStart = () => {
 const addPlayerMove = e => {
     if (play_board[e] == "" && !board_full) {
         document.querySelector("#ai_level").disabled = true;
+        // Store the current state in the move history
+        lastMove = [...play_board];
         play_board[e] = player;
         game_loop();
-        if (gameMode == 1)
-        {addComputerMove(ai_level);
-        showPlayer(1,1);}
-        else
-        { // toogles player - player changer
-          if (player == "X") {player = "O"; showPlayer(2,1);}
-          else { player = "X"; showPlayer(2,2);}
+        if (gameMode == 1) {
+            addComputerMove(ai_level);
+            showPlayer(1, 1);
+        } else {
+            // Toggle player - player changer
+            if (player == "X") {
+                player = "O";
+                showPlayer(2, 1);
+            } else {
+                player = "X";
+                showPlayer(2, 2);
+            }
         }
+    }
+};
+
+// Function to undo the last move
+const undoLastMove = () => {
+    if (lastMove !== null) {
+        play_board = [...lastMove];
+        lastMove = null;
+        game_loop();
     }
 };
 
@@ -343,35 +360,7 @@ const reset_board = () => {
         mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when reseting the board
 }
 
-//document.getElementsByClassName("playerstat1").innerText = playerstat1;
-//document.getElementsByClassName("computerstat").innerText = computerstat1;
+render_board();
+configure_ai();
+randomizeStart();
 
-//randomizeStart();
-
-// window.addEventListener("DOMContentLoaded", event => {
-//     const audio = document.querySelector("audio");
-//     audio.volume = 0.2;
-//     audio.play();
-// });
-
-// const checkbox = document.getElementById('checkbox');
-
-// container-custom.addEventListener('onclick', () => {
-//     // change the theme of the website
-//     document.body.classList.toggle('dark');
-// });
-
-
-/*var button = document.getElementById("checkbox");
-
-button.addEventListener("click", function() {
-    const curColour = document.body.style.backgroundColor;
-
-    if (curColour === 'white') {
-        document.body.style.backgroundColor = "darkgray";
-    }
-    else {
-        document.body.style.backgroundColor = "white";
-    }
-});
-*/
