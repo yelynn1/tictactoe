@@ -1,4 +1,5 @@
 let table = document.getElementById("counthere");
+let totalCount = 0;
 
 function renderContributorsTable(contributors) {
   let i = 1;
@@ -12,9 +13,10 @@ function renderContributorsTable(contributors) {
     userNameCell.innerText = login;
     urlUser.innerHTML = `<a href="${html_url}">${html_url}</a>`;
     noOfContributions.innerText = contributions;
+    totalCount += contributions;
     i++;
   });
-  document.getElementById("ct").innerHTML = i - 1 + " Contributors";
+  document.getElementById("ct").innerHTML = i - 1 + " Contributors with a total of " + totalCount + " contributions";
 }
 
 fetch("https://api.github.com/repos/yelynn1/tictactoe/contributors")
