@@ -56,7 +56,7 @@ Please file specific issues, bugs, or feature requests in our [issue tracker](ht
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. 
-If you wish to contribute a change to any of the existing features in this repo, please review our [contribution guide](https://github.com/yash2189/tictactoe/blob/fix-readme/CONTRIBUTING%20GUIDE.md) and send a [pull request](https://github.com/yelynn1/tictactoe/pulls).
+If you wish to contribute a change to any of the existing features in this repo, please review our [contribution guide](https://github.com/yelynn1/tictactoe/blob/master/CONTRIBUTING%20GUIDE.md) and send a [pull request](https://github.com/yelynn1/tictactoe/pulls).
 
 ## Code of Conduct
 
