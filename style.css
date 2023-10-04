@@ -165,9 +165,12 @@ button:hover {
 }
 
 .won {
-  background-color: green;
+  animation: won 0.7s ease-in-out 2s infinite alternate;
 }
-
+@keyframes won {
+  from{background-color: white;}
+  to{background-color: rgb(22, 242, 22);}
+}
 #ai_level {
   margin-bottom: 0.5%;
 }
