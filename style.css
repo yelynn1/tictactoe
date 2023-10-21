@@ -66,14 +66,11 @@ a {
 }
 
 nav {
-  border-color: black;
-  border-radius: 10px 100px / 120px;
-  border-style: groove;
-  border-width: 7px;
+  border-radius: 0 0 .3em .3em;
   background: whitesmoke;
   margin: auto;
-  padding: 3px;
-  text-align: center;
+  padding: .5em !important;
+  text-align: center;
 }
 
 button {
