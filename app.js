@@ -233,6 +233,8 @@ const checkWinner = () => {
     const winner_statement = document.getElementById("winner");
     const audio = document.querySelector("audio");
 
+
+
     if (res == "O") {
       if (gameMode == 1)  winner_statement.innerText = "Player Won"; // Single player mode
       else winner_statement.innerText = "Player 1 Won"; // 2 player mode
@@ -282,12 +284,15 @@ const checkWinner = () => {
     document.getElementById("draw1").innerText =  temp5;
     document.getElementById("draw2").innerText = temp6;
 
-    if (loss1 == 1 || loss2 == 1 || draw1 == 1 || draw2 == 1) { //when the game ends, I create and add a button in the 'div-end-of-game' div
-        var btn = document.createElement("button");
-        btn.className = "btn-sound";
-        btn.innerHTML = "<i class='fa fa-volume-up' aria-hidden='true'></i>";
-        btn.onclick = muteAudio;
-        document.getElementsByClassName("div-end-of-game")[0].appendChild(btn);
+    if (loss1 == 1 || loss2 == 1 || draw1 == 1 || draw2 == 1) {
+        // To check if the btn already exist
+        if (document.getElementsByClassName("btn-sound").length === 0) {
+            var btn = document.createElement("button");
+            btn.className = "btn-sound";
+            btn.innerHTML = "<i class='fa fa-volume-up' aria-hidden='true'></i>";
+            btn.onclick = muteAudio;
+            document.getElementsByClassName("div-end-of-game")[0].appendChild(btn);
+        }
     }
 };
 
