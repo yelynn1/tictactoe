@@ -1,10 +1,12 @@
-# Contribution Guidelines
+# Project Name : Tic-Tac-Toe
 
 ## Issue
 
 **Sound Button Duplication #132**
 
 If you win the game and undo the last move, then win again, the sound button duplicates itself.
+
+## Fork Repo Link : https://github.com/abhiram-shaji/tictactoe/tree/fix-sound-button-duplication
 
 ## Solution
 
@@ -28,3 +30,8 @@ const checkWinner = () => {
         }
     }
 };
+```
+
+## Reflection
+
+With the help of this contribution the app no multiplies sound button upon winning and retrying the last move.
