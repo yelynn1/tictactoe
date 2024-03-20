@@ -1,0 +1,19 @@
+{
+  "name": "lab1",
+  "version": "1.0.0",
+  "description": "lite",
+  "main": "app",
+  "scripts": {
+    "start": "node app.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "keywords": [
+    "lab1"
+  ],
+  "author": "im",
+  "license": "ISC"
+}
