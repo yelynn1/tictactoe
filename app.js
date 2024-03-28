@@ -376,13 +376,49 @@ const reset_board1 = (firstPlayer) => {
     document.querySelector("#ai_level").disabled = false;
     const audio = document.querySelector("audio");
     render_board();
-    randomizeStart(firstPlayer);
+    randomizeStart1(firstPlayer);
 
     var mute_sound_btn = document.getElementsByClassName("btn-sound")[0];
     if (mute_sound_btn != undefined)
         mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when resetting the board
 }
 
+const randomizeStart1 = (firstPlayer) => {
+    if (play_board.every(item => item === "")) {
+        if (firstPlayer === 'X') {
+            if (gameMode == 1) {
+                showPlayer(1, 1); // Assuming showPlayer function takes parameters for player and symbol
+            } else {
+                showPlayer(2, 1); // Assuming showPlayer function takes parameters for player and symbol
+            }
+            console.log("PLAYER STARTS");
+        } else if (firstPlayer === 'O') {
+            if (gameMode == 1) {
+                addComputerMove(ai_level);
+            } else {
+                showPlayer(2, 2); // Assuming showPlayer function takes parameters for player and symbol
+            }
+            console.log("COMPUTER STARTS");
+        } else {
+            const start = Math.round(Math.random());
+            if (start === 1) {
+                if (gameMode == 1) {
+                    addComputerMove(ai_level);
+                } else {
+                    showPlayer(2, 2); // Assuming showPlayer function takes parameters for player and symbol
+                }
+                console.log("COMPUTER STARTED");
+            } else {
+                if (gameMode == 1) {
+                    showPlayer(1, 1); // Assuming showPlayer function takes parameters for player and symbol
+                } else {
+                    showPlayer(2, 1); // Assuming showPlayer function takes parameters for player and symbol
+                }
+                console.log("PLAYER STARTS");
+            }
+        }
+    }
+}
 render_board();
 configure_ai();
 randomizeStart();
