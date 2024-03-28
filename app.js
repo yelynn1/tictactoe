@@ -383,7 +383,25 @@ const reset_board1 = (firstPlayer) => {
         mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when resetting the board
 }
 
-
+const setStartingPlayer = (firstPlayer) => {
+    if (play_board.every(item => item === "")) {
+        if (firstPlayer === 'X') {
+            if (gameMode == 1) {
+                showPlayer(1, 1); // Assuming showPlayer function takes parameters for player and symbol
+            } else {
+                showPlayer(2, 1); // Assuming showPlayer function takes parameters for player and symbol
+            }
+            console.log("PLAYER STARTS");
+        } else if (firstPlayer === 'O') {
+            if (gameMode == 1) {
+                addComputerMove(ai_level);
+            } else {
+                showPlayer(2, 2); // Assuming showPlayer function takes parameters for player and symbol
+            }
+            console.log("COMPUTER STARTS");
+        }
+    }
+}
 
 render_board();
 configure_ai();
