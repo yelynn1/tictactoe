@@ -360,6 +360,29 @@ const reset_board = () => {
         mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when reseting the board
 }
 
+/Reset board according to player choice/ 
+const selectFirstPlayer = (symbol) => {
+    reset_board1(symbol);
+}
+
+const reset_board1 = (firstPlayer) => {
+    const winner_statement = document.getElementById("winner");
+    play_board = ["", "", "", "", "", "", "", "", ""];
+    board_full = false;
+    winner_statement.classList.remove("playerWin");
+    winner_statement.classList.remove("computerWin");
+    winner_statement.classList.remove("draw");
+    winner_statement.innerText = "";
+    document.querySelector("#ai_level").disabled = false;
+    const audio = document.querySelector("audio");
+    render_board();
+    randomizeStart(firstPlayer);
+
+    var mute_sound_btn = document.getElementsByClassName("btn-sound")[0];
+    if (mute_sound_btn != undefined)
+        mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when resetting the board
+}
+
 render_board();
 configure_ai();
 randomizeStart();
