@@ -9,6 +9,8 @@ Tic-Tac-Toe, a classic game of strategy and wit, pits two players against each o
 
 ## Fork Repo Link - https://github.com/tharinduj31/tictactoe/tree/dev-branch
 
+## Pull Request - https://github.com/yelynn1/tictactoe/pull/135
+
 When pressing the Reset Board button for the first time, it resets the game, and the AI plays first. Pressing it again allows you to play first, and pressing it a third time chooses a random player. Essentially, the button isn't functioning as intended; it should only reset the board.
 
 To fix this bug, two separate buttons needs to be added. One button selects whether X or O plays first. For example, pressing the button for X resets the game, and X (the AI) places its symbol first. The same applies to the button for O.
