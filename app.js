@@ -344,6 +344,49 @@ const reset_board = () => {
         mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when reseting the board
 }
 
+/Reset board according to player choice/ 
+
+const selectFirstPlayer = (symbol) => {
+    reset_board1(symbol);
+}
+
+const reset_board1 = (firstPlayer) => {
+    const winner_statement = document.getElementById("winner");
+    play_board = ["", "", "", "", "", "", "", "", ""];
+    board_full = false;
+    winner_statement.classList.remove("playerWin");
+    winner_statement.classList.remove("computerWin");
+    winner_statement.classList.remove("draw");
+    winner_statement.innerText = "";
+    document.querySelector("#ai_level").disabled = false;
+    render_board();
+    setStartingPlayer(firstPlayer);
+
+    var mute_sound_btn = document.getElementsByClassName("btn-sound")[0];
+    if (mute_sound_btn != undefined)
+        mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when resetting the board
+}
+
+const setStartingPlayer = (firstPlayer) => {
+    if (play_board.every(item => item === "")) {
+        if (firstPlayer === 'X') {
+            if (gameMode == 1) {
+                showPlayer(1, 1); // Assuming showPlayer function takes parameters for player and symbol
+            } else {
+                showPlayer(2, 1); // Assuming showPlayer function takes parameters for player and symbol
+            }
+            console.log("PLAYER STARTS");
+        } else if (firstPlayer === 'O') {
+            if (gameMode == 1) {
+                addComputerMove(ai_level);
+            } else {
+                showPlayer(2, 2); // Assuming showPlayer function takes parameters for player and symbol
+            }
+            console.log("COMPUTER STARTS");
+        }
+    }
+}
+
 render_board();
 configure_ai();
 randomizeStart();
