@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Заголовок і метатеги -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    // Заголовок
     <title>TTC</title>
     <!--Adding Favicon-->
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-
-    <!-- Add mute button icon library -->
+ 
+    <!-- FontAwesome для кнопок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- Bootstrap для стилів -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <!-- Стилі для сторінки -->
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-113861388-2"
     ></script>
     <script src="index.mjs" defer></script>
     <script>
+       // Підключення Google Analytics.
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -34,22 +37,27 @@
     </script>
   </head>
   <body>
-
+    <!-- Навігаційний блок -->
     <nav class="navbar fixed-top" id="hero">
+      <!-- Кнопка для управління аудіо -->
       <button class="btn btn-primary" onclick="playAudio(this)" type="button">Play Music</button>
+      <!-- Слайдер гучності -->
       <input type="range" id="volume-slider">
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
+       <!-- Кнопка для переключення теми -->
       <button class="btn btn-info" onclick="myFunction()">Dark Mode</button>
     </nav>
     </br>
 
+     <!-- Аудіоплеєр -->
     <audio id="myAudio">
       <source src="music.mp3" type="audio/ogg">
     </audio>
 
     <script>
+      // JavaScript для управління аудіоплеєром.
       var x = document.getElementById("myAudio");
       var sliderLevel = document.querySelector('#volume-slider')
       x.volume = sliderLevel.value/100
@@ -68,9 +76,10 @@
            }
       }
     </script>
-    <!-- instructions phase starts here -->
+     <!-- Фаза інструкцій -->
     <div class="popup-container">
       <div class="instructions">
+        <!-- Пояснення правил гри -->
         <p>You probably already know how to play Tic-Tac-Toe. It's a really simple game, right? That's what most people think. But if you really wrap your brain around it, you'll discover that Tic-Tac-Toe isn't quite as simple as you think!
 
           Tic-Tac -Toe (along with a lot of other games) involves looking ahead and trying to figure out what the person playing against you might do next.</p>
@@ -90,6 +99,7 @@
             You also have to watch where the computer puts its O. That could change what you do next. If the computer gets two Os in a row, you have to put your next X in the last empty square in that row, or the computer will win. You are forced to play in a particular square or lose the game.
 
             If you always pay attention and look ahead, you'll never lose a game of Tic-Tac-Toe. You may not win, but at least you'll tie.</p>
+            <!-- Таблиця з кнопками для вибору режиму гри -->
             <table>
               <tr>
                 <th><button type="button" class="player1-btn start-btn" name="button" onclick="singlePlayer()">Single Player</button></th>
@@ -98,17 +108,18 @@
             </table>
       </div>
     </div>
-    <!-- instruction phase ends here -->
+      <!-- Контейнер для гри -->
     <div class="container-custom">
           <h1>Tic-Tac-Toe</h1>
           <h4>Scoreboard</h4>
+           <!-- Таблиця з результатами гри -->
           <table>
             <tr>
               <th><button type="button"  name="button" onclick="singlePlayer()">Single Player</button></th>
               <th><button type="button" name="button" onclick="twoPlayer()">2 Players</button></th>
             </tr>
           </table>
-
+          <!-- Таблиця зі статистикою -->
           <table class="table">
             <thead>
               <tr style="color: crimson;">
@@ -136,7 +147,7 @@
               </tr>
             </tbody>
           </table>
-
+       <!-- Дошка для гри -->
       <div class="play-area" id="play">
         <div id="block_0" class="block"></div>
         <div id="block_1" class="block"></div>
@@ -148,9 +159,10 @@
         <div id="block_7" class="block"></div>
         <div id="block_8" class="block"></div>
       </div>
-      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
-
+       
+       <!-- Скрипти для взаємодії з грою -->
 <script>
+  // Функція для зміни теми сторінки.
 function myFunction() {
    var main = document.body;
    var hero = document.getElementsByClassName('navbar')[0]
@@ -174,11 +186,13 @@ function myFunction() {
    container.classList.toggle("dark-play")
 }
 </script>
+ <!-- Вибір рівня складності -->
       <select id="ai_level">
         <option value="easy" selected>Easy</option>
         <option value="normal">Normal</option>
         <option value="hard">Hard</option>
       </select>
+      <!-- Кнопки для скидання дошки та скасування останнього ходу -->
       <div class="div-end-of-game">
         <!-- <button onclick="reset_board()">RESET BOARD</button> -->
         <button onclick="undoLastMove()">Undo Move</button>
@@ -186,10 +200,12 @@ function myFunction() {
         <button id="selectOButton" onclick="selectFirstPlayer('O')">Play X first</button>
 
       </div>
+      <!-- Виведення результатів гри -->
       <h2 id="winner"></h2>
     </div>
-
+      <!-- Підключення скрипту для Facebook Instant Games -->
     <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
+    <!-- Підключення основного скрипту гри -->
     <script src="app.js"></script>
   </body>
 </html>
