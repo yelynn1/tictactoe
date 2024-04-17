@@ -194,8 +194,11 @@ function myFunction() {
       </select>
       <!-- Кнопки для скидання дошки та скасування останнього ходу -->
       <div class="div-end-of-game">
-        <button onclick="reset_board()">RESET BOARD</button>
+        <!-- <button onclick="reset_board()">RESET BOARD</button> -->
         <button onclick="undoLastMove()">Undo Move</button>
+        <button id="selectXButton" onclick="selectFirstPlayer('X')">Play O first</button>
+        <button id="selectOButton" onclick="selectFirstPlayer('O')">Play X first</button>
+
       </div>
       <!-- Виведення результатів гри -->
       <h2 id="winner"></h2>
