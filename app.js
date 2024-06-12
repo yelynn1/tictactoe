@@ -92,42 +92,48 @@ const showPlayer = (mode,player) => {
 
 }
 const randomizeStart = () => {
-    if(play_board.every(item=> item==="")){
-    // const PLAYER = 0;
+  if (play_board.every(item => item === "")) {
     const COMPUTER = 1;
     const start = Math.round(Math.random());
-    if(start === COMPUTER){
-      if (gameMode == 1)
-        {addComputerMove(ai_level);}
-        else {showPlayer(2,2)}
-        console.log("COMPUTER STARTED")
-    }else{
-      if (gameMode == 1) showPlayer(1,1);
-      else showPlayer(2,1);
-        console.log("PLAYER STARTS")
-    }}
-}
-const addPlayerMove = e => {
-    if (play_board[e] == "" && !board_full) {
-        document.querySelector("#ai_level").disabled = true;
-        // Store the current state in the move history
-        lastMove = [...play_board];
-        play_board[e] = player;
-        game_loop();
-        if (gameMode == 1) {
-            addComputerMove(ai_level);
-            showPlayer(1, 1);
-        } else {
-            // Toggle player - player changer
-            if (player == "X") {
-                player = "O";
-                showPlayer(2, 1);
-            } else {
-                player = "X";
-                showPlayer(2, 2);
-            }
-        }
+    if (start === COMPUTER) {
+      if (gameMode == 1) {
+        addComputerMove(ai_level);
+      } else {
+        showPlayer(2, 2);
+      }
+      console.log("COMPUTER STARTED");
+    } else {
+      if (gameMode == 1) {
+        showPlayer(1, 1);
+      } else {
+        showPlayer(2, 1);
+      }
+      console.log("PLAYER STARTS");
     }
+  }
+};
+
+const addPlayerMove = e => {
+  if (play_board[e] == "" && !board_full) {
+    document.querySelector("#ai_level").disabled = true;
+    // Store the current state in the move history
+    lastMove = [...play_board];
+    play_board[e] = player;
+    game_loop();
+    if (gameMode == 1) {
+      addComputerMove(ai_level);
+      showPlayer(1, 1);
+    } else {
+      // Toggle player - player changer
+      if (player == "X") {
+        player = "O";
+        showPlayer(2, 1);
+      } else {
+        player = "X";
+        showPlayer(2, 2);
+      }
+    }
+  }
 };
 
 // Function to undo the last move
