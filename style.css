@@ -10,14 +10,16 @@
   display: block;
   font-size: 1rem;
   background-color: green;
+  border-radius: .3em;
   margin:2% 20%;
-  line-height: 2.5rem;
-  padding: 1%;
+  line-height: 2rem;
+  padding: .8em;
   color: #ffff;
 }
 .instructions{
   background-color: #fff;
   color: #000;
+  border-radius: .2em;
   padding: 4%;
 }
 .instructions h1{
@@ -66,25 +68,24 @@ a {
 }
 
 nav {
-  border-color: black;
-  border-radius: 10px 100px / 120px;
-  border-style: groove;
-  border-width: 7px;
+  border-radius: 0 0 .3em .3em;
   background: whitesmoke;
   margin: auto;
-  padding: 3px;
-  text-align: center;
+  padding: .5em !important;
+  text-align: center;
 }
 
 button {
   outline: none;
   border: 4px solid green;
   padding: 10px 20px;
+  border-radius: .3em;
   font-size: 1rem;
+  margin-left: .1em;
   font-weight: bold;
   background: none;
   transition: all 0.2s ease-in-out;
-  color: #f80606;
+  color: #fff;
 }
 button:hover {
   cursor: pointer;
@@ -415,11 +416,21 @@ pre {
 /* light and dark more style */
 body {
   padding: 25px;
-  background:gray;
+  background:#999;
   color: black;
   font-size: 25px;
 }
-
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #fff;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgba(0,0,0,0.1);
+}
 thead{
   background-color: lightblue
 }
