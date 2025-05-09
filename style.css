@@ -75,6 +75,10 @@ nav {
   padding: 3px;
   text-align: center;
 }
+nav input {
+  margin-left: 10px;
+  width: 15%;
+}
 
 button {
   outline: none;
