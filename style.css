@@ -92,6 +92,10 @@ button:hover {
   color: white;
 }
 
+#volume-slider{
+  margin-left: 5px;
+}
+
 .play-area {
   display: grid;
   width: 300px;
