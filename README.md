@@ -60,7 +60,7 @@ If you wish to contribute a change to any of the existing features in this repo,
 
 ## Code of Conduct
 
-We follow certain guidelines in order to maintain this repository.Please find our [code of conduct](https://github.com/yash2189/tictactoe/blob/fix-readme/CODE%20OF%20CONDUCT.md) and read it carefully.
+We follow certain guidelines in order to maintain this repository. Please find our [code of conduct](https://github.com/yash2189/tictactoe/blob/fix-readme/CODE%20OF%20CONDUCT.md) and read it carefully.
 
 ## License
-Distributed under the MIT License.See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
