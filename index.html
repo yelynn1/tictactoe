@@ -1,257 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TTC</title>
-    <!--Adding Favicon-->
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-    <!-- Add mute button icon library -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-113861388-2"
-    ></script>
-    <script src="index.mjs" defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113861388-2"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-113861388-2");
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "UA-113861388-2");
     </script>
-  </head>
-  <body>
-    <nav class="navbar fixed-top" id="hero">
-      <button class="btn btn-primary" onclick="playAudio(this)" type="button">
-        Play Music
-      </button>
-      <input title="range" type="range" id="volume-slider" />
-      <a class="navbar-brand" href="about.html">About</a>
-      <a class="navbar-brand" href="#">Play Game</a>
-      <a class="navbar-brand" href="contributors.html">Contributors</a>
-      <button class="btn btn-info" onclick="myFunction()">Dark Mode</button>
-    </nav>
-    <br />
+</head>
+<body>
+    <div class="popup-container" id="instructions-popup">
+        <div class="instructions">
+            <h1>Welcome to Tic-Tac-Toe!</h1>
+            <p>
+                It's the classic game you know and love, but with a sleek new look. The goal is simple: be the first to get three of your marks in a row—horizontally, vertically, or diagonally.
+            </p>
+            <h2>Game Rules</h2>
+            <ol>
+                <li>The game is played on a 3x3 grid.</li>
+                <li>You are X, and your opponent (the computer or another player) is O.</li>
+                <li>Players take turns placing their marks in empty squares.</li>
+                <li>The first player to get 3 of their marks in a row wins.</li>
+                <li>If all 9 squares are filled and no one has won, the game is a draw.</li>
+            </ol>
+            <div class="modal-buttons">
+                <button id="singlePlayerBtn" class="start-btn">Single Player</button>
+                <button id="twoPlayerBtn" class="start-btn">2 Players</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="#">Play Game</a>
+                <a class="nav-link" href="contributors.html">Contributors</a>
+            </div>
+            <div class="nav-right">
+                <button id="playAudioBtn" class="btn-primary" type="button">
+                    <i class="fa fa-music"></i> Play
+                </button>
+                <input title="range" type="range" id="volume-slider" class="volume-slider" />
+                <button id="darkModeBtn" class="btn-dark-mode">Dark Mode</button>
+            </div>
+        </nav>
+
+        <div class="container-custom">
+            <div class="game-and-scoreboard">
+                <div class="game-area-wrapper">
+                    <h2 id="move">PLAYER MOVE!</h2>
+                    <div class="play-area"></div>
+                    <h2 id="winner"></h2>
+                </div>
+
+                <div class="scoreboard-wrapper">
+                    <h4>Scoreboard</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Game/User</th>
+                                <th scope="col" id="Player1">Player</th>
+                                <th scope="col" id="Player2">Computer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Win</th>
+                                <td id="playerstat1">0</td>
+                                <td id="computerstat1">0</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lost</th>
+                                <td id="loss1">0</td>
+                                <td id="loss2">0</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Draw</th>
+                                <td id="draw1">0</td>
+                                <td id="draw2">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                     <div class="game-controls">
+                         <select id="ai_level" title="select the difficulty level">
+                             <option value="easy" selected>Easy</option>
+                             <option value="normal">Normal</option>
+                             <option value="hard">Hard</option>
+                         </select>
+                         <button id="undoBtn">Undo Move</button>
+                         <button id="selectOBtn">Play O first</button> <button id="selectXBtn">Play X first</button> <button type="button" title="Toggle sound" id="muteAudioBtn" aria-label="Toggle sound">
+                             <i class="fa fa-volume-up" aria-hidden="true"></i>
+                         </button>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <audio id="myAudio">
-      <source src="music.mp3" type="audio/ogg" />
+        <source src="music.mp3" type="audio/mpeg" />
     </audio>
-
-    <script>
-      var x = document.getElementById("myAudio");
-      var sliderLevel = document.querySelector("#volume-slider");
-      x.volume = sliderLevel.value / 100;
-      sliderLevel.addEventListener("change", function (e) {
-        x.volume = e.currentTarget.value / 100;
-      });
-
-      function playAudio(btn) {
-        if (x.paused) {
-          x.play();
-          document.querySelector(".btn-primary").innerHTML = "Pause Music";
-        } else {
-          x.pause();
-          document.querySelector(".btn-primary").innerHTML = "Play Music";
-        }
-      }
-    </script>
-    <!-- instructions phase starts here -->
-    <div class="popup-container">
-      <div class="instructions">
-        <p>
-          You probably already know how to play Tic-Tac-Toe. It's a really
-          simple game, right? That's what most people think. But if you really
-          wrap your brain around it, you'll discover that Tic-Tac-Toe isn't
-          quite as simple as you think! Tic-Tac -Toe (along with a lot of other
-          games) involves looking ahead and trying to figure out what the person
-          playing against you might do next.
-        </p>
-
-        <h1>RULES FOR TIC-TAC-TOE</h1>
-        <p>1. The game is played on a grid that's 3 squares by 3 squares.</p>
-        <p>
-          2. You are X, your friend (or the computer in this case) is O. Players
-          take turns putting their marks in empty squares.
-        </p>
-        <p>
-          3. The first player to get 3 of her marks in a row (up, down, across,
-          or diagonally) is the winner.
-        </p>
-        <p>
-          4. When all 9 squares are full, the game is over. If no player has 3
-          marks in a row, the game ends in a tie.
-        </p>
-        <h1>HOW CAN I WIN AT TIC-TAC-TOE?</h1>
-        <p>
-          To beat the computer (or at least tie), you need to make use of a
-          little bit of strategy. Strategy means figuring out what you need to
-          do to win. Part of your strategy is trying to figure out how to get
-          three Xs in a row. The other part is trying to figure out how to stop
-          the computer from getting three Os in a row. After you put an X in a
-          square, you start looking ahead. Where's the best place for your next
-          X? You look at the empty squares and decide which ones are good
-          choices—which ones might let you make three Xs in a row. You also have
-          to watch where the computer puts its O. That could change what you do
-          next. If the computer gets two Os in a row, you have to put your next
-          X in the last empty square in that row, or the computer will win. You
-          are forced to play in a particular square or lose the game. If you
-          always pay attention and look ahead, you'll never lose a game of
-          Tic-Tac-Toe. You may not win, but at least you'll tie.
-        </p>
-        <table>
-          <tr>
-            <th>
-              <button
-                type="button"
-                class="player1-btn start-btn"
-                name="button"
-                onclick="singlePlayer()"
-              >
-                Single Player
-              </button>
-            </th>
-            <th>
-              <button
-                type="button"
-                class="player2-btn start-btn"
-                name="button"
-                onclick="twoPlayer()"
-              >
-                2 Players
-              </button>
-            </th>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <!-- instruction phase ends here -->
-    <div class="container-custom">
-      <h1>Tic-Tac-Toe</h1>
-      <h4>Scoreboard</h4>
-      <table>
-        <tr>
-          <th>
-            <button type="button" name="button" onclick="singlePlayer()">
-              Single Player
-            </button>
-          </th>
-          <th>
-            <button type="button" name="button" onclick="twoPlayer()">
-              2 Players
-            </button>
-          </th>
-        </tr>
-      </table>
-
-      <table class="table">
-        <thead>
-          <tr style="color: crimson">
-            <th scope="col">Game/User</th>
-            <th scope="col" id="Player1">Player</th>
-            <th scope="col" id="Player2">Computer</th>
-          </tr>
-        </thead>
-        <h2 id="move">PLAYER MOVE!</h2>
-        <tbody>
-          <tr>
-            <th scope="row" class="table-success">Win</th>
-            <td id="playerstat1" class="playerstat table-success"></td>
-            <td id="computerstat1" class="computerstat table-success"></td>
-          </tr>
-          <tr>
-            <th scope="row" class="table-danger">Lost</th>
-            <td id="loss1" class="computerstat table-danger"></td>
-            <td id="loss2" class="playerstat table-danger"></td>
-          </tr>
-          <tr>
-            <th scope="row" class="table-warning">Draw</th>
-            <td id="draw1" class="drawstat table-warning"></td>
-            <td id="draw2" class="drawstat table-warning"></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="play-area" id="play">
-        <div id="block_0" class="block"></div>
-        <div id="block_1" class="block"></div>
-        <div id="block_2" class="block"></div>
-        <div id="block_3" class="block"></div>
-        <div id="block_4" class="block"></div>
-        <div id="block_5" class="block"></div>
-        <div id="block_6" class="block"></div>
-        <div id="block_7" class="block"></div>
-        <div id="block_8" class="block"></div>
-      </div>
-      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
-
-      <script>
-        function myFunction() {
-          var main = document.body;
-          var hero = document.getElementsByClassName("navbar")[0];
-          var container = document.getElementById("play");
-          var darkToggle = document.getElementsByClassName("btn");
-          var heroText = document.getElementsByClassName("navbar-brand");
-          var arr = Array.prototype.slice.call(heroText);
-
-          arr.forEach((element) => {
-            element.classList.toggle("dark-text");
-          });
-
-          if (darkToggle[1].textContent === "Dark Mode") {
-            darkToggle[1].textContent = "Light Mode";
-          } else {
-            darkToggle[1].textContent = "Dark Mode";
-          }
-
-          hero.classList.toggle("dark-hero");
-          main.classList.toggle("dark-main");
-          container.classList.toggle("dark-play");
-        }
-      </script>
-      <select id="ai_level" title="select the difficulty level">
-        <option value="easy" selected>Easy</option>
-        <option value="normal">Normal</option>
-        <option value="hard">Hard</option>
-      </select>
-      <div class="div-end-of-game">
-        <!-- <button onclick="reset_board()">RESET BOARD</button> -->
-        <button onclick="undoLastMove()">Undo Move</button>
-        <button id="selectXButton" onclick="selectFirstPlayer('X')">
-          Play O first
-        </button>
-        <button id="selectOButton" onclick="selectFirstPlayer('O')">
-          Play X first
-        </button>
-        <button
-          type="button"
-          title="Toggle sound"
-          id="btn-sound"
-          aria-label="Toggle sound"
-          onclick="muteAudio()"
-        >
-          <i class="fa fa-volume-up" aria-hidden="true"></i>
-        </button>
-      </div>
-      <h2 id="winner"></h2>
-    </div>
 
     <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
     <script src="app.js"></script>
-  </body>
+    <script src="index.mjs" defer></script>
+</body>
 </html>
