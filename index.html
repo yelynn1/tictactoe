@@ -201,29 +201,45 @@
       <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
 
       <script>
-        function myFunction() {
-          var main = document.body;
-          var hero = document.getElementsByClassName("navbar")[0];
-          var container = document.getElementById("play");
-          var darkToggle = document.getElementsByClassName("btn");
-          var heroText = document.getElementsByClassName("navbar-brand");
-          var arr = Array.prototype.slice.call(heroText);
+  
 
-          arr.forEach((element) => {
-            element.classList.toggle("dark-text");
-          });
+  function myFunction() {
+    const isDark = document.body.classList.contains("dark-main");
+    applyDarkMode(!isDark);
 
-          if (darkToggle[1].textContent === "Dark Mode") {
-            darkToggle[1].textContent = "Light Mode";
-          } else {
-            darkToggle[1].textContent = "Dark Mode";
-          }
+    localStorage.setItem("theme", isDark ? "light" : "dark");
+  }
 
-          hero.classList.toggle("dark-hero");
-          main.classList.toggle("dark-main");
-          container.classList.toggle("dark-play");
-        }
-      </script>
+  function applyDarkMode(enable) {
+    var main = document.body;
+    var hero = document.getElementsByClassName("navbar")[0];
+    var container = document.getElementById("play");
+    var darkToggle = document.getElementsByClassName("btn");
+    var heroText = document.getElementsByClassName("navbar-brand");
+    var arr = Array.prototype.slice.call(heroText);
+
+    arr.forEach((element) => {
+      if (enable) {
+        element.classList.add("dark-text");
+      } else {
+        element.classList.remove("dark-text");
+      }
+    });
+
+    if (enable) {
+      darkToggle[1].textContent = "Light Mode";
+      hero.classList.add("dark-hero");
+      main.classList.add("dark-main");
+      container.classList.add("dark-play");
+    } else {
+      darkToggle[1].textContent = "Dark Mode";
+      hero.classList.remove("dark-hero");
+      main.classList.remove("dark-main");
+      container.classList.remove("dark-play");
+    }
+  }
+</script>
+
       <select id="ai_level" title="select the difficulty level">
         <option value="easy" selected>Easy</option>
         <option value="normal">Normal</option>
