@@ -11,7 +11,7 @@ const render_board = () => {
     board_container.innerHTML = "";
     play_board.forEach((e, i) => {
         board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
-        if (e == player || e == computer) {
+        if (e === player || e === computer) {
             document.querySelector(`#block_${i}`).classList.add("occupied");
         }
     });
@@ -19,29 +19,27 @@ const render_board = () => {
 
 const configure_ai = () => {
     let ai_select = document.querySelector("#ai_level");
-    ai_level = Array.from(ai_select.options).filter(option => option.defaultSelected == true)[0].value;
-    ai_select.addEventListener("change", event => {
+    ai_level = Array.from(ai_select.options).filter(
+        (option) => option.defaultSelected == true
+    )[0].value;
+    ai_select.addEventListener("change", (event) => {
         ai_level = event.target.options[event.target.selectedIndex].value;
     });
 };
 
-FBInstant.initializeAsync()
-    .then(function () {
-        var progress = 0;
-        var interval = setInterval(function () {
-            if (progress >= 95) {
-                clearInterval(interval);
-                FBInstant.startGameAsync().then(
-                    function () {
-                        console.log("Game Loaded");
-                    }
-                )
-            };
-            FBInstant.setLoadingProgress(progress);
-            progress += 5;
-        }, 100);
-    }
-    );
+FBInstant.initializeAsync().then(function () {
+    var progress = 0;
+    var interval = setInterval(function () {
+        if (progress >= 95) {
+            clearInterval(interval);
+            FBInstant.startGameAsync().then(function () {
+                console.log("Game Loaded");
+            });
+        }
+        FBInstant.setLoadingProgress(progress);
+        progress += 5;
+    }, 100);
+});
 
 // RESET GAME TO TWO PLAYER MODE
 const twoPlayer = () => {
@@ -49,25 +47,24 @@ const twoPlayer = () => {
     document.getElementById("Player2").innerHTML = " Player 2(X)";
     gameMode = 2;
     reset_board();
-}
-//RESET GAME TO SINGLE PLAYER MODE
+};
+
+// RESET GAME TO SINGLE PLAYER MODE
 const singlePlayer = () => {
     document.getElementById("Player1").innerHTML = " Player";
     document.getElementById("Player2").innerHTML = " Computer";
     gameMode = 1;
-    player = "O"; //DEFAULT PLAYER SETTINGS FOR SINGLE PLAYER
+    player = "O"; // DEFAULT PLAYER SETTINGS FOR SINGLE PLAYER
     computer = "X";
     reset_board();
-}
+};
 
 render_board();
 configure_ai();
 
-//setTimeout(render_board(), 3000);
-
 const checkBoardComplete = () => {
     let flag = true;
-    play_board.forEach(element => {
+    play_board.forEach((element) => {
         if (element == "") {
             flag = false;
         }
@@ -79,38 +76,44 @@ const game_loop = () => {
     render_board();
     checkBoardComplete();
     checkWinner();
-}
-//FUNCTION TO DISPLAY WHOSE MOVE IT IS (Player/Computer/Player 1/2)
+};
+
+// FUNCTION TO DISPLAY WHOSE MOVE IT IS (Player/Computer/Player 1/2)
 const showPlayer = (mode, player) => {
-    if (mode == 1) { // mode 1 is single Player
-        if (player == 1) document.getElementById("move").innerHTML = "Player Move!";
-    }
-    else { // Mode == 2 for 2 Players
-        if (player == 1) document.getElementById("move").innerHTML = "Player 1 Move!";
+    if (mode == 1) {
+        // mode 1 is single Player
+        if (player == 1)
+            document.getElementById("move").innerHTML = "Player Move!";
+    } else {
+        // Mode == 2 for 2 Players
+        if (player == 1)
+            document.getElementById("move").innerHTML = "Player 1 Move!";
         else document.getElementById("move").innerHTML = "Player 2 Move";
     }
+};
 
-}
 const randomizeStart = () => {
-    if (play_board.every(item => item === "")) {
-        // const PLAYER = 0;
+    if (play_board.every((item) => item === "")) {
         const COMPUTER = 1;
         const start = Math.round(Math.random());
         if (start === COMPUTER) {
-            if (gameMode == 1) { addComputerMove(ai_level); }
-            else { showPlayer(2, 2) }
-            console.log("COMPUTER STARTED")
+            if (gameMode == 1) {
+                addComputerMove(ai_level);
+            } else {
+                showPlayer(2, 2);
+            }
+            console.log("COMPUTER STARTED");
         } else {
             if (gameMode == 1) showPlayer(1, 1);
             else showPlayer(2, 1);
-            console.log("PLAYER STARTS")
+            console.log("PLAYER STARTS");
         }
     }
-}
-const addPlayerMove = e => {
+};
+
+const addPlayerMove = (e) => {
     if (play_board[e] == "" && !board_full) {
         document.querySelector("#ai_level").disabled = true;
-        // Store the current state in the move history
         lastMove = [...play_board];
         play_board[e] = player;
         game_loop();
@@ -118,7 +121,6 @@ const addPlayerMove = e => {
             addComputerMove(ai_level);
             showPlayer(1, 1);
         } else {
-            // Toggle player - player changer
             if (player == "X") {
                 player = "O";
                 showPlayer(2, 1);
@@ -157,8 +159,7 @@ const addComputerMove = (ai_level) => {
                 if (guess <= 40) {
                     score = Infinity;
                     compare = (a, b) => a < b;
-                }
-                else {
+                } else {
                     score = -Infinity;
                     compare = (a, b) => a > b;
                 }
@@ -179,7 +180,7 @@ const addComputerMove = (ai_level) => {
         play_board[nextMove] = computer;
         game_loop();
     }
-}
+};
 
 let scores = { X: 1, O: -1, tie: 0 };
 
@@ -211,7 +212,7 @@ const minimax = (board, isMaximizing) => {
         }
         return bestScore;
     }
-}
+};
 
 var temp1 = 0;
 var temp2 = 0;
@@ -220,7 +221,7 @@ var temp4 = 0;
 var temp5 = 0;
 var temp6 = 0;
 
-var endMusic = null; //the Audio object for the music at the end of the game
+var endMusic = null; // the Audio object for the music at the end of the game
 
 const checkWinner = () => {
     let res = check_match();
@@ -235,8 +236,8 @@ const checkWinner = () => {
     const audio = document.querySelector("audio");
 
     if (res == "O") {
-        if (gameMode == 1) winner_statement.innerText = "Player Won"; // Single player mode
-        else winner_statement.innerText = "Player 1 Won"; // 2 player mode
+        if (gameMode == 1) winner_statement.innerText = "Player Won";
+        else winner_statement.innerText = "Player 1 Won";
         winner_statement.classList.add("playerWin");
         board_full = true;
         playerstat1++;
@@ -249,10 +250,9 @@ const checkWinner = () => {
             endMusic = new Audio("audio/win.wav");
             endMusic.play();
         }
-    } 
-    else if (res == "X") {
-        if (gameMode == 1) winner_statement.innerText = "Computer Won"; // Single player mode
-        else winner_statement.innerText = "Player 2 Won"; // 2 player mode
+    } else if (res == "X") {
+        if (gameMode == 1) winner_statement.innerText = "Computer Won";
+        else winner_statement.innerText = "Player 2 Won";
         winner_statement.classList.add("computerWin");
         board_full = true;
         computerstat1++;
@@ -265,8 +265,7 @@ const checkWinner = () => {
             endMusic = new Audio("audio/gameover.wav");
             endMusic.play();
         }
-    } 
-    else if (board_full) {
+    } else if (board_full) {
         winner_statement.innerText = "Draw...";
         winner_statement.classList.add("draw");
         draw1++;
@@ -281,7 +280,6 @@ const checkWinner = () => {
         }
     }
 
-    // Update the scoreboard
     document.getElementById("playerstat1").innerText = temp1;
     document.getElementById("computerstat1").innerText = temp2;
     document.getElementById("loss1").innerText = temp4;
@@ -289,39 +287,34 @@ const checkWinner = () => {
     document.getElementById("draw1").innerText = temp5;
     document.getElementById("draw2").innerText = temp6;
 
-    // Play end music only if not muted
     if (endMusic && !x.muted) {
         audio.play();
     }
 };
 
-
 var x = document.getElementById("myAudio");
 
 const muteAudio = () => {
     const btn = document.getElementById("btn-sound");
-  
+
     if (!x) {
-      console.error("Audio element 'x' not found.");
-      return;
+        console.error("Audio element 'x' not found.");
+        return;
     }
-  
-    // Toggle mute state
+
     const isMuted = !x.muted;
     x.muted = isMuted;
-  
-    // Check if endMusic is defined before muting/unmuting
-    if (endMusic) {
-      endMusic.muted = isMuted;
-    }
-  
-    // Update the button icon dynamically
-    btn.innerHTML = isMuted
-      ? `<i class="fa fa-volume-down" aria-hidden="true"></i>`
-      : `<i class="fa fa-volume-up" aria-hidden="true"></i>`;
-  };
-  
 
+    if (endMusic) {
+        endMusic.muted = isMuted;
+    }
+
+    btn.innerHTML = isMuted
+        ? `<i class="fa fa-volume-down" aria-hidden="true"></i>`
+        : `<i class="fa fa-volume-up" aria-hidden="true"></i>`;
+};
+
+// Check winning lines
 const check_line = (a, b, c) => {
     let status =
         play_board[a] == play_board[b] &&
@@ -355,7 +348,7 @@ const check_match = () => {
     checkBoardComplete();
     if (board_full) return "tie";
     return "";
-}
+};
 
 const reset_board = () => {
     const winner_statement = document.getElementById("winner");
@@ -372,14 +365,13 @@ const reset_board = () => {
 
     var mute_sound_btn = document.getElementsByClassName("btn-sound")[0];
     if (mute_sound_btn != undefined)
-        mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when reseting the board
-}
+        mute_sound_btn.parentNode.removeChild(mute_sound_btn);
+};
 
-/Reset board according to player choice/
-
+// Reset board according to player choice
 const selectFirstPlayer = (symbol) => {
     reset_board1(symbol);
-}
+};
 
 const reset_board1 = (firstPlayer) => {
     const winner_statement = document.getElementById("winner");
@@ -395,30 +387,30 @@ const reset_board1 = (firstPlayer) => {
 
     var mute_sound_btn = document.getElementsByClassName("btn-sound")[0];
     if (mute_sound_btn != undefined)
-        mute_sound_btn.parentNode.removeChild(mute_sound_btn); //delete the button when resetting the board
-}
+        mute_sound_btn.parentNode.removeChild(mute_sound_btn);
+};
 
 const setStartingPlayer = (firstPlayer) => {
-    if (play_board.every(item => item === "")) {
-        if (firstPlayer === 'X') {
+    if (play_board.every((item) => item === "")) {
+        if (firstPlayer === "X") {
             if (gameMode == 1) {
-                showPlayer(1, 1); // Assuming showPlayer function takes parameters for player and symbol
+                showPlayer(1, 1);
             } else {
-                showPlayer(2, 1); // Assuming showPlayer function takes parameters for player and symbol
+                showPlayer(2, 1);
             }
             console.log("PLAYER STARTS");
-        } else if (firstPlayer === 'O') {
+        } else if (firstPlayer === "O") {
             if (gameMode == 1) {
                 addComputerMove(ai_level);
             } else {
-                showPlayer(2, 2); // Assuming showPlayer function takes parameters for player and symbol
+                showPlayer(2, 2);
             }
             console.log("COMPUTER STARTS");
         }
     }
-}
+};
 
-render_board();
-configure_ai();
-randomizeStart();
-
+// ✅ Removed redundant function calls here (they are already invoked earlier)
+// render_board();
+// configure_ai();
+// randomizeStart();
