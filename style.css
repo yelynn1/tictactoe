@@ -71,7 +71,8 @@ nav {
   border-style: groove;
   border-width: 7px;
   background: whitesmoke;
-  margin: 10px;
+  /* Use centered nav for responsive layout */
+  margin: auto;
   padding: 3px;
   text-align: center;
 }
@@ -416,7 +417,6 @@ pre {
   filter: invert(0%);
   content: url("dark_mode_icon.png");
 }
-
 /* light and dark more style */
 body {
   padding: 25px;
@@ -433,7 +433,6 @@ thead{
   filter: invert(100%);
   content: url("light_mode_icon.png");
 }
-
 .dark-main {
   background-color: #121212;
   color: white;
