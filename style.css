@@ -71,6 +71,7 @@ nav {
   border-style: groove;
   border-width: 7px;
   background: whitesmoke;
+  /* Use centered nav for responsive layout */
   margin: auto;
   padding: 3px;
   text-align: center;
@@ -412,6 +413,10 @@ pre {
   }
 }
 
+.mode_icon{
+  filter: invert(0%);
+  content: url("dark_mode_icon.png");
+}
 /* light and dark more style */
 body {
   padding: 25px;
@@ -424,6 +429,10 @@ thead{
   background-color: lightblue
 }
 
+.dark-mode-icon{
+  filter: invert(100%);
+  content: url("light_mode_icon.png");
+}
 .dark-main {
   background-color: #121212;
   color: white;
@@ -443,7 +452,11 @@ thead{
 .dark-text {
   color: white !important;
 }
-
+.dark-instructions{
+  background-color: #000000;
+  color: #ffffff;
+  padding: 4%;
+}
 .table{
   width: 100px;
   visibility: initial;

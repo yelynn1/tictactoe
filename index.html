@@ -41,11 +41,15 @@
       <button class="btn btn-primary" onclick="playAudio(this)" type="button">
         Play Music
       </button>
+
       <input title="range" type="range" id="volume-slider" />
       <a class="navbar-brand" href="about.html">About</a>
       <a class="navbar-brand" href="#">Play Game</a>
       <a class="navbar-brand" href="contributors.html">Contributors</a>
-      <button class="btn btn-info" onclick="myFunction()">Dark Mode</button>
+      <!-- dark mode toggle: show an icon if available; text may be present on other variants -->
+      <button class="btn btn-info" onclick="myFunction()" aria-label="Toggle theme">
+        <img class="mode_icon" src="dark_mode_icon.png" height="20" width="20" alt="theme icon" />
+      </button>
     </nav>
     <br />
 
@@ -72,7 +76,7 @@
       }
     </script>
     <!-- instructions phase starts here -->
-    <div class="popup-container">
+  <div class="popup-container">
       <div class="instructions">
         <p>
           You probably already know how to play Tic-Tac-Toe. It's a really
@@ -199,13 +203,19 @@
         <div id="block_8" class="block"></div>
       </div>
       <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+<<<<<<< HEAD
+      
+=======
 
+>>>>>>> tictactoe1/master
       <script>
         function myFunction() {
           var main = document.body;
           var hero = document.getElementsByClassName("navbar")[0];
           var container = document.getElementById("play");
-          var darkToggle = document.getElementsByClassName("btn");
+          var instructions = document.getElementsByClassName("instructions")[0] || null;
+          var toggleTheme = document.querySelector(".mode_icon");
+          var darkBtn = document.querySelector('button[onclick="myFunction()"]');
           var heroText = document.getElementsByClassName("navbar-brand");
           var arr = Array.prototype.slice.call(heroText);
 
@@ -213,14 +223,24 @@
             element.classList.toggle("dark-text");
           });
 
-          if (darkToggle[1].textContent === "Dark Mode") {
-            darkToggle[1].textContent = "Light Mode";
-          } else {
-            darkToggle[1].textContent = "Dark Mode";
+          // Toggle icon appearance if present
+          if (toggleTheme) {
+            toggleTheme.classList.toggle("dark-mode-icon");
+          }
+
+          // Toggle button text when present (keeps compatibility with variants that use text)
+          if (darkBtn) {
+            var t = darkBtn.textContent.trim();
+            if (t === "Dark Mode") {
+              darkBtn.textContent = "Light Mode";
+            } else if (t === "Light Mode") {
+              darkBtn.textContent = "Dark Mode";
+            }
           }
 
           hero.classList.toggle("dark-hero");
           main.classList.toggle("dark-main");
+          if (instructions) instructions.classList.toggle("dark-instructions");
           container.classList.toggle("dark-play");
         }
       </script>
