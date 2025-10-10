@@ -76,7 +76,7 @@ h1 {
     border-radius: 10px;
     margin: 50px auto;
     padding: 30px 40px;
-    box-shadow: 20px 20px 20px #a0c4ff
+    box-shadow: 0 10px 30px rgba(160, 196, 255, 0.3);
 }
 .wrapper .h4{
     color: #0c0c68;
@@ -97,31 +97,32 @@ h1 {
 }
 .wrapper .button {
     text-align: center;
-    margin-top: 15px;
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 
-
     margin-top: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding: 10px 80px;
 
+    background-color: #ffffff;
+    border: 1px solid #a0c4ff;
+    border-radius: 8px;
+    color: #0c0c68;
+    font-family: 'Luckiest Guy', cursive;
 
-   background-color: transparent;
-   -webkit-box-shadow: 2.5px 2.5px 2.5px 0px #000000, inset 2px 2px 7.5px 0px #000000, 2.5px 2.5px 7.5px 2.5px rgba(255,139,253,0); 
-   box-shadow: 2.5px 2.5px 2.5px 0px #80ffdb, inset 2px 2px 7.5px 0px #a0c4ff, 2.5px 2.5px 7.5px 2.5px black;
-   text-shadow: #FFF 0px 0px 2.5px, #FFF 0px 0px 5px, #FFF 0px 0px 7.5px, #52b788 0px 0px 5px, #00b8ff 0px 0px 5px, #bd00ff 0px 0px 5px, #bd00ff 0px 0px 5px, #bd00ff 0px 0px 5px;
-   border: 0.2px double #d600ff;
-   border-radius: 1.5px;
-   color: #0c0c68;
-   font-family: 'Luckiest Guy', cursive;
-   font-size: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+    text-shadow: none;
+
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
    }
+
+   .wrapper .button:hover {
+    background-color: #a0c4ff;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16), 0 2px 4px rgba(0, 0, 0, 0.12);
+}
 
    .wrapper .button:hover:before {
     opacity: 1
