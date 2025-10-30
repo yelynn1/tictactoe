@@ -25,15 +25,25 @@
 }
 .start-btn{
   margin: 2% 20%;
-  border: 2px solid green;
-  background-color: #fff;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: #ffffff;
   color: green;
   border-radius: 15px;
   padding: 25px 90px;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-5px);
+
 }
 .start-btn:hover{
-  background-color: green;
+  background-color: rgb(7, 71, 7);
   color: #fff;
+  transform: translateY(5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.start-btn:active{
+  transform: translateY(-5px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .container-custom {
@@ -72,8 +82,33 @@ nav {
   border-width: 7px;
   background: whitesmoke;
   margin: auto;
-  padding: 3px;
+  padding: 4px;
   text-align: center;
+  display: flex;
+  justify-content: flex-end;  
+  padding: 15px 30px;
+
+}
+
+nav a {
+  padding: 10px 20px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  margin-left: 20px; 
+}
+nav :hover {
+  cursor: pointer;
+  background: #7acd54;
+  padding: 10px 20px;
+  border-radius: 15px;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+nav :active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 button {
@@ -188,27 +223,34 @@ button:hover {
 }
 .wrapper nav {
   top: 0px;
-    width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 .wrapper nav ol {
   padding: 0px;
   list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 .wrapper nav ol li {
   display: inline-block;
   margin-bottom: 5%;
   text-align: center;
   width: 30%;
+  margin-left: 20px;
+  width: auto;
 }
 .wrapper nav ol li a {
   text-decoration: none;
 }
 .wrapper nav ol li a:hover {
-  color: #0056b3;
+  color: #000000;
   text-decoration: underline;
 }
 .wrapper a {
-  color: rgb(3, 102, 214);
+  color: rgb(1, 100, 213);
   font-size: 16px;
 }
 .wrapper h1 {
@@ -427,21 +469,25 @@ thead{
 .dark-main {
   background-color: #121212;
   color: white;
+  transition: all 0.5s ease;
 }
 
 .dark-hero{
   background-color: #2a2a2a;
   color: white;
+  transition: all 0.5s ease;
 }
 
 .dark-play {
   background-color: #2a2a2a;
   color: white;
   border: white;
+  transition: all 0.5s ease;
 }
 
 .dark-text {
   color: white !important;
+  transition: all 0.5s ease;
 }
 
 .table{
@@ -450,15 +496,29 @@ thead{
 }
 
 .btn-sound {
-  background-color: DodgerBlue; /* Blue background */
+  background-color: rgb(15, 34, 53); /* Blue background */
   border: none; /* Remove borders */
-  color: white; /* White text */
+  color: rgb(142, 105, 105); /* White text */
   padding: 12px 16px; /* Some padding */
   font-size: 16px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 
 }
 
 .btn-sound:hover {
   background-color: rgb(94, 143, 206);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
 }
+
+.btn-sound:active {
+    transform: translateY(1px);
+    transition: 0.5s;
+}
+
+
+
