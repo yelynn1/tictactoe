@@ -18,12 +18,7 @@ function renderContributorsTable(contributors) {
 }
 
 function goToMainMenu() {
-  // Κρύβουμε τις οθόνες του παιχνιδιού / contributors / settings
-  document.getElementById('game-screen').style.display = 'none';
-  document.getElementById('contributors-screen').style.display = 'none';
-  
-  // Εμφανίζουμε το Main Menu
-  document.getElementById('main-menu').style.display = 'block';
+  window.location.href = "mainmenu.html";
 }
 
 fetch("https://api.github.com/repos/yelynn1/tictactoe/contributors")
