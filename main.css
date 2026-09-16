@@ -135,6 +135,20 @@ h1 {
     filter: blur(2px)
 }
 
+.back-to-menu-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.back-to-menu-btn:hover {
+  background-color: #555;
+}
+
 @keyframes animate {
     0% {
         background-position: 0 0
