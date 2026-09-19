@@ -15,3 +15,6 @@ Player2Buttun.addEventListener("click", () =>{
     instuctions.style.display = "none";
     customContainer.style.display = "flex";
 })
+function goToMainMenu() {
+  window.location.href = "mainmenu.html";
+}

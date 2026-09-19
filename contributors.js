@@ -17,6 +17,10 @@ function renderContributorsTable(contributors) {
   document.getElementById("ct").innerHTML = i - 1 + " Contributors";
 }
 
+function goToMainMenu() {
+  window.location.href = "mainmenu.html";
+}
+
 fetch("https://api.github.com/repos/yelynn1/tictactoe/contributors")
   .then((response) => response.json())
   .then((contributors) => renderContributorsTable(contributors))
