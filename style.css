@@ -180,6 +180,66 @@ button:hover {
   color: black;
 }
 
+#hero {
+  align-items: center;
+  box-sizing: border-box;
+  column-gap: clamp(12px, 1.5vw, 28px);
+  display: grid;
+  grid-template-areas: "play volume . about game contributors . theme";
+  grid-template-columns: max-content minmax(150px, 170px) minmax(24px, 1fr) 150px max-content 150px minmax(24px, 1fr) max-content;
+  justify-content: stretch;
+  max-width: 100%;
+  padding: 8px 16px;
+  row-gap: 10px;
+  width: 100%;
+}
+
+#hero .btn,
+#hero .navbar-brand {
+  flex: 0 0 auto;
+  margin: 0;
+  white-space: nowrap;
+}
+
+#hero .btn {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#hero .btn-primary {
+  grid-area: play;
+  min-width: 130px;
+}
+
+#hero .navbar-brand {
+  justify-self: center;
+  padding: 6px 8px;
+}
+
+#hero .navbar-brand:nth-of-type(1) {
+  grid-area: about;
+}
+
+#hero .navbar-brand:nth-of-type(2) {
+  grid-area: game;
+}
+
+#hero .navbar-brand:nth-of-type(3) {
+  grid-area: contributors;
+}
+
+#hero .btn-info {
+  grid-area: theme;
+}
+
+#volume-slider {
+  flex: 0 1 160px;
+  grid-area: volume;
+  justify-self: center;
+  margin: 0 4px;
+  width: 160px;
+}
+
 .wrapper {
   color: rgb(36, 41, 46);
   font-size: 16px;
@@ -314,6 +374,37 @@ pre {
 
 @media screen and (max-width: 768px) {
 
+  #hero {
+    column-gap: 16px;
+    grid-template-areas:
+      "play volume theme"
+      "about game contributors";
+    grid-template-columns: 136px minmax(120px, 150px) 136px;
+    justify-content: center;
+    padding: 8px 12px;
+    row-gap: 10px;
+  }
+
+  #hero .btn {
+    font-size: 0.95rem;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  #hero .btn-primary {
+    min-width: 120px;
+  }
+
+  #hero .navbar-brand {
+    font-size: 1rem;
+    padding: 4px 6px;
+  }
+
+  #volume-slider {
+    flex: 0 1 130px;
+    width: min(36vw, 130px);
+  }
+
   .shortDescr {
     margin-top: 2%;
   }
@@ -333,6 +424,68 @@ pre {
   }
   .aboutContent img {
     margin-top: 0%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+
+  #hero {
+    column-gap: 10px;
+    grid-template-areas:
+      "play volume volume"
+      "theme theme theme"
+      "about game contributors";
+    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
+    justify-content: stretch;
+    left: 8px;
+    padding: 8px;
+    right: 8px;
+    row-gap: 10px;
+    width: auto;
+  }
+
+  #hero .btn {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  #hero .btn-primary {
+    justify-self: center;
+    min-width: 108px;
+  }
+
+  #volume-slider {
+    flex: none;
+    justify-self: center;
+    width: 110px;
+  }
+
+  #hero .btn-info {
+    justify-self: center;
+  }
+
+  #hero .navbar-brand {
+    font-size: 0.85rem;
+    padding: 4px 2px;
+  }
+
+  #hero .navbar-brand:nth-of-type(1) {
+    justify-self: end;
+  }
+
+  #hero .navbar-brand:nth-of-type(2) {
+    justify-self: center;
+  }
+
+  #hero .navbar-brand:nth-of-type(3) {
+    justify-self: start;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  #hero .navbar-brand {
+    font-size: 0.78rem;
   }
 }
 @media screen and (max-width: 1024px) {
